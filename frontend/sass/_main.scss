@@ -247,24 +247,24 @@ header {
 }
 
 //HOME PAGE
+.wdh {
+    width: 100%;
+}
+
 .home {
     .swiper-container {
         width: 100%;
-        height: auto;
-        .swiper-next {
+        height: 100%;
+        .swiper-button-next {
             background-image: url('../img/gonext.png');
             right: 50px;
             left: auto;
         }
-        .swiper-prev {
+        .swiper-button-prev {
             background-image: url('../img/goprevious.png');
             left: 50px;
             right: auto;
         }
-    }
-    .wdh96 {
-        width: 96%;
-        margin: auto;
     }
     .outnexp {
         .title {
@@ -286,9 +286,12 @@ header {
                     z-index: 999;
                     top: 0;
                     left: 50%;
-                    transform: translate(-50%, 80%);
+                    top: 30%;
+                    width: 90%;
+                    transform: translatex(-50%);
+                    -webkit-transform: translatex(-50%);
                     text-align: center;
-                    text {
+                    .text {
                         color: $white;
                     }
                 }
@@ -300,4 +303,55 @@ header {
 //FOOTER
 .custom-footer {
     color: $neavyblue;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+//LOGIN PAGE
+.login {
+    background-image: url(../img/bg-login.png);
+    height: 93vh;
+    .login-box {
+        background: #fff;
+        width: 50%;
+        margin: auto;
+        margin-top: 30%;
+        padding: 4% 3%;
+        hr {
+            border: 0.8px solid $neavyblue;
+        }
+        form {
+            input[type="email"] {
+                background: #ebebeb;
+            }
+            ::-webkit-input-placeholder {
+                /* Chrome/Opera/Safari */
+                color: #898989;
+            }
+            ::-moz-placeholder {
+                /* Firefox 19+ */
+                color: #898989;
+            }
+            :-ms-input-placeholder {
+                /* IE 10+ */
+                color: #898989;
+            }
+            :-moz-placeholder {
+                /* Firefox 18- */
+                color: #898989;
+            }
+            .request {
+                color: #898989;
+            }
+        }
+    }
+    .custom-submit {
+        background: $neavyblue;
+        color: #fff;
+        padding: 2% 7%;
+        border: none;
+        font-size: 16pt;
+        text-transform: uppercase;
+    }
 }

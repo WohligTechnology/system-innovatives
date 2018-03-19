@@ -48,30 +48,26 @@
     </form> -->
 
     <!-- SWIPER SLIDER -->
-    <div class="row">
+    <div class="wdh">
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" ng-repeat="s in mySlides">
                     <img class="img-full" src="{{s.img}}">
                 </div>
             </div>
-            <div class="swiper-prev"></div>
-            <div class="swiper-next"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
+</div>
 
-    <!-- OUTCOMES AND EXPERIENCES -->
-    <div class="container outnexp">
-        <div class="title text-uppercase text-center title">
-            <h4>OUTCOMES & EXPERIENCES</h4>
-        </div>
-        <!-- <div class="row block">
+<!-- OUTCOMES AND EXPERIENCES -->
+<div class="container outnexp">
+    <div class="title text-uppercase text-center">
+        <h4>OUTCOMES & EXPERIENCES</h4>
+    </div>
+    <!-- <div class="row block">
             <div class="col-sm-4 bg-block" style="background-image:url({{x.img}});" ng-repeat="x in mySlides2">
-            </div>
-        </div> -->
-        <div class="row block">
-            <div class="col-sm-4 bg-block" ng-repeat="x in mySlides2">
-                <img class="img-full" src="{{x.img}}">
                 <div class="middle">
                     <div class="text">
                         <h3>tui mate</h3>
@@ -79,6 +75,17 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+    <div class="row block">
+        <div class="col-sm-4 bg-block" ng-repeat="x in mySlides2">
+            <img class="img-full" src="{{x.img}}">
+            <div class="middle">
+                <div class="text">
+                    <h3>{{x.textheading}}</h3>
+                    <p>{{x.text}}</p>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 </div>

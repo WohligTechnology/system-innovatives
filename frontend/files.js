@@ -50,6 +50,7 @@ module.exports = [
   // Contorllers
   'frontend/js/controllers/controller.js',
   'frontend/views/content/home/homeController.js',
+  'frontend/views/content/login/loginController.js',
   'frontend/js/controllers/header-controller.js',
   'frontend/js/controllers/language-controller.js',
 ];
