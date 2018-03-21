@@ -2,7 +2,7 @@ var schema = new Schema({
     name: {
         type: String,
         required: true,
-        excel: true,
+        unique: true
     },
     email: {
         type: String,
@@ -22,6 +22,7 @@ var schema = new Schema({
     photo: {
         type: String,
         default: "",
+        required: true,
         excel: [{
             name: "Photo Val"
         }, {
@@ -56,6 +57,19 @@ var schema = new Schema({
         type: [String],
         index: true
     },
+    tokenKey: {
+        type: [String],
+        index: true
+    },
+    requestApproved: {
+        type: Boolean
+    },
+    lastOpened: {
+        type: Date
+    },
+    newsletter: {
+        type: Boolean
+    },
     googleAccessToken: String,
     googleRefreshToken: String,
     oauthLogin: {
@@ -69,16 +83,7 @@ var schema = new Schema({
         type: String,
         default: "User",
         enum: ['User', 'Admin']
-    },
-    address: [{
-        lineOne: String,
-        lineTwo: String,
-        lineThree: String,
-        city: String,
-        district: String,
-        state: String,
-        pincode: String
-    }]
+    }
 });
 
 schema.plugin(deepPopulate, {
