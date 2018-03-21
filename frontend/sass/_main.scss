@@ -4,13 +4,44 @@
 //
 // Grayscale and brand colors for use across Bootstrap.
 // Start with assigning color names to specific hex values.
+/* Secondary colours */
+
+$tui-red: rgb(212, 14, 20);
+$tui-blue: rgb(112, 203, 244);
+$tui-blue-25: rgb(194, 230, 250);
+$tui-blue-15: rgb(226, 243, 254);
+$tui-dark-blue: rgb(9, 42, 94);
+$tui-white: rgb(255, 255, 255);
+/* Secondary colours */
+
+$tui-green: rgb(170, 215, 0);
+$tui-yellow: rgb(255, 225, 0);
+/* Achromatic colours */
+
+$tui-beige: rgb(215, 210, 195);
+$tui-beige-50: rgb(231, 227, 219);
+$tui-beige-25: rgb(243, 240, 236);
+$tui-grey: rgb(115, 115, 115);
+$tui-grey-50: rgb(185, 185, 185);
+$tui-grey-25: rgb(220, 220, 220);
+$tui-black: rgb(0, 0, 0);
+/* Bootstrap Colours */
+
+$blue: #022b63 !default;
+$green: $tui-green !default;
+$yellow: $tui-yellow !default;
+$red: $tui-red !default;
+$cyan: $tui-blue !default;
+/* Button */
+
+$btn-default-color: $tui-dark-blue !default;
+$btn-default-bg: $tui-grey-25 !default;
+$btn-default-border: $tui-grey-25 !default;
+/* Others */
+
 $white: #fff !default;
 $black: #000 !default;
-$red: #d9534f !default;
 $orange: #f0ad4e !default;
-$yellow: #ffd500 !default;
-$green: #5cb85c !default;
-$blue: #0275d8 !default;
 $teal: #5bc0de !default;
 $pink: #ff5b77 !default;
 $purple: #613d7c !default;
@@ -54,24 +85,16 @@ $link-hover-decoration: underline !default;
 // Fonts
 //
 // Font, line-height, and color for body text, headings, and more.
-$font-family-sans-serif: -apple-system,
-system-ui,
-BlinkMacSystemFont,
-"Segoe UI",
-Roboto,
+$font-family-sans-serif: "TUITypeLt",
 "Helvetica Neue",
+Helvetica,
 Arial,
 sans-serif !default;
-$font-family-serif: Georgia,
+$font-family-serif: "TUITypeLt",
+Georgia,
 "Times New Roman",
 Times,
 serif !default;
-$font-family-monospace: Menlo,
-Monaco,
-Consolas,
-"Liberation Mono",
-"Courier New",
-monospace !default;
 $font-family-base: $font-family-sans-serif !default;
 $font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
 $font-size-lg: 1.25rem !default;
@@ -266,11 +289,6 @@ header {
 }
 
 //HOME PAGE
-h4 {
-    font-family: TUI_Bold;
-    color: $neavyblue;
-}
-
 .wdh {
     width: 100%;
 }

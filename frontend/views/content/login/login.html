@@ -10,7 +10,7 @@
             <hr>
 
             <!-- LOGIN FORM -->
-            <form name="formData" class="form-group">
+            <form name="formData" class="form-group" ng-submit="submitForm()">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" ng-model="data.email" class="form-control" id="email" placeholder="Enter your email" name="email" required>
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="text-center text-uppercase">
-                    <button ng-click="submitForm()" type="submit" class="custom-submit" ng-disabled="formData.$invalid" promise-btn>send access link</button>
+                    <button type="submit" class="btn btn-primary text-uppercase" ng-disabled="formData.$invalid" promise-btn>Send Access Link</button>
                 </div>
             </form>
         </div>
