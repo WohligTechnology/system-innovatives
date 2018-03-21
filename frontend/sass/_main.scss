@@ -137,7 +137,17 @@ $dropdown-box-shadow: 0 .5rem 1rem rgba($black, .175) !default;
 @import "../../bower_components/bootstrap/scss/bootstrap";
 @import "other/font-fix";
 body {
-    padding-top: 0px;
+    padding-top: 70px;
+}
+
+@font-face {
+    font-family: TUI_Regular;
+    src: url("../fonts/tuitype-webfont.ttf");
+}
+
+@font-face {
+    font-family: TUI_Bold;
+    src: url("../fonts/tuitypebd-webfont.ttf");
 }
 
 img.loading {
@@ -246,7 +256,21 @@ header {
     transform: translateY(-100%);
 }
 
+//HEADER
+.custom-header {
+    background: $white;
+}
+
+.logo {
+    padding: 1% 0%;
+}
+
 //HOME PAGE
+h4 {
+    font-family: TUI_Bold;
+    color: $neavyblue;
+}
+
 .wdh {
     width: 100%;
 }
@@ -278,6 +302,7 @@ header {
             .bg-block {
                 // background-size: 100% 100%;
                 // min-height: 230px;
+                margin-bottom: 3%;
                 img {
                     height: 230px;
                 }
@@ -293,6 +318,13 @@ header {
                     text-align: center;
                     .text {
                         color: $white;
+                        h3 {
+                            font-family: TUI_Bold;
+                        }
+                        p {
+                            font-family: TUI_Regular;
+                            font-size: 20px;
+                        }
                     }
                 }
             }
@@ -302,24 +334,45 @@ header {
 
 //FOOTER
 .custom-footer {
-    color: $neavyblue;
-    bottom: 0;
-    position: fixed;
-    width: 100%;
+    p {
+        color: $neavyblue;
+        font-size: 16px;
+        a {
+            color: $neavyblue;
+            text-decoration: none;
+        }
+    }
 }
 
 //LOGIN PAGE
 .login {
-    background-image: url(../img/bg-login.png);
-    height: 93vh;
+    a {
+        text-decoration: none;
+    }
+    background: url('../img/bg-login.png') no-repeat center center;
+    min-height: calc(100vh - 114px);
+    background-size: cover;
+    position: relative;
     .login-box {
         background: #fff;
-        width: 50%;
         margin: auto;
-        margin-top: 30%;
-        padding: 4% 3%;
+        padding: 4% 2%;
+        width: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include prefixer(transform,
+        translate(-50%,
+        -50%),
+        ("webkit",
+        "moz"));
         hr {
-            border: 0.8px solid $neavyblue;
+            border: 0.6px solid $neavyblue;
+        }
+        .subtitle {
+            color: #898989;
+            font-family: TUI_Regular;
+            -webkit-font-smoothing: antialiased;
         }
         form {
             input[type="email"] {
@@ -341,17 +394,16 @@ header {
                 /* Firefox 18- */
                 color: #898989;
             }
-            .request {
-                color: #898989;
-            }
         }
     }
     .custom-submit {
         background: $neavyblue;
         color: #fff;
-        padding: 2% 7%;
+        padding: 2% 9%;
         border: none;
-        font-size: 16pt;
+        font-size: 14pt;
         text-transform: uppercase;
+        font-family: TUI_Regular;
+        -webkit-font-smoothing: antialiased;
     }
 }

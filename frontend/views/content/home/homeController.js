@@ -27,6 +27,21 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             img: 'img/one3.png',
             textheading: 'TUI MOMENTS',
             text: 'Experience your holiday before booking'
+        },
+        {
+            img: 'img/one1.png',
+            textheading: 'TUI MATE',
+            text: 'Plan holidays with the help to digital assistant'
+        },
+        {
+            img: 'img/one2.png',
+            textheading: 'MARCO POLO',
+            text: 'An AR application to be used on Destination, Cruises & more.'
+        },
+        {
+            img: 'img/one3.png',
+            textheading: 'TUI MOMENTS',
+            text: 'Experience your holiday before booking'
         }
     ];
 
