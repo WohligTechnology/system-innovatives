@@ -12,6 +12,7 @@ $tui-blue-25: rgb(194, 230, 250);
 $tui-blue-15: rgb(226, 243, 254);
 $tui-dark-blue: rgb(9, 42, 94);
 $tui-white: rgb(255, 255, 255);
+$gray-text: #878787;
 /* Secondary colours */
 
 $tui-green: rgb(170, 215, 0);
@@ -51,7 +52,7 @@ $gray-dark: #292b2c !default;
 $gray: #464a4c !default;
 $gray-light: #636c72 !default;
 $gray-lighter: #eceeef !default;
-$gray-lightest: #f7f7f9 !default;
+$gray-lightest: #f4f4f4 !default;
 // Reassign color vars to semantic color scheme
 $brand-primary: $blue !default;
 $brand-success: $green !default;
@@ -279,6 +280,40 @@ header {
     transform: translateY(-100%);
 }
 
+.gray-bg {
+    background: $gray-lightest;
+}
+
+h4,
+h5 {
+    font-family: TUI_Bold;
+    color: $neavyblue;
+}
+
+label {
+    color: $neavyblue;
+}
+
+p {
+    font-family: TUI_Regular;
+    -webkit-font-smoothing: antialiased;
+    font-size: 19px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.btn-outline-primary {
+    border-radius: 13px !important;
+    font-size: 14px;
+    margin: 0px 6px 15px;
+}
+
+.label-danger {
+    color: $red;
+}
+
 //HEADER
 .custom-header {
     background: $white;
@@ -294,9 +329,16 @@ header {
 }
 
 .home {
+    .pull-right {
+        float: right
+    }
     .swiper-container {
         width: 100%;
         height: 100%;
+        a {
+            color: $white;
+            -webkit-font-smoothing: antialiased;
+        }
         .swiper-button-next {
             background-image: url('../img/gonext.png');
             right: 50px;
@@ -307,30 +349,61 @@ header {
             left: 50px;
             right: auto;
         }
+        .slider-content {
+            position: absolute;
+            bottom: 50px;
+            h4 {
+                color: $white;
+            }
+            .text-content {
+                color: $white;
+                width: 300px;
+            }
+        }
     }
     .outnexp {
+        @extend .gray-bg;
         .title {
-            h4 {
+            h4.background {
                 color: $neavyblue;
                 padding: 3% 0%;
                 margin-bottom: 0;
+                position: relative;
+                z-index: 1;
+                &:before {
+                    border-top: 2px solid $neavyblue;
+                    content: "";
+                    margin: 0 auto;
+                    /* this centers the line to the full width specified */
+                    position: absolute;
+                    /* positioning must be absolute here, and relative positioning must be applied to the parent */
+                    top: 50%;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 50%;
+                    z-index: -1;
+                }
+                span {
+                    /* to hide the lines from behind the text, you have to set the background color the same as the container */
+                    padding: 0 15px;
+                    background: $gray-lightest;
+                }
             }
         }
         .block {
             .bg-block {
-                // background-size: 100% 100%;
-                // min-height: 230px;
-                margin-bottom: 3%;
-                img {
-                    height: 230px;
-                }
+                min-height: 210px;
+                background-size: cover !important;
+                position: relative;
+                margin-bottom: 8%;
                 .middle {
                     position: absolute;
                     z-index: 999;
                     top: 0;
                     left: 50%;
-                    top: 30%;
-                    width: 90%;
+                    top: 20%;
+                    width: 87%;
                     transform: translatex(-50%);
                     -webkit-transform: translatex(-50%);
                     text-align: center;
@@ -338,6 +411,7 @@ header {
                         color: $white;
                         h3 {
                             font-family: TUI_Bold;
+                            color: $white;
                         }
                         p {
                             font-family: TUI_Regular;
@@ -348,34 +422,33 @@ header {
             }
         }
     }
+    .contact-us {
+        padding: 15px 0px;
+        color: $gray-text;
+    }
 }
 
 //FOOTER
 .custom-footer {
     p {
         color: $neavyblue;
-        font-size: 16px;
+        font-size: 12px;
         a {
             color: $neavyblue;
-            text-decoration: none;
         }
     }
 }
 
 //LOGIN PAGE
 .login {
-    a {
-        text-decoration: none;
-    }
     background: url('../img/bg-login.png') no-repeat center center;
-    min-height: calc(100vh - 114px);
+    min-height: calc(100vh - 109px);
     background-size: cover;
     position: relative;
     .login-box {
         background: #fff;
         margin: auto;
-        padding: 4% 2%;
-        width: 500px;
+        width: 600px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -393,6 +466,7 @@ header {
             -webkit-font-smoothing: antialiased;
         }
         form {
+            padding: 20px 30px;
             input[type="email"] {
                 background: #ebebeb;
             }
@@ -413,6 +487,10 @@ header {
                 color: #898989;
             }
         }
+        .title {
+            @extend .gray-bg;
+            padding: 20px 30px 10px;
+        }
     }
     .custom-submit {
         background: $neavyblue;
@@ -423,5 +501,25 @@ header {
         text-transform: uppercase;
         font-family: TUI_Regular;
         -webkit-font-smoothing: antialiased;
+    }
+}
+
+//MEDIA QUERY
+@media only screen and (max-device-width: 812px) and (orientation: landscape) {
+    .login {
+        padding: 30px;
+        .login-box {
+            background: #fff;
+            margin: auto;
+            padding: 20px 30px;
+            width: 450px !important;
+            position: static;
+            top: 0;
+            left: 0;
+            transform: none;
+        }
+    }
+    .content {
+        min-height: 0px;
     }
 }

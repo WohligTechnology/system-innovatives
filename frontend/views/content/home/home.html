@@ -6,6 +6,18 @@
                 <!-- SLIDER IMAGES -->
                 <div class="swiper-slide" ng-repeat="s in mySlides">
                     <img class="img-full" src="{{s.img}}">
+                    <div class="slider-content container text-left">
+                        <div class="text-content">
+                            <h4 class="text-uppercase">{{s.title}}</h4>
+                            <p>{{s.subtitle}}</p>
+                            <a href="#" class="mr-3">Learn More
+                                <i class="fas fa-angle-double-right fa-xs"></i>
+                            </a>
+                            <a href="#">View Demo
+                                <i class="fas fa-angle-double-right fa-xs"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -15,32 +27,45 @@
         </div>
     </div>
 
+    <!-- CONTACT US -->
+    <div class="container">
+        <div class="contact-us">
+            <span class="pull-right">
+                <button type="submit" class="btn btn-primary text-uppercase">Convert Vision To Reality</button>
+            </span>
+            <p>"A vision is like a dream - it wil ldisappear unless we do something with it."</p>
+        </div>
+    </div>
+
 
     <!-- OUTCOMES AND EXPERIENCES -->
-    <div class="container outnexp">
-        <div class="title text-uppercase text-left">
-            <h4>OUTCOME & EXPERIENCE</h4>
-        </div>
-        <!-- <div class="row block">
-            <div class="col-sm-4 bg-block" style="background-image:url({{x.img}});" ng-repeat="x in mySlides2">
-                <div class="middle">
-                    <div class="text">
-                        <h3>tui mate</h3>
-                        <p>fnjkvdfnjkndjkvfnjknjk</p>
-                    </div>
-                </div>
+    <div class="outnexp">
+        <div class="container">
+            <div class="title text-uppercase text-center">
+                <h4 class="background">
+                    <span>OUTCOMES & EXPERIENCES</span>
+                </h4>
             </div>
-        </div> -->
-        <div class="row block">
-            <div class="col-sm-4 bg-block" ng-repeat="x in mySlides2">
-                <!-- IMAGES -->
-                <img class="img-full" src="{{x.img}}">
 
-                <!-- IMAGE CONTENT -->
-                <div class="middle">
-                    <div class="text">
-                        <h3>{{x.textheading}}</h3>
-                        <p>{{x.text}}</p>
+            <!-- Tabs -->
+            <div class="text-center">
+                <button class="btn btn-outline-primary text-uppercase">TUI Innovation POC</button>
+                <button class="btn btn-outline-primary text-uppercase">TUI Project</button>
+                <button class="btn btn-outline-primary text-uppercase">TUI Potential Innovation</button>
+                <button class="btn btn-outline-primary text-uppercase">TUI Other Innovation</button>
+            </div>
+
+            <!-- Images -->
+            <div class="row block">
+                <div class="col-sm-4 col-xs-12" ng-repeat="x in mySlides2">
+                    <div class="bg-block" style="background:linear-gradient(0deg,rgba(0,0,0,.5) 65%,rgba(0,0,0,.3)),url({{x.img}}) no-repeat center center;">
+                        <div class="middle">
+                            <div class="text">
+                                <h4 class="text-uppercase">{{x.textheading}}</h4>
+                                <p>{{x.text}}</p>
+                                <button type="button" class="btn btn-outline-light">View Demo </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

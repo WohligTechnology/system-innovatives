@@ -4,12 +4,18 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.navigation = NavigationService.getNavigation();
 
     $scope.mySlides = [{
-            img: 'img/slider-image1.png'
+            img: 'img/slider-image1.png',
+            title: 'Marco Polo 1',
+            subtitle: 'An AR application to be used on Destinations, Cruises & more.'
         }, {
-            img: 'img/slider-image1.png'
+            img: 'img/slider-image1.png',
+            title: 'Marco Polo 2',
+            subtitle: 'An AR application to be used on Destinations, Cruises & more.'
         },
         {
-            img: 'img/slider-image1.png'
+            img: 'img/slider-image1.png',
+            title: 'Marco Polo 3',
+            subtitle: 'An AR application to be used on Destinations, Cruises & more.'
         }
     ];
 
