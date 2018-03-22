@@ -1,22 +1,23 @@
 var schema = new Schema({
-    userEmail: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        index: true
+   userEmail: {
+        type: String,
+        validate: validators.isEmail()
+    },
+     name: {
+        type: String
+    },
+    number: {
+        type: Number
     },
     comments: {
         type: String
     }
 });
 
-schema.plugin(deepPopulate, {
-    'userEmail': {
-        select: ''
-    }
-});
+schema.plugin(deepPopulate, {});
 schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
-module.exports = mongoose.model('​ContactUs', schema, 'userEmail', 'userEmail');
+module.exports = mongoose.model('Contact', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {};

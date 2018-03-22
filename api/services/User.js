@@ -1,65 +1,11 @@
 var schema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        unique: true
-    },
     email: {
         type: String,
-        validate: validators.isEmail(),
-        excel: "User Email",
-        unique: true
-    },
-    dob: {
-        type: Date,
-        excel: {
-            name: "Birthday",
-            modify: function (val, data) {
-                return moment(val).format("MMM DD YYYY");
-            }
-        }
-    },
-    photo: {
-        type: String,
-        default: "",
-        required: true,
-        excel: [{
-            name: "Photo Val"
-        }, {
-            name: "Photo String",
-            modify: function (val, data) {
-                return "http://abc/" + val;
-            }
-        }, {
-            name: "Photo Kebab",
-            modify: function (val, data) {
-                return data.name + " " + moment(data.dob).format("MMM DD YYYY");
-            }
-        }]
-    },
-    password: {
-        type: String,
-        default: ""
-    },
-    forgotPassword: {
-        type: String,
-        default: ""
-    },
-    mobile: {
-        type: String,
-        default: ""
-    },
-    otp: {
-        type: String,
-        default: ""
-    },
-    accessToken: {
-        type: [String],
-        index: true
+        validate: validators.isEmail()
     },
     tokenKey: {
-        type: [String],
-        index: true
+        type: String,
+        default: ""
     },
     requestApproved: {
         type: Boolean
@@ -67,22 +13,8 @@ var schema = new Schema({
     lastOpened: {
         type: Date
     },
-    newsletter: {
+    admin: {
         type: Boolean
-    },
-    googleAccessToken: String,
-    googleRefreshToken: String,
-    oauthLogin: {
-        type: [{
-            socialId: String,
-            socialProvider: String
-        }],
-        index: true
-    },
-    accessLevel: {
-        type: String,
-        default: "User",
-        enum: ['User', 'Admin']
     }
 });
 

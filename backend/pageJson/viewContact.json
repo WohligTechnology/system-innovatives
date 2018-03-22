@@ -1,32 +1,27 @@
 {
-    "title": "User",
-    "description": "List of Users",
+    "title": "​Contact",
+    "description": "List of ​Contact",
     "pageType": "view",
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
     "fields": [{
-            "name": "Email",
+            "name": "User Email",
             "isSort": "",
-            "tableRef": "email"
+            "tableRef": "userEmail"
         }, {
-            "name": "Token Key",
+            "name": "Name",
             "isSort": "",
-            "tableRef": "tokenKey"
+            "tableRef": "name"
         },
         {
-            "name": "Request Approved",
+            "name": "Number",
             "isSort": "",
-            "tableRef": "requestApproved"
+            "tableRef": "number"
         }, 
         {
-            "name": "Last Opened",
+            "name": "Comments",
             "isSort": "",
-            "tableRef": "lastOpened"
-        },
-        {
-            "name": "Admin",
-            "isSort": "",
-            "tableRef": "admin"
+            "tableRef": "comments"
         }
     ],
     "action": [{
@@ -34,7 +29,7 @@
         "icon": "fa-pencil",
         "buttonClass": "btn-primary",
         "type": "page",
-        "action": "editUser",
+        "action": "editContact",
         "fieldsToSend": {
             "_id": "_id"
         }
@@ -43,9 +38,9 @@
         "icon": "fa-trash",
         "buttonClass": "btn-danger",
         "type": "apiCallConfirm",
-        "title": "Delete User",
-        "content": "Are you sure you want to delete User?",
-        "api": "user/delete",
+        "title": "Delete Contact",
+        "content": "Are you sure you want to delete Contact?",
+        "api": "contact/delete",
         "fieldsToSend": {
             "name": "_id",
             "value": "_id"
@@ -56,24 +51,24 @@
         "icon": "print",
         "class": "btn-danger",
         "type": "redirect",
-        "action": "User/generateExcel",
+        "action": "Contact/generateExcel",
         "linkType": "admin"
     }, {
         "name": "Upload Excel",
         "icon": "delete",
         "class": "btn-warning",
         "type": "redirect",
-        "action": "excel-upload/User",
+        "action": "excel-upload/Contact",
         "linkType": "internal"
     }, {
         "name": "Create",
         "icon": "plus",
         "class": "btn-success",
         "type": "page",
-        "action": "createUser"
+        "action": "createContact"
     }],
     "apiCall": {
-        "url": "User/search",
+        "url": "Contact/search",
         "params": "_id"
     }
 }

@@ -1,62 +1,54 @@
 {
-    "title": "Edit User",
-    "name": "User",
-    "jsonPage": "viewUser",
+    "title": "Edit ​Contact",
+    "name": "​Contact",
+    "jsonPage": "view​​Contact",
     "desciption": "",
     "pageType": "edit",
     "urlFields": ["_id"],
     "fields": [{
             "name": "Email",
             "type": "text",
-            "tableRef": "email",
+            "tableRef": "userEmail",
             "placeholder": "Enter Email",
-            "id": "email",
+            "id": "userEmail",
             "validation": ["", "trim", "unique"],
             "url": ""
         },
         {
-            "name": "Token Key",
+            "name": "Name",
             "type": "text",
-            "tableRef": "tokenKey",
-            "placeholder": "Enter tokenKey",
-            "id": "tokenKey",
+            "tableRef": "name",
+            "placeholder": "Enter name",
+            "id": "name",
             "validation": ["", "trim", "unique"],
             "url": ""
         },
         {
-            "name": "Request Approved",
+            "name": "Number",
             "type": "text",
-            "tableRef": "requestApproved",
-            "placeholder": "requestApproved",
-            "id": "requestApproved",
+            "tableRef": "number",
+            "placeholder": "number",
+            "id": "number",
             "validation": ["", "trim", "unique"],
-            "url": ""
-        }, {
-            "name": "Last Opened",
-            "type": "date",
-            "tableRef": "lastOpened",
-            "placeholder": "Enter lastOpened",
-            "id": "lastOpened",
-            "validation": ["required", "trim", "unique"],
             "url": ""
         },
         {
-            "name": "Admin",
+            "name": "Comments",
             "type": "text",
-            "tableRef": "admin",
-            "placeholder": "admin",
-            "id": "admin",
+            "tableRef": "comments",
+            "placeholder": "comments",
+            "id": "comments",
             "validation": ["", "trim", "unique"],
             "url": ""
         }
     ],
     "action": [{
         "name": "submit",
-        "action": "submitUser",
+        "action": "submit​​Contact",
         "stateName": {
             "page": "page",
             "json": {
-                "id": "viewUser"
+                "id": "view​​Contact"
             }
         }
     }, {
@@ -65,16 +57,16 @@
         "stateName": {
             "page": "page",
             "json": {
-                "id": "viewUser"
+                "id": "view​​Contact"
             }
         }
     }],
     "apiCall": {
-        "url": "User/save",
+        "url": "​​Contact/save",
         "params": "_id"
     },
     "preApi": {
-        "url": "User/getOne",
+        "url": "​​Contact/getOne",
         "params": "_id"
     }
 

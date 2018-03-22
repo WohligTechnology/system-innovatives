@@ -1,0 +1,102 @@
+{
+    "title": "Create Projects",
+    "name": "Projects",
+    "jsonPage": "viewProjects",
+    "desciption": "",
+    "pageType": "create",
+    "urlFields": ["Projects"],
+    "fields": [
+        {
+        "name": "Type",
+        "type": "tags",
+        "tableRef": "type",
+        "placeholder": "Enter type",
+        "id": "type",
+        "validation": ["", "trim", ""],
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "onView": true,
+        "dropDown": ["TUI Projects", "Innovative PoC","Potential PoC","More Innovations"]
+    },
+        {
+            "name": "Description",
+            "type": "text",
+            "tableRef": "description",
+            "placeholder": "Enter description",
+            "id": "description",
+            "validation": ["", "trim", "unique"],
+            "url": ""
+        },
+        {
+            "name": "Demo Link",
+            "type": "text",
+            "tableRef": "demoLink",
+            "placeholder": "Enter demoLink",
+            "id": "demoLink",
+            "validation": ["", "trim", "unique"],
+            "url": ""
+        },
+        {
+            "name": "Punch Line",
+            "type": "text",
+            "tableRef": "punchLine",
+            "placeholder": "punchLine",
+            "id": "punchLine",
+            "validation": ["", "trim", "unique"],
+            "url": ""
+        },
+        {
+            "name": "Short Description",
+            "type": "text",
+            "tableRef": "shortDescription",
+            "placeholder": "shortDescription",
+            "id": "shortDescription",
+            "validation": ["", "trim", "unique"],
+            "url": ""
+        },
+        {
+            "name": "Featured",
+            "type": "text",
+            "tableRef": "featured",
+            "placeholder": "featured",
+            "id": "featured",
+            "validation": ["", "trim", "unique"],
+            "url": ""
+        },
+        {
+        "name": "Banner Image",
+        "type": "image",
+        "tableRef": "bannerImage",
+        "size": "253 x 253",
+        "placeholder": "Upload bannerImage",
+        "id": "bannerImage",
+        "view": true,
+        "disabled": true,
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }
+    ],
+    "action": [{
+        "name": "submit",
+        "action": "submitProjects",
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewProjects"
+            }
+        }
+    }, {
+        "name": "cancel",
+        "sideMenuRedirect": true,
+        "stateName": {
+            "page": "page",
+            "json": {
+                "id": "viewProjects"
+            }
+        }
+    }],
+    "apiCall": {
+        "url": "Projects/save"
+    }
+}

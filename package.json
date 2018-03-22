@@ -90,6 +90,7 @@
     "grunt-http": "^2.3.0",
     "grunt-mocha-istanbul": "^5.0.2",
     "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^2.1.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.5.3",
     "sinon": "^3.3.0",

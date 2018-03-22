@@ -1,9 +1,10 @@
 var schema = new Schema({
     type: {
         type: String,
+        default: "TUI Projects",
         enum: ['TUI Projects', 'Innovative PoC', 'Potential PoC', 'More Innovations']
     },
-    Description: {
+    description: {
         type: String
     },
     demoLink: {
@@ -11,7 +12,16 @@ var schema = new Schema({
     },
     punchLine: {
         type: String
-    }
+    },
+    shortDescription: {
+        type: String
+    },
+    featured: {
+        type: Boolean
+    },
+    bannerImage: {
+        type: String
+    },
 });
 
 schema.plugin(deepPopulate, {});
