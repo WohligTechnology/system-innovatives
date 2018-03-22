@@ -33,7 +33,7 @@
             <span class="pull-right">
                 <button type="submit" class="btn btn-primary text-uppercase">Convert Vision To Reality</button>
             </span>
-            <p>"A vision is like a dream - it wil ldisappear unless we do something with it."</p>
+            <p class="font-Merri">"A vision is like a dream - it wil ldisappear unless we do something with it."</p>
         </div>
     </div>
 
@@ -49,16 +49,17 @@
 
             <!-- Tabs -->
             <div class="text-center">
-                <button class="btn btn-outline-primary text-uppercase">TUI Innovation POC</button>
-                <button class="btn btn-outline-primary text-uppercase">TUI Project</button>
-                <button class="btn btn-outline-primary text-uppercase">TUI Potential Innovation</button>
-                <button class="btn btn-outline-primary text-uppercase">TUI Other Innovation</button>
+                <button class="btn btn-outline-primary text-uppercase">TUI Innovative Pilots</button>
+                <button class="btn btn-outline-primary text-uppercase">TUI Projects</button>
+                <button class="btn btn-outline-primary text-uppercase">TUI Potential Pilots</button>
+                <button class="btn btn-outline-primary text-uppercase">Cross Industry Innovations</button>
             </div>
 
             <!-- Images -->
             <div class="row block">
-                <div class="col-sm-4 col-xs-12" ng-repeat="x in mySlides2">
-                    <div class="bg-block" style="background:linear-gradient(0deg,rgba(0,0,0,.5) 65%,rgba(0,0,0,.3)),url({{x.img}}) no-repeat center center;">
+                <div class="col-md-6 col-lg-4 col-sm-12" ng-repeat="x in mySlides2">
+                    <div class="bg-block" style="background:url({{x.img}}) no-repeat center center;">
+                        <img class="img-full" src="img/rect.png">
                         <div class="middle">
                             <div class="text">
                                 <h4 class="text-uppercase">{{x.textheading}}</h4>

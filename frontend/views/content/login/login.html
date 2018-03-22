@@ -4,25 +4,27 @@
             <div class="text-center title">
                 <h4 class="text-uppercase">Login</h4>
                 <div class="subtitle">
-                    <p>The access is limited to TUI as it holds ongoing internal projects.</p>
+                    <p>The access is limited to TUI members as it holds ongoing internal projects.</p>
                 </div>
             </div>
 
             <!-- LOGIN FORM -->
-            <form name="formData" class="form-group" ng-submit="submitForm()">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" ng-model="data.email" class="form-control" id="email" placeholder="Please enter your TUI email" name="email"
-                        required>
-                    <div class="pull-right" ng-repeat="(field,value) in formData.email.$error" ng-show="formData.email.$touched">
-                        <span class="label label-danger" ng-if="field=='required' && value">Please Enter Email</span>
-                        <span class="label label-danger" ng-if="field=='email' && value">Please Enter Valid Email</span>
+            <div class="custom-form">
+                <form name="formData" class="form-group" ng-submit="submitForm()">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" ng-model="data.email" class="form-control" id="email" placeholder="Please enter your TUI email" name="email"
+                            required>
+                        <div class="pull-right" ng-repeat="(field,value) in formData.email.$error" ng-show="formData.email.$touched">
+                            <span class="label label-danger" ng-if="field=='required' && value">Please Enter Email</span>
+                            <span class="label label-danger" ng-if="field=='email' && value">Please Enter Valid Email</span>
+                        </div>
                     </div>
-                </div>
-                <div class="text-center text-uppercase">
-                    <button type="submit" class="btn btn-primary text-uppercase" ng-disabled="formData.$invalid" promise-btn>Send Access Link</button>
-                </div>
-            </form>
+                    <div class="text-center text-uppercase">
+                        <button type="submit" class="btn btn-primary text-uppercase" ng-disabled="formData.$invalid" promise-btn>Send Access Link</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
