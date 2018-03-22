@@ -13,7 +13,12 @@ myApp.factory('NavigationService', function () {
         classis: "active",
         anchor: "login",
         subnav: []
-    }, ];
+    }, {
+        name: "Marco Polo",
+        classis: "active",
+        anchor: "marcopolo",
+        subnav: []
+    }];
 
     return {
         getNavigation: function () {

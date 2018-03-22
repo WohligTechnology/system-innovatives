@@ -30,6 +30,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'LoginCtrl'
         })
+        .state('marcopolo', {
+            url: "/marcopolo",
+            templateUrl: tempateURL,
+            controller: 'MarcopoloCtrl'
+        })
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);
 });
