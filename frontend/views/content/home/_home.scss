@@ -1,0 +1,99 @@
+.home {
+    .swiper-container {
+        width: 100%;
+        height: 100%; // img {
+        //     height: 316px;
+        // }
+        a {
+            color: $white;
+            -webkit-font-smoothing: antialiased;
+        }
+        .swiper-button-next {
+            background-image: url('../img/gonext.png');
+            right: 50px;
+            left: auto;
+        }
+        .swiper-button-prev {
+            background-image: url('../img/goprevious.png');
+            left: 50px;
+            right: auto;
+        }
+        .slider-content {
+            position: absolute;
+            bottom: 50px;
+            h4 {
+                color: $white;
+            }
+            .text-content {
+                color: $white;
+                width: 300px;
+            }
+        }
+    }
+    .outnexp {
+        @extend .gray-bg;
+        .title {
+            h4.background {
+                color: $neavyblue;
+                padding: 3% 0%;
+                margin-bottom: 0;
+                position: relative;
+                z-index: 1;
+                &:before {
+                    border-top: 2px solid $neavyblue;
+                    content: "";
+                    margin: 0 auto;
+                    /* this centers the line to the full width specified */
+                    position: absolute;
+                    /* positioning must be absolute here, and relative positioning must be applied to the parent */
+                    top: 50%;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 50%;
+                    z-index: -1;
+                }
+                span {
+                    /* to hide the lines from behind the text, you have to set the background color the same as the container */
+                    padding: 0 15px;
+                    background: $gray-lightest;
+                }
+            }
+        }
+        .block {
+            .bg-block {
+                height: auto;
+                background-size: cover !important;
+                position: relative;
+                margin-bottom: 8%;
+                .middle {
+                    position: absolute;
+                    z-index: 999;
+                    left: 50%;
+                    top: 50%;
+                    width: 87%;
+                    @include prefixer(transform,
+                    translate(-50%,
+                    -50%),
+                    ("webkit",
+                    "moz"));
+                    text-align: center;
+                    .text {
+                        color: $white;
+                        h4 {
+                            color: $white;
+                        }
+                        p {
+                            font-family: TUI_Regular;
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .discuss-now {
+        padding: 15px 0px;
+        color: $gray-text;
+    }
+}

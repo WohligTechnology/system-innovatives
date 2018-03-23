@@ -1,9 +1,10 @@
 //MARCOPOLO
 .marcopolo {
     .bg-marco {
-        background: url(../img/slider-image1.png) no-repeat center center;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, .5)), url(../img/slider-image1.png) no-repeat center center;
         background-size: cover;
         position: relative;
+        height: 320px;
         .bg-text {
             position: absolute;
             top: 50%;
