@@ -3,9 +3,9 @@
     <div class="wdh">
         <div class="swiper-container">
             <div class="swiper-wrapper">
+
                 <!-- SLIDER IMAGES -->
-                <div class="swiper-slide" ng-repeat="s in mySlides">
-                    <img class="img-full" src="{{s.img}}">
+                <div class="swiper-slide" ng-repeat="s in mySlides" style="background:url({{s.img}}) center center / 100% 100% no-repeat; background-size: cover; height: 360px;">
                     <div class="slider-content container text-left">
                         <div class="text-content">
                             <h4 class="text-uppercase">{{s.title}}</h4>
@@ -27,16 +27,15 @@
         </div>
     </div>
 
-    <!-- CONTACT US -->
+    <!-- DISCUSS NOW -->
     <div class="container">
-        <div class="contact-us">
+        <div class="discuss-now">
             <span class="pull-right">
-                <button type="submit" class="btn btn-primary text-uppercase">Convert Vision To Reality</button>
+                <button type="submit" class="btn btn-primary text-uppercase">Discuss Now</button>
             </span>
             <p class="font-Merri">"A vision is like a dream - it wil ldisappear unless we do something with it."</p>
         </div>
     </div>
-
 
     <!-- OUTCOMES AND EXPERIENCES -->
     <div class="outnexp">
