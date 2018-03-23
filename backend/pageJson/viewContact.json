@@ -46,27 +46,7 @@
             "value": "_id"
         }
     }],
-    "button": [{
-        "name": "Excel Export",
-        "icon": "print",
-        "class": "btn-danger",
-        "type": "redirect",
-        "action": "Contact/generateExcel",
-        "linkType": "admin"
-    }, {
-        "name": "Upload Excel",
-        "icon": "delete",
-        "class": "btn-warning",
-        "type": "redirect",
-        "action": "excel-upload/Contact",
-        "linkType": "internal"
-    }, {
-        "name": "Create",
-        "icon": "plus",
-        "class": "btn-success",
-        "type": "page",
-        "action": "createContact"
-    }],
+    "button": [],
     "apiCall": {
         "url": "Contact/search",
         "params": "_id"

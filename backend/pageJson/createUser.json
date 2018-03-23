@@ -70,6 +70,6 @@
         }
     }],
     "apiCall": {
-        "url": "User/save"
+        "url": "User/saveWithToken"
     }
 }

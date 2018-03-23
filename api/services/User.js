@@ -125,6 +125,98 @@ var model = {
      */
     getAllMedia: function (data, callback) {
 
-    }
+    },
+
+    //login
+    saveWithToken: function (data, callback) {
+        console.log("data in save with token", data);
+        data.tokenKey = md5(data.tokenKey);
+        User.saveData(data, function (err, data) {
+
+            if (err) {
+                console.log("err in save", err)
+                callback(err, null);
+            } else {
+                console.log("data in save", data)
+                callback(null, data);
+            }
+        })
+    },
+
+
+    //email verification
+
+    sendAccess: function (data, callback) {
+        async.waterfall([
+                function (cbWaterfall) {
+                    // data.accessToken = generator.generate({
+                    //     length: 16,
+                    //     numbers: true
+                    // })
+                    // User.saveData(data, function (err, complete) {
+                    //     if (err) {
+                    //         cbWaterfall(err, null);
+                    //     } else {
+                    //         if (_.isEmpty(complete)) {
+                    //             cbWaterfall(null, []);
+                    //         } else {
+                    //             console.log("complete", complete);
+                    //             cbWaterfall(null, complete);
+                    //         }
+                    //     }
+                    // });
+                    User.findOne({
+                        email: data.email,
+                    }).exec(function (err, found) {
+                        if (err) {
+                            cbWaterfall(err, null);
+                        } else {
+                            if (!_.isEmpty(found)) {
+                                var foundObj = found.toObject();
+                                delete foundObj.password;
+                                cbWaterfall(null, foundObj);
+                            } else {
+                                cbWaterfall("Incorrect Credentials!", null);
+                            }
+                        }
+
+                    });
+                },
+                function (foundObj, cbWaterfall1) {
+                    var emailData = {};
+                    console.log("data: ", data);
+                    emailData.email = data.email;
+                    emailData.from = "sayali.ghule@wohlig.com.com";
+                    emailData.filename = "verification.ejs";
+                    emailData.subject = "Verify Token key";
+                    emailData._id = foundObj._id;
+                    console.log("emaildata", emailData);
+
+                    Config.email(emailData, function (err, emailRespo) {
+                        if (err) {
+                            console.log(err);
+                            cbWaterfall1(null, err);
+                        } else if (emailRespo) {
+                            cbWaterfall1(null, emailRespo);
+                        } else {
+                            cbWaterfall1(null, "Invalid data");
+                        }
+                    });
+                },
+            ],
+            function (err, data2) {
+                if (err) {
+                    console.log(err);
+                    callback(null, []);
+                } else if (data2) {
+                    if (_.isEmpty(data2)) {
+                        callback(null, []);
+                    } else {
+                        callback(null, data2);
+                    }
+                }
+            });
+    },
+
 };
 module.exports = _.assign(module.exports, exports, model);

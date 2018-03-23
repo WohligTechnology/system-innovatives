@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+    </title>
+    <style>
+        .body {
+            font-family: TitilliumWeb-Regular;
+        }
+
+        .img-responsive {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+
+        @font-face {
+            font-family: 'TitilliumWeb-Bold';
+            src: url("views/font/TitilliumWeb-Bold.ttf");
+        }
+
+        @font-face {
+            font-family: 'TitilliumWeb-Regular';
+            src: url("views/font/TitilliumWeb-Regular.ttf");
+        }
+
+        .body {
+            font-family: TitilliumWeb-Regular;
+        }
+
+        .img-responsive {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .inline-block {
+            display: inline-block;
+        }
+.logo_center{
+    text-align:center;
+}
+        .text-center {
+            text-align: left;
+        }
+
+        .list-inline>li {
+            display: inline-block;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        table {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        h2:before {
+            content: '';
+            width: 51px;
+            height: 0px;
+            color: #ffb026;
+            top: 50%;
+            display: block;
+            border-bottom: 1px solid #ffb026;
+            left: 50px;
+            position: absolute;
+            -ms-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        h2:after {
+            content: '';
+            width: 51px;
+            height: 0px;
+            color: #ffb026;
+            top: 50%;
+            display: block;
+            border-bottom: 1px solid #ffb026;
+            right: 0;
+            position: absolute;
+            -ms-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .text-uppercase {
+            text-transform: uppercase;
+        }
+    
+    </style>
+</head>
+
+<body>
+
+<table style="border: 1px solid black;">
+        <thead>
+
+            <tr>
+            <td><div class="logo_center" style="background-color:#f3f3f3">
+            <img src="../frontend/img/logo.png" width:120px height:120px>
+            </div></td></tr>
+
+
+<tr>
+                <td class="text-center">
+                    <div style="margin-bottom: 10px;color:black; font-weight:600; padding-left:38px;">Contact Us:</div>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding-left:38px;">
+                        <div><span style="padding-right:86px;">User Email</span><span style="padding-right:10px;">:</span>
+                       
+                        <%=email%> <span style="font-weight: bold;"></span>
+                    </div>
+                    <div><span style="padding-right:87px;">Name</span><span style="padding-right:10px;">:</span>
+                        <%=name%> <span style="font-weight: bold;"></span>
+                    </div>
+                    <div>
+                        <span style="padding-right:118px;">Number</span><span style="padding-right:10px;">:</span>
+                        <%=number%> <span style="font-weight: bold;"></span>
+                    </div>
+                    <div>
+                       <span style="padding-right:59px;">Comments</span><span style="padding-right:10px;">:</span>
+                        <%=comments%> <span style="font-weight: bold;"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+   
+  
+</body>
+
+</html>

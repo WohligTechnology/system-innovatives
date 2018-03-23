@@ -1,8 +1,8 @@
 var schema = new Schema({
     type: {
         type: String,
-        default: "TUI Projects",
-        enum: ['TUI Projects', 'Innovative PoC', 'Potential PoC', 'More Innovations']
+        enum: ['TUI Projects', 'Innovative PoC', 'Potential PoC', 'More Innovations'],
+        default: 'TUI Projects'
     },
     description: {
         type: String
@@ -30,5 +30,37 @@ schema.plugin(timestamps);
 module.exports = mongoose.model('Projects', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
-var model = {};
+var model = {
+
+
+    projectDetail: function (data, callback) {
+        console.log("data in project deatail", data)
+        Projects.findOne({
+            _id: data._id
+        }).deepPopulate("").exec(function (err, found) {
+            if (err) {
+                console.log('err', err);
+                callback(err, null);
+            } else if (_.isEmpty(found)) {
+                callback(null, 'noDataFound');
+            } else {
+                callback(null, found);
+            }
+        });
+    },
+
+    projectList: function (data, callback) {
+        Projects.find({
+            type: data.type
+        }).exec(function (err, data) {
+            if (err) {
+                callback(err, null)
+            } else {
+                callback(null, data)
+            }
+        });
+    },
+
+
+};
 module.exports = _.assign(module.exports, exports, model);
