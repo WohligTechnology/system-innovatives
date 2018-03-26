@@ -10,6 +10,12 @@
     .login {
         .login-box {
             width: 300px;
+            .subtitle {
+                padding: 2px;
+            }
+            .custom-form {
+                padding: 10px;
+            }
         }
     }
     .home {

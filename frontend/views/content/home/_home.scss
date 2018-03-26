@@ -4,6 +4,9 @@
         height: 100%; // img {
         //     height: 316px;
         // }
+        .swiper-slide {
+            font-size: inherit;
+        }
         a {
             color: $white;
             -webkit-font-smoothing: antialiased;
