@@ -63,7 +63,8 @@
     "textAngular": "^1.5.16",
     "cleave.js": "^0.7.10",
     "angular-promise-buttons": "^0.1.21",
-    "ui-bootstrap4": "https://github.com/Morgul/ui-bootstrap4.git#^3.0.2"
+    "ui-bootstrap4": "https://github.com/Morgul/ui-bootstrap4.git#^3.0.2",
+    "angular-toggle-switch": "^1.3.0"
   },
   "resolutions": {
     "angular": "1.6.9"
