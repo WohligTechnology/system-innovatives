@@ -1,8 +1,8 @@
 server {
 	listen 443 ssl;
-	server_name freshflow.wohlig.co.in;
-	ssl_certificate /etc/letsencrypt/live/freshflow.wohlig.co.in/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/freshflow.wohlig.co.in/privkey.pem;
+	server_name http://innovatives.sptr.co;
+	ssl_certificate /etc/letsencrypt/live/http://innovatives.sptr.co/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/http://innovatives.sptr.co/privkey.pem;
 	location /api {
 		proxy_pass http://127.0.0.1:1337;
 		proxy_set_header Host $host;
@@ -24,6 +24,6 @@ server {
 }
 server {
 	listen 80;
-	server_name freshflow.wohlig.co.in;
-	return 301 https://freshflow.wohlig.co.in$request_uri;
+	server_name http://innovatives.sptr.co;
+	return 301 http://innovatives.sptr.co$request_uri;
 }
