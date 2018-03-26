@@ -23,7 +23,8 @@ var schema = new Schema({
 // });
 
 module.exports = mongoose.model('Config', schema);
-var requrl = "http://localhost:1337/api/";
+// var requrl = "http://localhost:1337/api/";
+var requrl = "http://innovatives.sptr.co/api/";
 var models = {
     
     maxRow: 10,
