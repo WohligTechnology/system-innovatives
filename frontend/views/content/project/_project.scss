@@ -1,5 +1,8 @@
 //MARCOPOLO
 .project {
+    button {
+        border-radius: 4px;
+    }
     .bg-project {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, .5)), url(../img/slider-image1.png) no-repeat center center;
         background-size: cover;
@@ -28,7 +31,7 @@
         }
     }
     .block {
-        margin: 20px 0px 10px;
+        margin: 40px 0px 100px;
     }
     .marco-content {
         margin-bottom: 20px;

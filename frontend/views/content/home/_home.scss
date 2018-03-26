@@ -95,5 +95,8 @@
     .discuss-now {
         padding: 15px 0px;
         color: $gray-text;
+        .discuss-btn {
+            border-radius: 4px;
+        }
     }
 }
