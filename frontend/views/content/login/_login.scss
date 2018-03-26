@@ -43,20 +43,13 @@
                 /* Firefox 18- */
                 color: #898989;
             }
+            .send {
+                margin: 20px 0px 0px;
+            }
         }
         .title {
             @extend .gray-bg;
             padding: 25px 0px;
         }
-    }
-    .custom-submit {
-        background: $neavyblue;
-        color: #fff;
-        padding: 2% 9%;
-        border: none;
-        font-size: 14pt;
-        text-transform: uppercase;
-        font-family: TUI_Regular;
-        -webkit-font-smoothing: antialiased;
     }
 }

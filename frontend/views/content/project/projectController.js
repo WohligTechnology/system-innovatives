@@ -1,6 +1,6 @@
-myApp.controller('MarcopoloCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http) {
-    $scope.template = TemplateService.getHTML("content/marcopolo/marcopolo.html");
-    TemplateService.title = "Marco Polo"; //This is the Title of the Website
+myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http) {
+    $scope.template = TemplateService.getHTML("content/project/project.html");
+    TemplateService.title = "Project"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
 
     $scope.submitForm = function (data) {
