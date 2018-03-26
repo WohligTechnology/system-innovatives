@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(../../bower_components/angular-bootstrap/ui-bootstrap-csp.css);
 /*
  * jQuery FlexSlider v2.7.0
  * http://www.woothemes.com/flexslider/
@@ -9266,4 +9265,8 @@ header {
     .home .swiper-container .slider-content p {
       margin-bottom: 0; } }
 
+<<<<<<< HEAD
 /* Breakpoint for medium viewport */
+=======
+/* Breakpoint for medium viewport */
+>>>>>>> 297aa67d3235f2d3ba5a19a9316e0cb0f4eaa342
