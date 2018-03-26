@@ -128,7 +128,7 @@ var model = {
     },
 
     //login
-    saveWithToken: function (data, callback) {
+    generateTokenKey: function (data, callback) {
         console.log("data in save with token", data);
         data.tokenKey = md5(data.tokenKey);
         User.saveData(data, function (err, data) {
@@ -216,6 +216,37 @@ var model = {
                     }
                 }
             });
+    },
+
+    verifyToken: function (data, callback) {
+        User.findOne({
+            tokenKey: data.tokenKey,
+        }).exec(function (err, found) {
+            if (err) {
+                callback(err, null);
+            } else {
+                if (!_.isEmpty(found)) {
+                    var foundObj = found.toObject();
+                    callback(null, foundObj.email);
+                } else {
+                    callback("Incorrect Credentials!", null);
+                }
+            }
+        });
+    },
+
+createUser: function (data, callback) {
+    var data1={};
+        data1.tokenKey = md5(data.tokenKey);
+        data1.email = data.email;
+        User.saveData(data1, function (err, data) {
+            console.log("data1",data1);
+            if (err) {
+                callback(err, null);
+            } else {
+                callback(null, data);
+            }
+        })
     },
 
 };

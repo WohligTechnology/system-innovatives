@@ -101,8 +101,14 @@ var controller = {
     sendmail: function (req, res) {
         Config.sendEmail("chintan@wohlig.com", "jagruti@wohlig.com", "first email from endgrid", "", "<html><body>dome content</body></html>");
     },
-    saveWithToken: function (req, res) {
-        User.saveWithToken(req.body, res.callback);
+    createUser: function (req, res) {
+        User.createUser(req.body, res.callback);
+    },
+    generateTokenKey: function (req, res) {
+        User.generateTokenKey(req.body, res.callback);
+    },
+    verifyToken: function (req, res) {
+        User.verifyToken(req.body, res.callback);
     },
     sendAccess: function (req, res) {
         if (req.body) {

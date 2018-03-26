@@ -6,19 +6,18 @@
     "pageType": "create",
     "urlFields": ["Projects"],
     "fields": [
-    {
-            "name": "Type",
-            "type": "tags",
-            "tableRef": "type",
-            "placeholder": "Enter type",
-            "id": "type",
-            "validation": ["", "trim", "unique"],
-            "url": "",
-            "dropDownField": "",
-            "dropDownType": "single",
-            "onView": true,
-            "dropDown": ["TUI Projects", "Innovative PoC","Potential PoC","More Innovations"]
-        },
+        {
+        "name": "Type",
+        "type": "tags",
+        "tableRef": "type",
+        "placeholder": "select type",
+        "id": "type",
+        "url": "",
+        "dropDownField": "",
+        "dropDownType": "single",
+        "onView": true,
+        "dropDown": ["TUI Projects", "Innovative PoC","Potential PoC","More Innovations"]
+    },
         {
             "name": "Description",
             "type": "text",
