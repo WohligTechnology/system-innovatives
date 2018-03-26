@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(../../bower_components/angular-bootstrap/ui-bootstrap-csp.css);
 /*
  * jQuery FlexSlider v2.7.0
  * http://www.woothemes.com/flexslider/
@@ -8221,6 +8220,8 @@ header {
 .home .discuss-now {
   padding: 15px 0px;
   color: #878787; }
+  .home .discuss-now .discuss-btn {
+    border-radius: 4px; }
 
 .login {
   background: url("../img/bg-login.png") no-repeat center center;
@@ -8264,6 +8265,9 @@ header {
     .login .login-box .title {
       padding: 25px 0px; }
 
+.project button {
+  border-radius: 4px; }
+
 .project .bg-project {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5)), url(../img/slider-image1.png) no-repeat center center;
   background-size: cover;
@@ -8292,7 +8296,7 @@ header {
       color: #022b63; }
 
 .project .block {
-  margin: 20px 0px 10px; }
+  margin: 40px 0px 100px; }
 
 .project .marco-content {
   margin-bottom: 20px; }
@@ -8354,5 +8358,3 @@ header {
       margin-bottom: 0; } }
 
 /* Breakpoint for medium viewport */
-
-/*# sourceMappingURL=import.css.map */
