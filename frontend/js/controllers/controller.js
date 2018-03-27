@@ -3,3 +3,7 @@ myApp.controller('DemoAPICtrl', function ($scope, TemplateService, apiService, N
         console.log(data);
     });
 });
+
+myApp.controller('AppCtrl', function ($scope, TemplateService, apiService, NavigationService, $timeout) {
+
+});

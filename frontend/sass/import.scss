@@ -7,6 +7,8 @@
 @import "../../bower_components/angular-toastr/dist/angular-toastr";
 /****** Please Import Libraries Above This!!!!!! ******/
 
+@import "other/tui-fonts";
+@import "other/tui-icons";
 @import "main";
 @import "../views/content/home/_home.scss";
 @import "../views/content/login/_login.scss";

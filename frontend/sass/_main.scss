@@ -178,16 +178,6 @@ body {
 }
 
 @font-face {
-    font-family: TUI_Regular;
-    src: url("../fonts/tuitype-webfont.ttf");
-}
-
-@font-face {
-    font-family: TUI_Bold;
-    src: url("../fonts/tuitypebd-webfont.ttf");
-}
-
-@font-face {
     font-family: Merriweather_Italic;
     src: url("../fonts/Merriweather-Italic.ttf");
 }
@@ -308,7 +298,6 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: TUI_Bold;
     color: $neavyblue;
 }
 
@@ -317,7 +306,6 @@ label {
 }
 
 p {
-    font-family: TUI_Regular;
     -webkit-font-smoothing: antialiased;
     font-size: 19px;
     margin-bottom: 0.3rem;
@@ -342,7 +330,6 @@ a {
 }
 
 button {
-    font-family: TUI_Regular;
     -webkit-font-smoothing: antialiased;
 }
 

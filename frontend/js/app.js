@@ -20,21 +20,27 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
     $stateProvider
-        .state('home', {
-            url: "/",
-            templateUrl: tempateURL,
-            controller: 'HomeCtrl'
+        .state('app', {
+            abstract: true,
+            templateUrl: "views/template/blank.html",
+            controller: 'AppCtrl'
         })
+
         .state('login', {
             url: "/login",
             templateUrl: tempateURL,
             controller: 'LoginCtrl'
         })
-        .state('project', {
+        .state('app.home', {
+            url: "/",
+            templateUrl: tempateURL,
+            controller: 'HomeCtrl'
+        })
+        .state('app.project', {
             url: "/project",
             templateUrl: tempateURL,
             controller: 'ProjectCtrl'
-        })
+        });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);
 });
