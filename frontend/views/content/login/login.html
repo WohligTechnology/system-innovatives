@@ -10,7 +10,7 @@
 
             <!-- LOGIN FORM -->
             <div class="custom-form">
-                <form name="formData" class="form-group" ng-submit="submitForm()">
+                <form name="formData" class="form-group">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" ng-model="data.email" class="form-control" id="email" placeholder="Please enter your TUI email" name="email"
@@ -21,7 +21,13 @@
                         </div>
                     </div>
                     <div class="text-center text-uppercase">
-                        <button type="submit" class="btn btn-primary text-uppercase send" ng-disabled="formData.$invalid" promise-btn>Send Access Link</button>
+                        <button type="button" ng-click="submitForm(data)" class="btn btn-primary text-uppercase send" ng-disabled="formData.$invalid" promise-btn>Send Access Link</button>
+                    </div>
+                    <div ng-if="emailExist">
+                        Please check your email for further login details
+                    </div>
+                    <div ng-if="emailNotExist">
+                        User does not exist.
                     </div>
                 </form>
             </div>

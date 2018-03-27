@@ -49,21 +49,23 @@
 
             <!-- Tabs -->
             <div class="text-center">
-                <button class="btn btn-outline-primary text-uppercase">TUI Innovative Pilots</button>
+                <button class="btn btn-outline-primary text-uppercase" ng-repeat="p in projectType" ng-click="clickType(p.type)" ng-class="{'blue':selected==p.type}">{{p.type}}</button>
+                
+                <!--<button class="btn btn-outline-primary text-uppercase">TUI Innovative Pilots</button>
                 <button class="btn btn-outline-primary text-uppercase">TUI Projects</button>
                 <button class="btn btn-outline-primary text-uppercase">TUI Potential Pilots</button>
-                <button class="btn btn-outline-primary text-uppercase">Cross Industry Innovations</button>
+                <button class="btn btn-outline-primary text-uppercase">Cross Industry Innovations</button>-->
             </div>
 
             <!-- Images -->
             <div class="row block">
                 <div class="col-md-6 col-lg-4 col-sm-12" ng-repeat="x in mySlides2">
-                    <div class="bg-block" style="background:url({{x.img}}) no-repeat center center;">
+                    <div class="bg-block" style="background:url({{x.bannerImage | uploadpath}}) no-repeat center center;">
                         <img class="img-full" src="img/rect.png">
                         <div class="middle">
                             <div class="text">
-                                <h4 class="text-uppercase">{{x.textheading}}</h4>
-                                <p>{{x.text}}</p>
+                                <h4 class="text-uppercase">{{x.name}}</h4>
+                                <p>{{x.shortDescription}}</p>
                                 <button type="button" class="btn btn-outline-light">View Demo </button>
                             </div>
                         </div>
