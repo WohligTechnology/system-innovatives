@@ -1,4 +1,7 @@
 var schema = new Schema({
+    name: {
+        type: String
+    },
     type: {
         type: String,
         enum: ['TUI Projects', 'Innovative PoC', 'Potential PoC', 'More Innovations'],

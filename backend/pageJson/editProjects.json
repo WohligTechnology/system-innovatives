@@ -7,6 +7,15 @@
     "urlFields": ["_id"],
     "fields": [
         {
+            "name": "Name",
+            "type": "text",
+            "tableRef": "name",
+            "placeholder": "Enter name",
+            "id": "name",
+            "validation": ["", "trim", "unique"],
+            "url": ""
+        },
+        {
         "name": "Type",
         "type": "tags",
         "tableRef": "type",

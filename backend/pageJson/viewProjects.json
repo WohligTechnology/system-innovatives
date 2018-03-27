@@ -4,7 +4,13 @@
     "pageType": "view",
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
-    "fields": [{
+    "fields": [
+        {
+            "name": "Name",
+            "isSort": "",
+            "tableRef": "name"
+        },
+        {
             "name": "Type",
             "isSort": "",
             "tableRef": "type"
