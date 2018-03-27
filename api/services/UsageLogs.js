@@ -11,12 +11,12 @@ var schema = new Schema({
 schema.plugin(deepPopulate, {});
 schema.plugin(uniqueValidator);
 schema.plugin(timestamps);
-module.exports = mongoose.model('Usagelog', schema);
+module.exports = mongoose.model('UsageLogs', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
     logActivity: function (data, callback) {
-        Usagelog.findOne({
+        UsageLogs.findOne({
             userEmail: data.email,
         }).exec(function (err, found) {
             console.log("foundddddddd",found);
@@ -24,13 +24,13 @@ var model = {
                 callback(err, null);
             } else {
                 console.log("in if");
-                if (_.isEmpty(found._id) || found == null) {
+                if (found == null) {
                     console.log("in found");
                     var data1 = {};
                     data1.activityDetail = [];
                     data1.userEmail = data.email;
                     data1.activityDetail.push(data.location);
-                    Usagelog.saveData(data1, function (err, data) {
+                    UsageLogs.saveData(data1, function (err, data) {
                         if (err) {
                             callback(err, null);
                         } else {
@@ -38,7 +38,7 @@ var model = {
                         }
                     })
                 } else {
-                    Usagelog.update({
+                    UsageLogs.update({
                         userEmail: data.email
                     }, {
                         $push: {

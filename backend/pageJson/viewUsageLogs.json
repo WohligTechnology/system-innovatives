@@ -8,10 +8,6 @@
             "name": "User Email",
             "isSort": "",
             "tableRef": "userEmail"
-        }, {
-            "name": "Activity Detail",
-            "isSort": "",
-            "tableRef": "activityDetail"
         }
     ],
     "action": [{
