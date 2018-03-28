@@ -147,24 +147,9 @@ var model = {
     //email verification
 
     sendAccess: function (data, callback) {
+        console.log("inside sendAccess",data)
         async.waterfall([
                 function (cbWaterfall) {
-                    // data.accessToken = generator.generate({
-                    //     length: 16,
-                    //     numbers: true
-                    // })
-                    // User.saveData(data, function (err, complete) {
-                    //     if (err) {
-                    //         cbWaterfall(err, null);
-                    //     } else {
-                    //         if (_.isEmpty(complete)) {
-                    //             cbWaterfall(null, []);
-                    //         } else {
-                    //             console.log("complete", complete);
-                    //             cbWaterfall(null, complete);
-                    //         }
-                    //     }
-                    // });
                     User.findOne({
                         email: data.email,
                     }).exec(function (err, found) {
@@ -207,10 +192,10 @@ var model = {
             function (err, data2) {
                 if (err) {
                     console.log(err);
-                    callback(null, []);
+                    callback(err,null);
                 } else if (data2) {
                     if (_.isEmpty(data2)) {
-                        callback(null, []);
+                        callback(err,null);
                     } else {
                         callback(null, data2);
                     }

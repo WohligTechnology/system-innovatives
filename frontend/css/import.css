@@ -1872,6 +1872,349 @@ div[toast].ng-leave.ng-leave-active {
     width: 25em; } }
 
 /****** Please Import Libraries Above This!!!!!! ******/
+@font-face {
+  font-family: 'TUITypeLt';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/tuitype-light/tuitypelt-webfont.eot");
+  src: url("../fonts/tuitype-light/tuitypelt-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/tuitype-light/tuitypelt-webfont.ttf") format("truetype"), url("../fonts/tuitype-light/tuitypelt-webfont.woff") format("woff"), url("../fonts/tuitype-light/tuitypelt-webfont.svg#tuitypelight") format("svg"); }
+
+@font-face {
+  font-family: 'TUITypeLt';
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/tuitype-light-bold/tuitypeltbd-webfont.eot");
+  src: url("../fonts/tuitype-light-bold/tuitypeltbd-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/tuitype-light-bold/tuitypeltbd-webfont.ttf") format("truetype"), url("../fonts/tuitype-light-bold/tuitypeltbd-webfont.woff") format("woff"), url("../fonts/tuitype-light-bold/tuitypeltbd-webfont.svg#tuitypelightbold") format("svg"); }
+
+@font-face {
+  font-family: 'TUIType';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/tuitype/tuitype-webfont.eot");
+  src: url("../fonts/tuitype/tuitype-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/tuitype/tuitype-webfont.ttf") format("truetype"), url("../fonts/tuitype/tuitype-webfont.woff") format("woff"), url("../fonts/tuitype/tuitype-webfont.svg#tuityperegular") format("svg"); }
+
+@font-face {
+  font-family: 'TUIType';
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/tuitype-bold/tuitypebd-webfont.eot");
+  src: url("../fonts/tuitype-bold/tuitypebd-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/tuitype-bold/tuitypebd-webfont.ttf") format("truetype"), url("../fonts/tuitype-bold/tuitypebd-webfont.woff") format("woff"), url("../fonts/tuitype-bold/tuitypebd-webfont.svg#tuitypebold") format("svg"); }
+
+@font-face {
+  font-family: 'TUI-Icons';
+  src: url("../fonts/tui-icons/TUI-Icons.eot?vwb92e");
+  src: url("../fonts/tui-icons/TUI-Icons.eot?vwb92e#iefix") format("embedded-opentype"), url("../fonts/tui-icons/TUI-Icons.ttf?vwb92e") format("truetype"), url("../fonts/tui-icons/TUI-Icons.woff?vwb92e") format("woff"), url("../fonts/tui-icons/TUI-Icons.svg?vwb92e#TUI-Icons") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class^="tui-"],
+[class*=" tui-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'TUI-Icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.tui-search:before {
+  content: "\61"; }
+
+.tui-calendar:before {
+  content: "\62"; }
+
+.tui-pin:before {
+  content: "\63"; }
+
+.tui-airplane-departure:before {
+  content: "\64"; }
+
+.tui-airplane-arrival:before {
+  content: "\65"; }
+
+.tui-play:before {
+  content: "\66"; }
+
+.tui-navigation-arrow:before {
+  content: "\67"; }
+
+.tui-trip-duration:before {
+  content: "\68"; }
+
+.tui-alram:before {
+  content: "\69"; }
+
+.tui-clock:before {
+  content: "\6a"; }
+
+.tui-food:before {
+  content: "\6b"; }
+
+.tui-travel-expert:before {
+  content: "\6c"; }
+
+.tui-single-person:before {
+  content: "\6d"; }
+
+.tui-group-of-people:before {
+  content: "\6e"; }
+
+.tui-family:before {
+  content: "\6f"; }
+
+.tui-car:before {
+  content: "\70"; }
+
+.tui-transfer:before {
+  content: "\71"; }
+
+.tui-newsletter:before {
+  content: "\72"; }
+
+.tui-phone:before {
+  content: "\73"; }
+
+.tui-smartphone:before {
+  content: "\74"; }
+
+.tui-pictures:before {
+  content: "\75"; }
+
+.tui-virtual-tour:before {
+  content: "\76"; }
+
+.tui-wlan:before {
+  content: "\77"; }
+
+.tui-best-rated:before {
+  content: "\78"; }
+
+.tui-star:before {
+  content: "\79"; }
+
+.tui-heart:before {
+  content: "\7a"; }
+
+.tui-sun:before {
+  content: "\41"; }
+
+.tui-bed:before {
+  content: "\42"; }
+
+.tui-sport:before {
+  content: "\43"; }
+
+.tui-add-extras:before {
+  content: "\44"; }
+
+.tui-anchor:before {
+  content: "\45"; }
+
+.tui-arrow-down:before {
+  content: "\46"; }
+
+.tui-arrow-up:before {
+  content: "\47"; }
+
+.tui-back-to-top:before {
+  content: "\48"; }
+
+.tui-boarding-pass:before {
+  content: "\49"; }
+
+.tui-book:before {
+  content: "\4a"; }
+
+.tui-waves:before {
+  content: "\4b"; }
+
+.tui-burger-menu:before {
+  content: "\4c"; }
+
+.tui-calculator:before {
+  content: "\4d"; }
+
+.tui-cross:before {
+  content: "\4e"; }
+
+.tui-cloud-rain:before {
+  content: "\4f"; }
+
+.tui-cloud-rain-sun:before {
+  content: "\50"; }
+
+.tui-cloud-sun:before {
+  content: "\51"; }
+
+.tui-cloud:before {
+  content: "\52"; }
+
+.tui-computer:before {
+  content: "\53"; }
+
+.tui-confirm:before {
+  content: "\54"; }
+
+.tui-credit-card:before {
+  content: "\55"; }
+
+.tui-directions-people:before {
+  content: "\56"; }
+
+.tui-email:before {
+  content: "\57"; }
+
+.tui-entertainment:before {
+  content: "\58"; }
+
+.tui-euro:before {
+  content: "\59"; }
+
+.tui-exit-arrow:before {
+  content: "\5a"; }
+
+.tui-filter:before {
+  content: "\30"; }
+
+.tui-home:before {
+  content: "\31"; }
+
+.tui-glass:before {
+  content: "\32"; }
+
+.tui-hotel:before {
+  content: "\33"; }
+
+.tui-infant:before {
+  content: "\34"; }
+
+.tui-info:before {
+  content: "\35"; }
+
+.tui-login:before {
+  content: "\36"; }
+
+.tui-logout:before {
+  content: "\37"; }
+
+.tui-luggage:before {
+  content: "\38"; }
+
+.tui-minus:before {
+  content: "\39"; }
+
+.tui-my-tui:before {
+  content: "\21"; }
+
+.tui-night:before {
+  content: "\22"; }
+
+.tui-notes:before {
+  content: "\23"; }
+
+.tui-offer:before {
+  content: "\24"; }
+
+.tui-other:before {
+  content: "\25"; }
+
+.tui-padlock:before {
+  content: "\26"; }
+
+.tui-parking:before {
+  content: "\27"; }
+
+.tui-plane-inbound:before {
+  content: "\28"; }
+
+.tui-plane-outbound:before {
+  content: "\29"; }
+
+.tui-plane-seat:before {
+  content: "\2a"; }
+
+.tui-plus:before {
+  content: "\2b"; }
+
+.tui-price-tag:before {
+  content: "\2c"; }
+
+.tui-printer:before {
+  content: "\2d"; }
+
+.tui-question-mark:before {
+  content: "\2e"; }
+
+.tui-refresh:before {
+  content: "\2f"; }
+
+.tui-save:before {
+  content: "\3a"; }
+
+.tui-settings:before {
+  content: "\3b"; }
+
+.tui-share:before {
+  content: "\3c"; }
+
+.tui-ship:before {
+  content: "\3d"; }
+
+.tui-sms:before {
+  content: "\3e"; }
+
+.tui-snack:before {
+  content: "\3f"; }
+
+.tui-sort:before {
+  content: "\40"; }
+
+.tui-stop:before {
+  content: "\5b"; }
+
+.tui-taxi:before {
+  content: "\5d"; }
+
+.tui-time-reverse:before {
+  content: "\5e"; }
+
+.tui-tips:before {
+  content: "\5f"; }
+
+.tui-toilet:before {
+  content: "\60"; }
+
+.tui-warning:before {
+  content: "\7b"; }
+
+.tui-wheelchair:before {
+  content: "\7c"; }
+
+.tui-world:before {
+  content: "\7d"; }
+
+.tui-boat:before {
+  content: "\7e"; }
+
+.tui-golf:before {
+  content: "\5c"; }
+
+.tui-water-splash:before {
+  content: "\e000"; }
+
+.tui-no-kids:before {
+  content: "\e001"; }
+
+.tui-winter-sports:before {
+  content: "\e002"; }
+
+.tui-edit:before {
+  content: "\e003"; }
+
 /* Bootstrap Variables Goes Here */
 /* Secondary colours */
 /* Secondary colours */
@@ -6356,12 +6699,15 @@ button.close {
   .bs-popover-top .arrow, .bs-popover-auto[x-placement^="top"] .arrow {
     bottom: calc((0.5rem + 1px) * -1); }
   .bs-popover-top .arrow::before, .bs-popover-auto[x-placement^="top"] .arrow::before,
-  .bs-popover-top .arrow::after, .bs-popover-auto[x-placement^="top"] .arrow::after {
+  .bs-popover-top .arrow::after,
+  .bs-popover-auto[x-placement^="top"] .arrow::after {
     border-width: 0.5rem 0.5rem 0; }
   .bs-popover-top .arrow::before, .bs-popover-auto[x-placement^="top"] .arrow::before {
     bottom: 0;
     border-top-color: rgba(0, 0, 0, 0.25); }
-  .bs-popover-top .arrow::after, .bs-popover-auto[x-placement^="top"] .arrow::after {
+  
+  .bs-popover-top .arrow::after,
+  .bs-popover-auto[x-placement^="top"] .arrow::after {
     bottom: 1px;
     border-top-color: #fff; }
 
@@ -6373,12 +6719,15 @@ button.close {
     height: 1rem;
     margin: 0.3rem 0; }
   .bs-popover-right .arrow::before, .bs-popover-auto[x-placement^="right"] .arrow::before,
-  .bs-popover-right .arrow::after, .bs-popover-auto[x-placement^="right"] .arrow::after {
+  .bs-popover-right .arrow::after,
+  .bs-popover-auto[x-placement^="right"] .arrow::after {
     border-width: 0.5rem 0.5rem 0.5rem 0; }
   .bs-popover-right .arrow::before, .bs-popover-auto[x-placement^="right"] .arrow::before {
     left: 0;
     border-right-color: rgba(0, 0, 0, 0.25); }
-  .bs-popover-right .arrow::after, .bs-popover-auto[x-placement^="right"] .arrow::after {
+  
+  .bs-popover-right .arrow::after,
+  .bs-popover-auto[x-placement^="right"] .arrow::after {
     left: 1px;
     border-right-color: #fff; }
 
@@ -6387,12 +6736,15 @@ button.close {
   .bs-popover-bottom .arrow, .bs-popover-auto[x-placement^="bottom"] .arrow {
     top: calc((0.5rem + 1px) * -1); }
   .bs-popover-bottom .arrow::before, .bs-popover-auto[x-placement^="bottom"] .arrow::before,
-  .bs-popover-bottom .arrow::after, .bs-popover-auto[x-placement^="bottom"] .arrow::after {
+  .bs-popover-bottom .arrow::after,
+  .bs-popover-auto[x-placement^="bottom"] .arrow::after {
     border-width: 0 0.5rem 0.5rem 0.5rem; }
   .bs-popover-bottom .arrow::before, .bs-popover-auto[x-placement^="bottom"] .arrow::before {
     top: 0;
     border-bottom-color: rgba(0, 0, 0, 0.25); }
-  .bs-popover-bottom .arrow::after, .bs-popover-auto[x-placement^="bottom"] .arrow::after {
+  
+  .bs-popover-bottom .arrow::after,
+  .bs-popover-auto[x-placement^="bottom"] .arrow::after {
     top: 1px;
     border-bottom-color: #fff; }
   .bs-popover-bottom .popover-header::before, .bs-popover-auto[x-placement^="bottom"] .popover-header::before {
@@ -6413,12 +6765,15 @@ button.close {
     height: 1rem;
     margin: 0.3rem 0; }
   .bs-popover-left .arrow::before, .bs-popover-auto[x-placement^="left"] .arrow::before,
-  .bs-popover-left .arrow::after, .bs-popover-auto[x-placement^="left"] .arrow::after {
+  .bs-popover-left .arrow::after,
+  .bs-popover-auto[x-placement^="left"] .arrow::after {
     border-width: 0.5rem 0 0.5rem 0.5rem; }
   .bs-popover-left .arrow::before, .bs-popover-auto[x-placement^="left"] .arrow::before {
     right: 0;
     border-left-color: rgba(0, 0, 0, 0.25); }
-  .bs-popover-left .arrow::after, .bs-popover-auto[x-placement^="left"] .arrow::after {
+  
+  .bs-popover-left .arrow::after,
+  .bs-popover-auto[x-placement^="left"] .arrow::after {
     right: 1px;
     border-left-color: #fff; }
 
@@ -8849,14 +9204,6 @@ body {
     border-radius: 10px; }
 
 @font-face {
-  font-family: TUI_Regular;
-  src: url("../fonts/tuitype-webfont.ttf"); }
-
-@font-face {
-  font-family: TUI_Bold;
-  src: url("../fonts/tuitypebd-webfont.ttf"); }
-
-@font-face {
   font-family: Merriweather_Italic;
   src: url("../fonts/Merriweather-Italic.ttf"); }
 
@@ -8951,20 +9298,13 @@ header {
 .gray-bg, .home .outnexp, .login .login-box .title {
   background: #f4f4f4; }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: TUI_Bold;
+h1, h2, h3, h4, h5, h6 {
   color: #022b63; }
 
 label {
   color: #022b63; }
 
 p {
-  font-family: TUI_Regular;
   -webkit-font-smoothing: antialiased;
   font-size: 19px;
   margin-bottom: 0.3rem; }
@@ -8984,7 +9324,6 @@ a {
   font-family: Merriweather_Italic; }
 
 button {
-  font-family: TUI_Regular;
   -webkit-font-smoothing: antialiased; }
 
 .inline {
@@ -8996,8 +9335,8 @@ header {
     background: #fff;
     height: 40px; }
     header .custom-header .line-gradient {
-      background: -webkit-gradient(linear, left top, right top, from(red), to(#022b63));
-      background: linear-gradient(to right, red, #022b63);
+      background: -webkit-gradient(linear, left top, right top, from(#d40e14), color-stop(50%, #d40e14), color-stop(50%, #022b63), to(#022b63));
+      background: linear-gradient(to right, #d40e14 0%, #d40e14 50%, #022b63 50%, #022b63 100%);
       height: 3px;
       position: relative;
       margin-top: 25px; }
@@ -9051,6 +9390,10 @@ header {
               transform: none; }
   .content {
     min-height: 0px; } }
+
+.home .blue {
+  background-color: #022b63;
+  color: white; }
 
 .home .swiper-container {
   width: 100%;
@@ -9120,7 +9463,6 @@ header {
       .home .outnexp .block .bg-block .middle .text h4 {
         color: #fff; }
       .home .outnexp .block .bg-block .middle .text p {
-        font-family: TUI_Regular;
         font-size: 20px; }
 
 .home .discuss-now {
@@ -9147,7 +9489,6 @@ header {
       border: 0.6px solid #022b63; }
     .login .login-box .subtitle {
       color: #898989;
-      font-family: TUI_Regular;
       -webkit-font-smoothing: antialiased; }
     .login .login-box .custom-form {
       padding: 20px 80px; }
@@ -9265,8 +9606,4 @@ header {
     .home .swiper-container .slider-content p {
       margin-bottom: 0; } }
 
-<<<<<<< HEAD
 /* Breakpoint for medium viewport */
-=======
-/* Breakpoint for medium viewport */
->>>>>>> 297aa67d3235f2d3ba5a19a9316e0cb0f4eaa342

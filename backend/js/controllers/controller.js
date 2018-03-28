@@ -609,7 +609,7 @@ myApp.controller('DashboardCtrl', function ($scope, TemplateService, NavigationS
                     NavigationService.profile(function () {
                         $state.go("dashboard");
                     }, function () {
-                        $state.go("login");
+                        // $state.go("login");
                     });
                 });
             }

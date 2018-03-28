@@ -4,7 +4,7 @@ var schema = new Schema({
     },
     type: {
         type: String,
-        enum: ['TUI Projects', 'Innovative PoC', 'Potential PoC', 'More Innovations'],
+        enum: ['TUI Projects', 'TUI Innovative Pilots', 'TUI Potential Pilots', 'Cross Industry Innovations'],
         default: 'TUI Projects'
     },
     description: {
