@@ -1,4 +1,4 @@
-myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http) {
+myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $uibModal) {
     $scope.template = TemplateService.getHTML("content/project/project.html");
     TemplateService.title = "Project"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
@@ -11,6 +11,27 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
             }, 5000);
         });
     };
+    $scope.openModal = function () {
+        console.log("inside modal");
+        $scope.feedback = $uibModal.open({
+            animation: true,
+            templateUrl: "frontend/views/content/contactus/contactus.html",
+            scope: $scope,
+            size: 'lg',
+            // backdropClass: 'back-drop'
+        });
+    }
+
+    $scope.openFeedback = function () {
+        console.log("inside modal");
+        $scope.feedback = $uibModal.open({
+            animation: true,
+            templateUrl: "frontend/views/content/feedback/feedback.html",
+            scope: $scope,
+            size: 'lg',
+            // backdropClass: 'back-drop'
+        });
+    }
 
     $scope.marcocontent = [{
             title: 'Overview',

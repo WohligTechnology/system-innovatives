@@ -1,41 +1,41 @@
 <div class="project">
-    <!-- BACKGROUND IMAGE -->
-    <div class="bg-project">
-        <div class="bg-text text-center">
-            <h3>MARCO POLO</h3>
-            <button class="btn btn-light text-uppercase">
-                <i class="fas fa-eye"></i>&nbsp;View Demo</button>
-        </div>
-        <div class="bottom-text text-center">
-            <p>"We achieve more when we chase the dream instead of competition."</p>
-        </div>
-    </div>
-
-    <!-- CONTENT -->
-    <div class="container">
-        <div class="block">
-            <!-- TEXT -->
-            <div class="marco-content text-center" ng-repeat="m in marcocontent">
-                <h3 class="text-uppercase">{{m.title}}</h3>
-                <p>{{m.subtitle}}</p>
-                <img src="img/hr.png">
+        <!-- BACKGROUND IMAGE -->
+        <div class="bg-project">
+            <div class="bg-text text-center">
+                <h3>MARCO POLO</h3>
+                <button class="btn btn-light text-uppercase">
+                    <i class="fas fa-eye"></i>&nbsp;View Demo</button>
             </div>
-
-            <!-- CONTACT US -->
-            <div class="row">
-                <div class="marco-content col-sm-6 text-center">
-                    <h3 class="text-uppercase">Want to know more?</h3>
-                    <button class="btn btn-primary text-uppercase">
-                        <i class="fas fa-edit"></i>&nbsp;Contact Us</button>
-                </div>
-
-                <!-- FACEBOOK -->
-                <div class="marco-content col-sm-6 text-center">
-                    <h3 class="text-uppercase">Have some thoughts?</h3>
-                    <button class="btn btn-primary text-uppercase">
-                        <i class="fas fa-edit"></i>&nbsp;Share Your Feedback</button>
-                </div>
+            <div class="bottom-text text-center">
+                <p>"We achieve more when we chase the dream instead of competition."</p>
             </div>
         </div>
+    
+        <!-- CONTENT -->
+        <div class="container">
+            <div class="block">
+                <!-- TEXT -->
+                <div class="marco-content text-center" ng-repeat="m in marcocontent">
+                    <h3 class="text-uppercase">{{m.title}}</h3>
+                    <p>{{m.subtitle}}</p>
+                    <img src="img/hr.png">
+                </div>
+    
+                <!-- CONTACT US -->
+                <div class="row">
+                    <div class="marco-content col-sm-6 text-center">
+                        <h3 class="text-uppercase">Want to know more?</h3>
+                        <button class="btn btn-primary text-uppercase" ng-click="openModal()">
+                            <i class="fas fa-edit"></i>&nbsp;Contact Us</button>
+                    </div>
+    
+                    <!-- FACEBOOK -->
+                    <div class="marco-content col-sm-6 text-center">
+                        <h3 class="text-uppercase">Have some thoughts?</h3>
+                        <button class="btn btn-primary text-uppercase" ng-click="openFeedback()">
+                            <i class="fas fa-edit"></i>&nbsp;Share Your Feedback</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>

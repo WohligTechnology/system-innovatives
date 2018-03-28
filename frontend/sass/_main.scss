@@ -357,7 +357,7 @@ header {
         background: $white;
         height: 40px;
         .line-gradient {
-            background: linear-gradient(to right, red, #022b63);
+            background: linear-gradient(to right, $red 0%, $red 50%, $blue 50%, $blue 100%);
             height: 3px;
             position: relative;
             margin-top: 25px;
