@@ -15,6 +15,15 @@ var schema = new Schema({
     },
     admin: {
         type: Boolean
+    },
+    accessToken: {
+        type: [String],
+        index: true
+    },
+    accessLevel: {
+        type: String,
+        default: "User",
+        enum: ['User', 'Admin']
     }
 });
 

@@ -178,6 +178,16 @@ body {
 }
 
 @font-face {
+    font-family: TUI_Regular;
+    src: url("../fonts/tuitype/tuitype-webfont.ttf");
+}
+
+@font-face {
+    font-family: TUI_Bold;
+    src: url("../fonts/tuitype-bold/tuitypebd-webfont.ttf");
+}
+
+@font-face {
     font-family: Merriweather_Italic;
     src: url("../fonts/Merriweather-Italic.ttf");
 }
@@ -298,6 +308,7 @@ h3,
 h4,
 h5,
 h6 {
+    font-family: TUI_Bold;
     color: $neavyblue;
 }
 
@@ -306,6 +317,7 @@ label {
 }
 
 p {
+    font-family: TUI_Regular;
     -webkit-font-smoothing: antialiased;
     font-size: 19px;
     margin-bottom: 0.3rem;
@@ -330,6 +342,7 @@ a {
 }
 
 button {
+    font-family: TUI_Regular;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -344,7 +357,7 @@ header {
         background: $white;
         height: 40px;
         .line-gradient {
-            background: linear-gradient(to right, $red 0%, $red 50%, $blue 50%, $blue 100%);
+            background: linear-gradient(to right, red, #022b63);
             height: 3px;
             position: relative;
             margin-top: 25px;
@@ -392,6 +405,14 @@ header {
             color: $neavyblue;
         }
     }
+}
+
+.modal-content {
+    background-color: transparent;
+}
+
+.close {
+    padding: 5px 10px 0px !important;
 }
 
 //MEDIA QUERY
