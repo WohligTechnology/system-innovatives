@@ -7,10 +7,12 @@ module.exports = function (profile) {
         // res.serverError();
     } else {
         if (req.session.returnUrl) {
+            console.log("profile",profile);
             User.existsSocial(profile, function (err, data) {
                 if (err || !data) {
                     res.callback(err, data);
                 } else {
+                    console.log("dddddddddd",data);
                     if (data.accessLevel != "Admin") {
                         data.accessToken[0] = "AccessNotAvailable";
                     }
