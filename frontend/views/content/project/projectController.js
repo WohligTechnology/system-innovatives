@@ -35,7 +35,7 @@ $scope.dataId = {
         console.log("inside modal");
         $scope.feedback = $uibModal.open({
             animation: true,
-            templateUrl: "frontend/views/content/contactus/contactus.html",
+            templateUrl: "views/content/contactus/contactus.html",
             scope: $scope,
             size: 'lg',
             // backdropClass: 'back-drop'
@@ -46,7 +46,7 @@ $scope.dataId = {
         console.log("inside modal");
         $scope.feedback = $uibModal.open({
             animation: true,
-            templateUrl: "frontend/views/content/feedback/feedback.html",
+            templateUrl: "views/content/feedback/feedback.html",
             scope: $scope,
             size: 'lg',
             // backdropClass: 'back-drop'
