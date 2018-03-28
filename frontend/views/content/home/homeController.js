@@ -1,18 +1,18 @@
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http) {
+myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http,$state) {
     $scope.template = TemplateService.getHTML("content/home/home.html");
     TemplateService.title = "Home"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
 
-$scope.projectType =[{
+    $scope.projectType = [{
             type: 'TUI Projects'
-           
+
         }, {
             type: 'TUI Innovative Pilots'
-     
+
         },
         {
             type: 'TUI Potential Pilots'
-        
+
         },
         {
             type: 'Cross Industry Innovations'
@@ -20,21 +20,32 @@ $scope.projectType =[{
     ];
 
 
-$scope.clickType = function (data) {
-    $scope.selected = data;
-       console.log("data in clicktype",data);
-       $scope.data={};
-         $scope.data.type=data;
-          console.log("data.email",$scope.data);
-       NavigationService.callApiWithData('Projects/projectList',$scope.data, function (data) {
-           $scope.mySlides2=data.data;
-           console.log("$scope.mySlides2", $scope.mySlides2);
+    $scope.clickType = function (data) {
+        $scope.selected = data;
+        console.log("data in clicktype", data);
+        $scope.data = {};
+        $scope.data.type = data;
+        console.log("data.email", $scope.data);
+        NavigationService.callApiWithData('Projects/projectList', $scope.data, function (data) {
+            $scope.mySlides2 = data.data;
+            console.log("$scope.mySlides2", $scope.mySlides2);
 
-       })
-      
-   };
+        })
 
-   $scope.clickType($scope.projectType[0].type);
+    };
+
+    $scope.clickType($scope.projectType[0].type);
+
+
+
+    $scope.clickProject = function (id) {
+        console.log("select project", id);
+        $scope.id = id;
+        $state.go('app.project', {
+            'id': $scope.id
+        });
+
+    };
 
 
     $scope.mySlides = [{

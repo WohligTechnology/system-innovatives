@@ -7,7 +7,7 @@ var schema = new Schema({
         type: String
     },
     number: {
-        type: Number
+        type: String
     },
     comments: {
         type: String
@@ -40,10 +40,19 @@ contactUs: function (data, callback) {
                 },
                 function (complete, cbWaterfall1) {
                     var emailData = {};
+                    emailData.a = false;
                     console.log("data: ", data);
                     emailData.email = "sayali.ghule@wohlig.com";
                     emailData.name = data.name;
-                    emailData.number = data.number;
+
+if (data.number != undefined) {
+                       emailData.number = data.number;
+                    } else {
+                        emailData.a = true;
+                        emailData.number = "";
+                    }
+
+                    
                     emailData.comments = data.comments;
                     emailData.from = data.userEmail;
                     emailData.filename = "contactUs.ejs";

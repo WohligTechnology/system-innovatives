@@ -37,7 +37,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'HomeCtrl'
         })
         .state('app.project', {
-            url: "/project",
+            url: "/project/:id",
             templateUrl: tempateURL,
             controller: 'ProjectCtrl'
         });

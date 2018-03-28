@@ -59,7 +59,7 @@
 
             <!-- Images -->
             <div class="row block">
-                <div class="col-md-6 col-lg-4 col-sm-12" ng-repeat="x in mySlides2">
+                <div class="col-md-6 col-lg-4 col-sm-12" ng-repeat="x in mySlides2" ng-click="clickProject(x._id)">
                     <div class="bg-block" style="background:url({{x.bannerImage | uploadpath}}) no-repeat center center;">
                         <img class="img-full" src="img/rect.png">
                         <div class="middle">

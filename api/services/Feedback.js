@@ -19,7 +19,7 @@ module.exports = mongoose.model('Feedback', schema);
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
 
-feedback: function (data, callback) {
+    feedback: function (data, callback) {
         async.waterfall([
                 function (cbWaterfall) {
                     Feedback.saveData(data, function (err, complete) {
@@ -37,14 +37,21 @@ feedback: function (data, callback) {
                 },
                 function (complete, cbWaterfall1) {
                     var emailData = {};
+                    emailData.a = false;
                     console.log("data: ", data);
                     emailData.email = "sayali.ghule@wohlig.com";
-                    emailData.rating = data.rating;
+                    if (data.rating != undefined) {
+                        emailData.rating = data.rating;
+                    } else {
+                        emailData.a = true;
+                        emailData.rating = "";
+                    }
+
                     emailData.comment = data.comment;
                     emailData.from = data.userEmail;
                     emailData.filename = "feedback.ejs";
                     emailData.subject = "FEEDBACK";
-                     emailData._id =complete._id;
+                    emailData._id = complete._id;
                     console.log("emaildata", emailData);
 
                     Config.email(emailData, function (err, emailRespo) {

@@ -11,6 +11,7 @@
             <!-- LOGIN FORM -->
             <div class="custom-form">
                 <form name="formData" class="form-group">
+                     <div class="form-spacing">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" ng-model="data.email" class="form-control" id="email" placeholder="Please enter your TUI email" name="email"
@@ -20,6 +21,7 @@
                             <span class="label label-danger" ng-if="field=='email' && value">Please Enter Valid Email</span>
                         </div>
                     </div>
+                     </div>
                     <div class="text-center text-uppercase">
                         <button type="button" ng-click="submitForm(data)" class="btn btn-primary text-uppercase send" ng-disabled="formData.$invalid" promise-btn>Send Access Link</button>
                     </div>

@@ -52,8 +52,6 @@ module.exports = [
   'frontend/views/content/home/homeController.js',
   'frontend/views/content/login/loginController.js',
   'frontend/views/content/project/projectController.js',
-  'frontend/views/content/contactus/contactusController.js',
-  'frontend/views/content/feedback/feedbackController.js',
   'frontend/js/controllers/header-controller.js',
   'frontend/js/controllers/language-controller.js',
 ];

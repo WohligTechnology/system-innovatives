@@ -43,6 +43,9 @@
                 background: #ebebeb;
                 resize: none;
             }
+            .form-spacing {
+                margin-bottom: 2rem;
+            }
         }
         .title {
             @extend .gray-bg;

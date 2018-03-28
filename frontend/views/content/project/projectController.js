@@ -1,7 +1,26 @@
-myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $uibModal) {
+myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $uibModal,$stateParams) {
     $scope.template = TemplateService.getHTML("content/project/project.html");
     TemplateService.title = "Project"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
+
+console.log("stateparam id",$stateParams.id)
+
+$scope.dataId = {
+     _id: $stateParams.id
+   };
+
+     NavigationService.callApiWithData("Projects/getOne", $scope.dataId, function (data) {
+     console.log("Project data", data.data);
+     $scope.projectData=data.data;
+    //  $scope.projectName=$scope.projectData.name;
+    //  $scope.projectImage=$scope.projectData.bannerImage;
+     $scope.project = [{
+            img: $scope.projectData.bannerImage,
+            name: $scope.projectData.name
+        }];
+   });
+
+   
 
     $scope.submitForm = function (data) {
         console.log("This is it");
@@ -11,6 +30,7 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
             }, 5000);
         });
     };
+
     $scope.openModal = function () {
         console.log("inside modal");
         $scope.feedback = $uibModal.open({
@@ -33,6 +53,51 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
         });
     }
 
+
+$scope.submitFeedback = function (data) {
+        console.log("feedback");
+
+        console.log("data in form", data);
+        $scope.feedbackData = {};
+        $scope.feedbackData.userEmail = data.userEmail;
+        $scope.feedbackData.comment = data.comment;
+        console.log("$scope.feedbackData", $scope.feedbackData);
+        NavigationService.callApiWithData("Feedback/feedback", $scope.feedbackData, function (data) {
+            console.log("data in api", data);
+
+
+        });
+    };
+
+
+$scope.checklen = function (data) {
+        $scope.contacterror = "";
+        var len = data.length;
+        if (len < 10) {
+            $scope.contacterror = "Please enter a valid phone number";
+            console.log('In Length', len);
+        } else if (len == 10) {
+            $scope.contacterror = "";
+        }
+    }
+
+ $scope.submitContact = function (data) {
+        console.log("data in form", data);
+        $scope.contactData = {};
+        $scope.contactData.userEmail = data.userEmail;
+        $scope.contactData.name = data.name;
+        $scope.contactData.number = data.number;
+        $scope.contactData.comments = data.comments;
+        console.log("$scope.contactData", $scope.contactData);
+        NavigationService.callApiWithData("Contact/contactUs", $scope.contactData, function (data) {
+            console.log("data in api", data);
+
+
+        });
+    };
+
+
+
     $scope.marcocontent = [{
             title: 'Overview',
             subtitle: 'An AR application to be used on Destinations, Cruises & more.'
@@ -51,3 +116,4 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
         }
     ]
 });
+

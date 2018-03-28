@@ -121,17 +121,20 @@
         <tbody>
             <tr>
                 <td style="padding-left:38px;">
+
+                <div><span style="padding-right:87px;">Name</span><span style="padding-right:10px;">:</span>
+                        <%=name%> <span style="font-weight: bold;"></span>
+                    </div>
                         <div><span style="padding-right:86px;">User Email</span><span style="padding-right:10px;">:</span>
                        
                         <%=from%> <span style="font-weight: bold;"></span>
                     </div>
-                    <div><span style="padding-right:87px;">Name</span><span style="padding-right:10px;">:</span>
-                        <%=name%> <span style="font-weight: bold;"></span>
-                    </div>
+                    <% if(a==false){%>
                     <div>
                         <span style="padding-right:118px;">Number</span><span style="padding-right:10px;">:</span>
                         <%=number%> <span style="font-weight: bold;"></span>
                     </div>
+                    <%}%>
                     <div>
                        <span style="padding-right:59px;">Comments</span><span style="padding-right:10px;">:</span>
                         <%=comments%> <span style="font-weight: bold;"></span>
