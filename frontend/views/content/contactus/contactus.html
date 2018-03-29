@@ -15,43 +15,44 @@
             <div class="custom-form">
                 <form name="formData" class="form-group">
                     <div class="form-spacing">
-                    <div class="form-group">
-                        <label for="name">
+                        <div class="form-group">
+                            <label for="name">
                             Full Name *</label>
-                        <input type="text" ng-model="data.name" class="form-control" id="name" placeholder="Pleae enter your full name" required
-                            name="name">
-                        <div class="pull-right" ng-repeat="(field,value) in formData.name.$error" ng-show="formData.name.$touched">
-                            <span class="label label-danger" ng-if="field=='required' && value">Please enter your full name</span>
+                            <input type="text" ng-model="data.name" class="form-control" id="name" placeholder="Pleae enter your full name" required
+                                name="name">
+                            <div class="pull-right" ng-repeat="(field,value) in formData.name.$error" ng-show="formData.name.$touched">
+                                <span class="label label-danger" ng-if="field=='required' && value">Please enter your full name</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" ng-model="data.userEmail" class="form-control" id="email" placeholder="Please enter your email" name="email"
-                            required>
-                        <div class="pull-right" ng-repeat="(field,value) in formData.email.$error" ng-show="formData.email.$touched">
-                            <span class="label label-danger" ng-if="field=='required' && value">Please enter your email</span>
-                            <span class="label label-danger" ng-if="field=='email' && value">Please Enter Valid Email</span>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" ng-model="data.userEmail" class="form-control" id="email" placeholder="Please enter your email" name="email"
+                                required>
+                            <div class="pull-right" ng-repeat="(field,value) in formData.email.$error" ng-show="formData.email.$touched">
+                                <span class="label label-danger" ng-if="field=='required' && value">Please enter your email</span>
+                                <span class="label label-danger" ng-if="field=='email' && value">Please Enter Valid Email</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
+                        <div class="form-group">
                             <label for="contactno">
                                 Contact No.</label>
-                            <input type="tel" ng-model="data.number" maxlength="10" class="form-control" id="contactno" name="contactno" placeholder="Please enter your contact number"
-                                name="contactno" ng-change="checklen(data.contactno)">
+                            <input type="tel" ng-model="data.contactno" maxlength="10" only-digits class="form-control" id="contactno" name="contactno"
+                                placeholder="Please enter your contact number" name="contactno" ng-change="checklen(data.contactno)"
+                                required>
                             <div class="pull-right">
                                 <span class="label label-danger" ng-show="formData.contactno.$touched && formData.contactno.$invalid"> Please enter a phone number</span>
                                 <span class="label label-danger"> {{contacterror}}</span>
                             </div>
                         </div>
-                    <div class="form-group">
-                        <label for="comments">
+                        <div class="form-group">
+                            <label for="comments">
                             Comments *</label>
-                        <textarea name="query" ng-model="data.comments" id="query" placeholder="Please share some comments" cols="30" rows="5" class="form-control"
-                            required></textarea>
-                        <div class="pull-right" ng-repeat="(field,value) in formData.query.$error" ng-show="formData.query.$touched">
-                            <span class="label label-danger" ng-if="field=='required' && value">Please share some comments</span>
+                            <textarea name="query" ng-model="data.comments" id="query" placeholder="Please share some comments" cols="30" rows="5" class="form-control"
+                                required></textarea>
+                            <div class="pull-right" ng-repeat="(field,value) in formData.query.$error" ng-show="formData.query.$touched">
+                                <span class="label label-danger" ng-if="field=='required' && value">Please share some comments</span>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <div class="text-center text-uppercase">
                         <button type="button" class="btn btn-primary text-uppercase send" ng-disabled="formData.$invalid" promise-btn ng-click="submitContact(data);$dismiss()">Submit</button>

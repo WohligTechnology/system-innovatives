@@ -19,6 +19,12 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         }
     ];
 
+// NavigationService.callApi("Projects/featuredProjects", function (data) {
+//      console.log("featured Projects data", data);
+//     //  $scope.Nomination = data.data.results;
+//     $scope.mySlides=data;
+//     console.log("$scope.mySlides", $scope.mySlides);
+//    });
 
     $scope.clickType = function (data) {
         $scope.selected = data;

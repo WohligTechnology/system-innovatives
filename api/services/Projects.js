@@ -64,6 +64,18 @@ var model = {
         });
     },
 
+    featuredProjects: function (data, callback) {
+        Projects.find({
+            featured: true
+        }).exec(function (err, data) {
+            if (err) {
+                callback(err, null)
+            } else {
+                callback(null, data)
+            }
+        });
+    },
+
 
 };
 module.exports = _.assign(module.exports, exports, model);
