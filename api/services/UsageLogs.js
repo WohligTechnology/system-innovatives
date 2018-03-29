@@ -3,9 +3,9 @@ var schema = new Schema({
         type: String,
         validate: validators.isEmail()
     },
-    activityDetail: [{
+    activityDetail: {
         type: String
-    }]
+    }
 });
 
 schema.plugin(deepPopulate, {});

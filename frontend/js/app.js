@@ -31,6 +31,12 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'LoginCtrl'
         })
+
+        .state('app.validation', {
+            url: "/validation?token",
+            templateUrl: "views/template/empty.html",
+            controller: 'ValidationCtrl'
+        })
         .state('app.home', {
             url: "/",
             templateUrl: tempateURL,
@@ -41,7 +47,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'ProjectCtrl'
         });
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/validation");
     $locationProvider.html5Mode(isproduction);
 });
 

@@ -1,26 +1,26 @@
-myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $uibModal,$stateParams) {
+myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $uibModal, $stateParams) {
     $scope.template = TemplateService.getHTML("content/project/project.html");
     TemplateService.title = "Project"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
 
-console.log("stateparam id",$stateParams.id)
+    console.log("stateparam id", $stateParams.id)
 
-$scope.dataId = {
-     _id: $stateParams.id
-   };
+    $scope.dataId = {
+        _id: $stateParams.id
+    };
 
-     NavigationService.callApiWithData("Projects/getOne", $scope.dataId, function (data) {
-     console.log("Project data", data.data);
-     $scope.projectData=data.data;
-    //  $scope.projectName=$scope.projectData.name;
-    //  $scope.projectImage=$scope.projectData.bannerImage;
-     $scope.project = [{
+    NavigationService.callApiWithData("Projects/getOne", $scope.dataId, function (data) {
+        console.log("Project data", data.data);
+        $scope.projectData = data.data;
+        //  $scope.projectName=$scope.projectData.name;
+        //  $scope.projectImage=$scope.projectData.bannerImage;
+        $scope.project = [{
             img: $scope.projectData.bannerImage,
             name: $scope.projectData.name
         }];
-   });
+    });
 
-   
+
 
     $scope.submitForm = function (data) {
         console.log("This is it");
@@ -54,23 +54,23 @@ $scope.dataId = {
     }
 
 
-$scope.submitFeedback = function (data) {
-        console.log("feedback");
+    // $scope.submitFeedback = function (data) {
+    //         console.log("feedback");
 
-        console.log("data in form", data);
-        $scope.feedbackData = {};
-        $scope.feedbackData.userEmail = data.userEmail;
-        $scope.feedbackData.comment = data.comment;
-        console.log("$scope.feedbackData", $scope.feedbackData);
-        NavigationService.callApiWithData("Feedback/feedback", $scope.feedbackData, function (data) {
-            console.log("data in api", data);
-
-
-        });
-    };
+    //         console.log("data in form", data);
+    //         $scope.feedbackData = {};
+    //         $scope.feedbackData.userEmail = data.userEmail;
+    //         $scope.feedbackData.comment = data.comment;
+    //         console.log("$scope.feedbackData", $scope.feedbackData);
+    //         NavigationService.callApiWithData("Feedback/feedback", $scope.feedbackData, function (data) {
+    //             console.log("data in api", data);
 
 
-$scope.checklen = function (data) {
+    //         });
+    //     };
+
+
+    $scope.checklen = function (data) {
         $scope.contacterror = "";
         var len = data.length;
         if (len < 10) {
@@ -81,8 +81,46 @@ $scope.checklen = function (data) {
         }
     }
 
- $scope.submitContact = function (data) {
-        console.log("data in form", data);
+    //  $scope.submitContact = function (data) {
+    //         console.log("data in form", data);
+    //         $scope.contactData = {};
+    //         $scope.contactData.userEmail = data.userEmail;
+    //         $scope.contactData.name = data.name;
+    //         $scope.contactData.number = data.number;
+    //         $scope.contactData.comments = data.comments;
+    //         console.log("$scope.contactData", $scope.contactData);
+    //         NavigationService.callApiWithData("Contact/contactUs", $scope.contactData, function (data) {
+    //             console.log("data in api", data);
+
+
+    //         });
+    //     };
+
+
+    //new validate//
+
+
+    $scope.contactForm = {};
+    $scope.submitForm = function (data) {
+        console.log('dkhicjii', data);
+        if (!data.name) {
+            $scope.nameError = true;
+            console.log("im im", $scope.showError);
+        }
+        if (!data.email) {
+            $scope.emailError = true;
+            console.log("im im", $scope.showError);
+        }
+        if (!data.contactno) {
+            $scope.contactnoError = true;
+            console.log("im im", $scope.showError);
+        }
+        if (!data.query) {
+            $scope.queryError = true;
+            console.log("im im", $scope.showError);
+        }
+
+
         $scope.contactData = {};
         $scope.contactData.userEmail = data.userEmail;
         $scope.contactData.name = data.name;
@@ -94,7 +132,74 @@ $scope.checklen = function (data) {
 
 
         });
+
+
     };
+
+
+    $scope.feedbackForm = {};
+    $scope.submitfeedbackForm = function (data1) {
+        console.log('dkhicjii', data1);
+        if (!data1.name) {
+            $scope.fnameError = true;
+            console.log("im im", $scope.showError);
+        }
+        if (!data1.email) {
+            $scope.femailError = true;
+            console.log("im im", $scope.showError);
+        }
+        if (!data1.contactno) {
+            $scope.fcontactnoError = true;
+            console.log("im im", $scope.showError);
+        }
+        if (!data1.query) {
+            $scope.fqueryError = true;
+            console.log("im im", $scope.showError);
+        }
+
+        $scope.feedbackData = {};
+        $scope.feedbackData.userEmail = data1.userEmail;
+        $scope.feedbackData.comment = data1.comment;
+        console.log("$scope.feedbackData", $scope.feedbackData);
+        NavigationService.callApiWithData("Feedback/feedback", $scope.feedbackData, function (data) {
+            console.log("data in api", data);
+
+
+        });
+
+
+
+
+
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //end
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -116,4 +221,3 @@ $scope.checklen = function (data) {
         }
     ]
 });
-

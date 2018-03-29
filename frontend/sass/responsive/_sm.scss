@@ -14,7 +14,7 @@
                 padding: 2px;
             }
             .custom-form {
-                padding: 10px;
+                padding: 20px;
             }
         }
     }
@@ -42,12 +42,18 @@
     }
     .home {
         .swiper-container {
-            .slider-content {
-                position: absolute;
-                bottom: 0px;
-                p {
-                    margin-bottom: 0;
-                }
+            .swiper-button-prev {
+                left: 5px;
+            }
+            .swiper-button-next {
+                left: 5px;
+            }
+        }
+        .slider-content {
+            position: absolute;
+            bottom: 20px;
+            p {
+                margin-bottom: 0;
             }
         }
     }
