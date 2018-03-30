@@ -34,7 +34,6 @@
             "tableRef": "description",
             "placeholder": "Enter description",
             "id": "description",
-            "validation": ["", "trim", "unique"],
             "url": ""
         },
         {
@@ -43,7 +42,6 @@
             "tableRef": "demoLink",
             "placeholder": "Enter demoLink",
             "id": "demoLink",
-            "validation": ["", "trim", "unique"],
             "url": ""
         },
         {
@@ -52,7 +50,6 @@
             "tableRef": "punchLine",
             "placeholder": "punchLine",
             "id": "punchLine",
-            "validation": ["", "trim", "unique"],
             "url": ""
         },
         {
@@ -61,7 +58,6 @@
             "tableRef": "shortDescription",
             "placeholder": "shortDescription",
             "id": "shortDescription",
-            "validation": ["", "trim", "unique"],
             "url": ""
         },
         {
@@ -70,7 +66,6 @@
             "tableRef": "featured",
             "placeholder": "featured",
             "id": "featured",
-            "validation": ["", "trim", "unique"],
             "url": ""
         },
         {
@@ -82,17 +77,15 @@
         "id": "bannerImage",
         "view": true,
         "disabled": true,
-        "validation": ["", "trim", "unique"],
         "url": ""
     },
     {
             "name": "Details",
             "isSort": "",
             "tableRef": "details",
-            "type": "wysiwyg",
+            "type": "textarea",
             "placeholder": "Enter name",
             "id": "input1",
-            "validation": ["", "trim", ""],
             "url": ""
         }
     ],
