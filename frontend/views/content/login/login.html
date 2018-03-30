@@ -10,28 +10,24 @@
 
             <!-- LOGIN FORM -->
             <div class="custom-form">
-                <form name="Form2" class="form-group">
-                     <div class="form-spacing">
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" ng-model="loginForm.email" class="form-control" id="email1" placeholder="Please enter your TUI email"
-                            name="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
-                        <div class="pull-right">
-                            <span class="label label-danger" ng-if="!loginForm.email && femailError && !Form2.email.$dirty">Please enter your TUI email</span>
-                            <span class="label label-danger" ng-show="Form2.email.$dirty && Form2.email.$error.pattern">Please enter valid email</span>
-                        </div>
+                <form novalidate name="loginFormName" class="form-group" ng-submit="submitloginForm(loginForm,loginFormName.$valid);">
+                    <div class="form-spacing">
+                        <div class="form-group">
 
+                            <label for="email">Email *</label>
+
+                            <input type="email" ng-model="loginForm.email" class="form-control" id="email" placeholder="Please enter your TUI email"
+                                name="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+                            <div class="pull-right">
+                                <span class="label label-danger" ng-show="loginFormName.email.$invalid && loginFormName.email.$viewValue && loginFormName.email.$dirty">Please enter valid email</span>
+                                <span class="label label-danger" ng-show="loginBtnClicked  && loginFormName.email.$error.required">Please enter email</span>
+                            </div>
+
+                        </div>
                     </div>
-                     </div>
-                     <div class="text-center text-uppercase">
-                        <button type="button" class="btn btn-primary text-uppercase send" promise-btn ng-click="submitloginForm(loginForm)">Send Access Link</button>
+                    <div class="text-center text-uppercase">
+                        <button type="submit" ng-disabled="apiCalling" class="btn btn-primary text-uppercase send" promise-btn>Send Access Link</button>
                     </div>
-                    <!--<div ng-if="emailExist text-center">
-                        Please check your email for further login details
-                    </div>
-                    <div ng-if="emailNotExist text-center">
-                        User does not exist.
-                    </div>-->
                 </form>
             </div>
         </div>

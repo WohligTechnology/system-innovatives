@@ -8,21 +8,27 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
 
     $scope.submitForm = false;
     $scope.loginForm = {};
-    $scope.submitloginForm = function (data2) {
-        if (!data2.email) {
-            $scope.femailError = true;
+    $scope.loginBtnClicked = false;
+    $scope.apiCalling = false;
+    $scope.submitloginForm = function (data, valid) {
+        if (valid) {
+            $scope.apiCalling = true;
+            $scope.email = data.email;
+            $scope.data = {};
+            $scope.data.email = data.email;
+            NavigationService.callApiWithData('User/sendAccess', $scope.data, function (data) {
+                if (data.value) {
+                    $scope.apiCalling = false;
+                    toastr.success('Login successful. Please check your email to verify token.');
+                    $scope.Form2 = {};
+                } else {
+                    $scope.apiCalling = false;
+                    toastr.error('Oops, Your Email ID doesn\'t exist with us!');
+                }
+            });
+        } else {
+            $scope.loginBtnClicked = true;
         }
-        $scope.email = data2.email;
-        $scope.data = {};
-        $scope.data.email = data2.email;
-        NavigationService.callApiWithData('User/sendAccess', $scope.data, function (data) {
-            if (data.value) {
-                toastr.success('Login successful. Please check your email to verify token.');
-                $scope.Form2 = {};
-            } else {
-                toastr.error('Oops, Your Email ID doesn\'t exist with us!');
-            }
-        });
 
     };
 
