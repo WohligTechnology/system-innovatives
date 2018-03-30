@@ -21,11 +21,16 @@
         <div class="container">
             <div class="block">
                 <!-- TEXT -->
-                <div class="marco-content text-center" ng-repeat="m in marcocontent">
+                <!--<div class="marco-content text-center" ng-repeat="m in marcocontent">
                     <h3 class="text-uppercase">{{m.title}}</h3>
                     <p>{{m.subtitle}}</p>
                     <img src="img/hr.png">
-                </div>
+                </div>-->
+
+<div ng-bind-html="projectData.details">
+                  
+</div>
+
     
                 <!-- CONTACT US -->
                 <div class="row">
