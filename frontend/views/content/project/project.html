@@ -1,52 +1,47 @@
 <div class="project">
-        <!-- BACKGROUND IMAGE -->
-        <div class="bg-project" ng-repeat="s in project" style="background:linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, .5)),url({{s.img | uploadpath}});">
-            <div class="bg-text text-center text-uppercase">
-                <h3>{{s.name}}</h3>
-                <div ng-if="demo">
-                <button class="btn btn-light text-uppercase">
-                    <i class="fas fa-eye"></i>&nbsp;View Demo</button>
-                </div>
-                <div ng-if="demoNo" ng-click="requestDemo(s.name)">
-                <button class="btn btn-light text-uppercase">
-                    <i class="fas fa-eye"></i>&nbsp;Request a Demo</button>
-                </div>
-            </div>
-            <div class="bottom-text text-center">
-                <p>"We achieve more when we chase the dream instead of competition."</p>
-            </div>
+    <!-- BACKGROUND IMAGE -->
+    <div class="bg-project" style="background:linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, .5)),url({{project.bannerImage | uploadpath}});">
+        <div class="bg-text text-center text-uppercase">
+            <h3>{{project.name}}</h3>
+
+            <!-- If We have demo link -->
+            <a ng-if="project.demoLink" class="btn btn-light text-uppercase" ng-href="{{s}}" target="_blank">
+                    <i class="fas fa-eye"></i> View Demo
+            </a>
+
+            <!-- If We dont have demo link -->
+            <button ng-if="!project.demoLink" type="button" class="btn btn-light text-uppercase" ng-click="requestDemo(project.name)">
+                    <i class="fas fa-eye"></i> Request a Demo
+            </button>
+
         </div>
-    
-        <!-- CONTENT -->
-        <div class="container">
-            <div class="block">
-                <!-- TEXT -->
-                <!--<div class="marco-content text-center" ng-repeat="m in marcocontent">
-                    <h3 class="text-uppercase">{{m.title}}</h3>
-                    <p>{{m.subtitle}}</p>
-                    <img src="img/hr.png">
-                </div>-->
+        <div class="bottom-text text-center">
+            <p>"{{project.punchLine}}"</p>
+        </div>
+    </div>
 
-<div ng-bind-html="projectData.details">
-                  
-</div>
+    <!-- CONTENT -->
+    <div class="container">
+        <div class="block">
 
-    
-                <!-- CONTACT US -->
-                <div class="row">
-                    <div class="marco-content col-sm-6 text-center">
-                        <h3 class="text-uppercase">Want to know more?</h3>
-                        <button class="btn btn-primary text-uppercase" ng-click="openModal()">
-                            <i class="fas fa-edit"></i>&nbsp;Contact Us</button>
-                    </div>
-    
-                    <!-- FACEBOOK -->
-                    <div class="marco-content col-sm-6 text-center">
-                        <h3 class="text-uppercase">Have some thoughts?</h3>
-                        <button class="btn btn-primary text-uppercase" ng-click="openFeedback()">
-                            <i class="fas fa-edit"></i>&nbsp;Share Your Feedback</button>
-                    </div>
+            <!-- Description -->
+            <span ng-bind-html="project.details"></span>
+
+            <!-- Contact Us -->
+            <div class="row">
+                <div class="marco-content col-sm-6 text-center">
+                    <h3 class="text-uppercase">Want to know more?</h3>
+                    <button class="btn btn-primary text-uppercase" ng-click="openContact()">
+                            <i class="fas fa-phone"></i> Contact Us</button>
+                </div>
+
+                <!-- Feedback -->
+                <div class="marco-content col-sm-6 text-center">
+                    <h3 class="text-uppercase">Have some thoughts?</h3>
+                    <button class="btn btn-primary text-uppercase" ng-click="openFeedback()">
+                            <i class="fas fa-edit"></i> Share Your Feedback</button>
                 </div>
             </div>
         </div>
     </div>
+</div>

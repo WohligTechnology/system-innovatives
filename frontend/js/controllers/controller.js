@@ -1,46 +1,43 @@
-myApp.controller('DemoAPICtrl', function ($scope, TemplateService, apiService, NavigationService, $timeout) {
-    apiService.getDemo($scope.formData, function (data) {
-        console.log(data);
-    });
-});
-
-myApp.controller('AppCtrl', function ($scope, TemplateService, apiService, NavigationService, $timeout, $state,$stateParams,$location) {
+myApp.controller('AppCtrl', function ($scope, TemplateService, apiService, NavigationService, $timeout, $state, $stateParams, $location) {
 
 
-if($.jStorage.get("user")){
-var tokenKey = $.jStorage.get("user").tokenKey;
-}
+    if ($.jStorage.get("user")) {
+        var tokenKey = $.jStorage.get("user").tokenKey;
+    }
 
-if($state.params.token){
-var tokenParam=$state.params.token;
-}
+    if ($state.params.token) {
+        var tokenParam = $state.params.token;
+    }
 
     $scope.verifyToken = function (token) {
-        $scope.data1={};
-        $scope.data1.token=token;
-        NavigationService.callApiWithData('User/verifyToken',$scope.data1, function (data) {
+        $scope.data1 = {};
+        $scope.data1.token = token;
+        NavigationService.callApiWithData('User/verifyToken', $scope.data1, function (data) {
             console.log("data in verify user", data);
             if (data.value) {
-                $.jStorage.set("user", data.data);
-                $state.go('app.home');
+                if ($state.current.name == 'app.validation') {
+                    $.jStorage.set("user", data.data);
+                    $state.go('app.home');
+                }
             } else {
                 $state.go('login');
+                $.jStorage.flush();
             }
         })
     }
 
-    if (_.isEmpty(tokenKey)) 
-    {
-        if ($state.params.token) {
+    if (!tokenKey) {
+        if (tokenParam) {
             // API Call
-            $scope.verifyToken($state.params.token);
+            $scope.verifyToken(tokenParam);
         } else {
             // Go To Login
-                $state.go('login');
+            $state.go('login');
         }
 
-    } else { // If jstorage not empty
-        // $scope.verifyToken(tokenKey);
+    } else { 
+        // If jstorage not empty
+        $scope.verifyToken(tokenKey);
     }
 
 
