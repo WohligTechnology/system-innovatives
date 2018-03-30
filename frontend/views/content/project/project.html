@@ -3,8 +3,14 @@
         <div class="bg-project" ng-repeat="s in project" style="background:linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, .5)),url({{s.img | uploadpath}});">
             <div class="bg-text text-center text-uppercase">
                 <h3>{{s.name}}</h3>
+                <div ng-if="demo">
                 <button class="btn btn-light text-uppercase">
                     <i class="fas fa-eye"></i>&nbsp;View Demo</button>
+                </div>
+                <div ng-if="demoNo" ng-click="requestDemo(s.name)">
+                <button class="btn btn-light text-uppercase">
+                    <i class="fas fa-eye"></i>&nbsp;Request a Demo</button>
+                </div>
             </div>
             <div class="bottom-text text-center">
                 <p>"We achieve more when we chase the dream instead of competition."</p>

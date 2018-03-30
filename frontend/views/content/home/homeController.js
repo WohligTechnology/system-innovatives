@@ -1,9 +1,7 @@
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http,$state,$stateParams) {
+myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http,$state,$stateParams,$uibModal) {
     $scope.template = TemplateService.getHTML("content/home/home.html");
     TemplateService.title = "Home"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
-
-console.log("inside home");
 
     NavigationService.callApi("Projects/featuredProjects", function (data) {
     $scope.mySlidess=data.data;
@@ -74,4 +72,46 @@ console.log("inside home");
             }
         })
     }, 100);
+
+
+
+//DISCUSS NOW MODAL
+    $scope.openModal = function () {
+        $scope.feedback = $uibModal.open({
+            animation: true,
+            templateUrl: "views/content/contactus/contactus.html",
+            scope: $scope,
+            size: 'lg',
+            // backdropClass: 'back-drop'
+        });
+    }
+    //DISCUSS NOW- CONTACT FORM VALIDATIONS
+    $scope.contactForm = {};
+    $scope.submitForm = function (data) {
+        if (!data.name) {
+            $scope.nameError = true;
+        }
+        if (!data.email) {
+            $scope.emailError = true;
+        }
+        if (!data.contactno) {
+            $scope.contactnoError = true;
+        }
+        if (!data.query) {
+            $scope.queryError = true;
+        }
+        $scope.contactData = {};
+        $scope.contactData.userEmail = data.userEmail;
+        $scope.contactData.name = data.name;
+        $scope.contactData.number = data.number;
+        $scope.contactData.comments = data.comments;
+        NavigationService.callApiWithData("Contact/contactUs", $scope.contactData, function (data) {
+            console.log("data in api", data);
+
+        });
+    };
+
+
+
+
 });

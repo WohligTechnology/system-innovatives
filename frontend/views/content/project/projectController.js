@@ -12,8 +12,18 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
     NavigationService.callApiWithData("Projects/getOne", $scope.dataId, function (data) {
         console.log("Project data", data.data);
         $scope.projectData = data.data;
-        //  $scope.projectName=$scope.projectData.name;
-        //  $scope.projectImage=$scope.projectData.bannerImage;
+
+        if ($scope.projectData.demoLink == "") {
+            $scope.demo = false;
+            $scope.demoNo = true;
+            
+        } else {
+            $scope.demo = true;
+            $scope.demoNo = false;
+            
+        }
+
+
         $scope.project = [{
             img: $scope.projectData.bannerImage,
             name: $scope.projectData.name
@@ -23,7 +33,6 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
 
 
     $scope.submitForm = function (data) {
-        console.log("This is it");
         return new Promise(function (callback) {
             $timeout(function () {
                 callback();
@@ -31,8 +40,26 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
         });
     };
 
+    $scope.requestDemo = function (projectName) {
+
+
+        $scope.requestData = {};
+        $scope.requestData.project = projectName;
+        $scope.requestData.email = $.jStorage.get("user").email;
+        NavigationService.callApiWithData("Projects/requestDemo", $scope.requestData, function (data) {
+            if (data.value) {
+                toastr.success('Demo request sent. We will get back you shortly');
+            }
+
+        });
+
+
+    };
+
+
+
+
     $scope.openModal = function () {
-        console.log("inside modal");
         $scope.feedback = $uibModal.open({
             animation: true,
             templateUrl: "views/content/contactus/contactus.html",
@@ -43,7 +70,6 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
     }
 
     $scope.openFeedback = function () {
-        console.log("inside modal");
         $scope.feedback = $uibModal.open({
             animation: true,
             templateUrl: "views/content/feedback/feedback.html",
@@ -54,70 +80,32 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
     }
 
 
-    // $scope.submitFeedback = function (data) {
-    //         console.log("feedback");
-
-    //         console.log("data in form", data);
-    //         $scope.feedbackData = {};
-    //         $scope.feedbackData.userEmail = data.userEmail;
-    //         $scope.feedbackData.comment = data.comment;
-    //         console.log("$scope.feedbackData", $scope.feedbackData);
-    //         NavigationService.callApiWithData("Feedback/feedback", $scope.feedbackData, function (data) {
-    //             console.log("data in api", data);
-
-
-    //         });
-    //     };
-
-
     $scope.checklen = function (data) {
         $scope.contacterror = "";
         var len = data.length;
         if (len < 10) {
             $scope.contacterror = "Please enter a valid phone number";
-            console.log('In Length', len);
         } else if (len == 10) {
             $scope.contacterror = "";
         }
     }
-
-    //  $scope.submitContact = function (data) {
-    //         console.log("data in form", data);
-    //         $scope.contactData = {};
-    //         $scope.contactData.userEmail = data.userEmail;
-    //         $scope.contactData.name = data.name;
-    //         $scope.contactData.number = data.number;
-    //         $scope.contactData.comments = data.comments;
-    //         console.log("$scope.contactData", $scope.contactData);
-    //         NavigationService.callApiWithData("Contact/contactUs", $scope.contactData, function (data) {
-    //             console.log("data in api", data);
-
-
-    //         });
-    //     };
-
 
     //new validate//
 
 
     $scope.contactForm = {};
     $scope.submitForm = function (data) {
-        console.log('dkhicjii', data);
         if (!data.name) {
             $scope.nameError = true;
-            console.log("im im", $scope.showError);
         }
         if (!data.email) {
             $scope.emailError = true;
-            console.log("im im", $scope.showError);
         }
         if (!data.contactno) {
             $scope.contactnoError = true;
-            console.log("im im", $scope.showError);
         }
         if (!data.query) {
             $scope.queryError = true;
-            console.log("im im", $scope.showError);
         }
 
 
@@ -126,7 +114,6 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
         $scope.contactData.name = data.name;
         $scope.contactData.number = data.number;
         $scope.contactData.comments = data.comments;
-        console.log("$scope.contactData", $scope.contactData);
         NavigationService.callApiWithData("Contact/contactUs", $scope.contactData, function (data) {
             console.log("data in api", data);
 
@@ -138,70 +125,32 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
 
 
     $scope.feedbackForm = {};
-    $scope.submitfeedbackForm = function (data1) {
-        console.log('dkhicjii', data1);
+    $scope.submitFeedback = function (data1) {
         if (!data1.name) {
             $scope.fnameError = true;
-            console.log("im im", $scope.showError);
         }
         if (!data1.email) {
             $scope.femailError = true;
-            console.log("im im", $scope.showError);
         }
         if (!data1.contactno) {
             $scope.fcontactnoError = true;
-            console.log("im im", $scope.showError);
         }
         if (!data1.query) {
             $scope.fqueryError = true;
-            console.log("im im", $scope.showError);
         }
 
         $scope.feedbackData = {};
         $scope.feedbackData.userEmail = data1.userEmail;
         $scope.feedbackData.comment = data1.comment;
-        console.log("$scope.feedbackData", $scope.feedbackData);
+        $scope.feedbackData.rating = data1.rating;
         NavigationService.callApiWithData("Feedback/feedback", $scope.feedbackData, function (data) {
             console.log("data in api", data);
 
 
         });
-
-
-
-
-
     };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     $scope.marcocontent = [{
             title: 'Overview',
@@ -220,4 +169,7 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
             subtitle: 'Donec id interdum erat. Donec vitae orci tellus. Proin scelerisque et justo vel placerat. Mauris dapibus ornare purus eu condimentum. Suspendisse faucibus felis nec elit maximus accumsan. Pellentesque vulputate mi sed mi i'
         }
     ]
+
+
+
 });

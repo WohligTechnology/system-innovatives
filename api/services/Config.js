@@ -407,9 +407,10 @@ var models = {
                                     to_email = new helper.Email(data.email);
                                     subject = data.subject;
                                     tokenKey = data.tokenKey;
+                                    project = data.project;
                                     // name = data.name;
                                     content = new helper.Content("text/html", body);
-                                    mail = new helper.Mail(from_email, subject, to_email, content,tokenKey);
+                                    mail = new helper.Mail(from_email, subject, to_email, content,tokenKey,project);
                                     if (data.file) {
                                         var attachment = new helper.Attachment();
                                         var file = fs.readFileSync('pdf/' + data.file);

@@ -1,6 +1,6 @@
 var schema = new Schema({
     rating: {
-        type: String
+        type: Number
     },
     comment: {
         type: String

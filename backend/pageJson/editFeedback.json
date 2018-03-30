@@ -7,7 +7,7 @@
     "urlFields": ["_id"],
     "fields": [{
             "name": "Rating",
-            "type": "text",
+            "type": "number",
             "tableRef": "rating",
             "placeholder": "Enter rating",
             "id": "rating",

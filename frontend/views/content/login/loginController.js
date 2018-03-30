@@ -37,12 +37,12 @@ console.log("inside Login");
          $scope.data.email=data2.email;
        NavigationService.callApiWithData('User/sendAccess',$scope.data, function (data) {
            if(data.value){
-               $scope.emailExist=true;
-               $scope.emailNotExist=false;
+            console.log("login done");
+            toastr.success('Login successful. Please check your email to verify token.');
            }
            else{
-               $scope.emailNotExist=true;
-               $scope.emailExist=false;
+               console.log("no login");
+               toastr.error('Invalid Credentials');
            }
 
        })
