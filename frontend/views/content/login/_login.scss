@@ -1,7 +1,6 @@
 //LOGIN PAGE
 .login {
-    background: url('../img/bg-login.jpg') no-repeat center center;
-    min-height: calc(100vh - 109px);
+    min-height: $body-height;
     background-size: cover;
     position: relative;
     .login-box {
@@ -11,15 +10,16 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        @include prefixer(transform,
-        translate(-50%, -50%),
-        ("webkit", "moz"));
+        @include prefixer(transform, translate(-50%, -50%), ("webkit", "moz"));
         hr {
             border: 0.6px solid $neavyblue;
         }
         .subtitle {
             color: #898989;
-            -webkit-font-smoothing: antialiased;
+            p {
+                padding: 0 10px;
+                margin: 0;
+            }
         }
         .custom-form {
             padding: 20px 80px;
@@ -54,4 +54,9 @@
             padding: 25px 0px;
         }
     }
+}
+
+.login-bg {
+    background: url('../img/bg-login.jpg') no-repeat center center;
+    background-size: cover;
 }
