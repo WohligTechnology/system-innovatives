@@ -66,7 +66,7 @@
         },
         {
             "name": "Featured",
-            "type": "text",
+            "type": "checkbox",
             "tableRef": "featured",
             "placeholder": "featured",
             "id": "featured",

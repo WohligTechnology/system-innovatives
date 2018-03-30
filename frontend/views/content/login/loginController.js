@@ -39,6 +39,7 @@ console.log("inside Login");
            if(data.value){
             console.log("login done");
             toastr.success('Login successful. Please check your email to verify token.');
+            $scope.Form2={};
            }
            else{
                console.log("no login");
