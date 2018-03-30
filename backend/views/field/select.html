@@ -2,10 +2,9 @@
     <label>{{type.name}}
         <span ng-show="type.required">*</span>
     </label>
-    <pre>{{type|json}}</pre>
     <select class="form-control" name="{{type.tableRef}}" placeholder="{{type.placeholder}}" ng-model="formData[type.tableRef]"
-        ng-required="type.required">
-        <option>1</option>
+        ng-required="type.required" ng-options="i for i in type.dropDown">
+        <option>Please Select</option>
     </select>
     <div class="error-msg" ng-show="detailForm[type.tableRef].$invalid && detailForm[type.tableRef].$touched">Please select valid {{type.name}}</div>
 </div>
