@@ -6,11 +6,11 @@
     .swiper-container {
         width: 100%;
         height: 100%;
-        .home-slider{
+        .home-slider {
             height: 45vh;
-    background-size: cover !important;
-    background-position: center center !important;
-    position: relative !important;
+            background-size: cover !important;
+            background-position: center center !important;
+            position: relative !important;
         }
         .swiper-slide {
             font-size: inherit;
@@ -18,7 +18,6 @@
         a {
             color: $white;
             -webkit-font-smoothing: antialiased;
-            font-family: TUI_Regular;
             font-size: 19px;
         }
         .swiper-button-next {
@@ -97,7 +96,6 @@
                             color: $white;
                         }
                         p {
-                            font-family: TUI_Regular;
                             overflow: hidden;
                             text-overflow: ellipsis;
                             display: -webkit-box;
@@ -109,7 +107,7 @@
                             /* number of lines to show */
                             -webkit-box-orient: vertical;
                         }
-                        .view-demo{
+                        .view-demo {
                             color: #f8f9fa;
                             background-color: transparent;
                             background-image: none;
