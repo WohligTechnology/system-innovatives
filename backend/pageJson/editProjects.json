@@ -85,7 +85,7 @@
             "tableRef": "details",
             "type": "textarea",
             "placeholder": "Enter name",
-            "id": "input1",
+            "id": "details",
             "url": ""
         }
     ],
