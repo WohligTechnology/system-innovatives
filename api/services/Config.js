@@ -23,12 +23,12 @@ var schema = new Schema({
 // });
 
 module.exports = mongoose.model('Config', schema);
-var requrl = "http://wohlig.io:1337/api/";
-// var requrl = "http://innovatives.sptr.co/api/";
+// var requrl = "http://wohlig.io:1337/api/";
+var requrl = "http://innovatives.sptr.co/api/";
 var models = {
-    
+
     maxRow: 10,
-    
+
     getForeignKeys: function (schema) {
         var arr = [];
         _.each(schema.tree, function (n, name) {
@@ -402,13 +402,15 @@ var models = {
                             } else {
                                 if (body && body.value != false) {
                                     var helper = require('sendgrid').mail;
-
+                                    console.log("data in mail", data);
                                     from_email = new helper.Email(data.from);
                                     to_email = new helper.Email(data.email);
                                     subject = data.subject;
+                                    tokenKey = data.tokenKey;
+                                    project = data.project;
                                     // name = data.name;
                                     content = new helper.Content("text/html", body);
-                                    mail = new helper.Mail(from_email, subject, to_email, content);
+                                    mail = new helper.Mail(from_email, subject, to_email, content,tokenKey,project);
                                     if (data.file) {
                                         var attachment = new helper.Attachment();
                                         var file = fs.readFileSync('pdf/' + data.file);

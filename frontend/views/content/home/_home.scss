@@ -109,6 +109,24 @@
                             /* number of lines to show */
                             -webkit-box-orient: vertical;
                         }
+                        .view-demo{
+                            color: #f8f9fa;
+                            background-color: transparent;
+                            background-image: none;
+                            border-color: #f8f9fa;
+                            display: inline-block;
+                            font-weight: normal;
+                            text-align: center;
+                            white-space: nowrap;
+                            vertical-align: middle;
+                            -webkit-user-select: none;
+                            -moz-user-select: none;
+                            -ms-user-select: none;
+                            user-select: none;
+                            border: 1px solid #fff;
+                            padding: 0.5rem 1rem;
+                            line-height: 1.25;
+                        }
                     }
                 }
             }

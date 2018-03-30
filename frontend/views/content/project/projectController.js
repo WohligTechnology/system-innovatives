@@ -1,29 +1,38 @@
-myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $uibModal,$stateParams) {
+myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $uibModal, $stateParams) {
     $scope.template = TemplateService.getHTML("content/project/project.html");
     TemplateService.title = "Project"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
 
-console.log("stateparam id",$stateParams.id)
+    console.log("stateparam id", $stateParams.id)
 
-$scope.dataId = {
-     _id: $stateParams.id
-   };
+    $scope.dataId = {
+        _id: $stateParams.id
+    };
 
-     NavigationService.callApiWithData("Projects/getOne", $scope.dataId, function (data) {
-     console.log("Project data", data.data);
-     $scope.projectData=data.data;
-    //  $scope.projectName=$scope.projectData.name;
-    //  $scope.projectImage=$scope.projectData.bannerImage;
-     $scope.project = [{
+    NavigationService.callApiWithData("Projects/getOne", $scope.dataId, function (data) {
+        // console.log("Project data", data.data);
+        $scope.projectData = data.data;
+
+        if ($scope.projectData.demoLink == "") {
+            $scope.demo = false;
+            $scope.demoNo = true;
+            
+        } else {
+            $scope.demo = true;
+            $scope.demoNo = false;
+            
+        }
+
+
+        $scope.project = [{
             img: $scope.projectData.bannerImage,
             name: $scope.projectData.name
         }];
-   });
+    });
 
-   
+
 
     $scope.submitForm = function (data) {
-        console.log("This is it");
         return new Promise(function (callback) {
             $timeout(function () {
                 callback();
@@ -31,8 +40,26 @@ $scope.dataId = {
         });
     };
 
+    $scope.requestDemo = function (projectName) {
+
+
+        $scope.requestData = {};
+        $scope.requestData.project = projectName;
+        $scope.requestData.email = $.jStorage.get("user").email;
+        NavigationService.callApiWithData("Projects/requestDemo", $scope.requestData, function (data) {
+            if (data.value) {
+                toastr.success('Demo request sent. We will get back you shortly');
+            }
+
+        });
+
+
+    };
+
+
+
+
     $scope.openModal = function () {
-        console.log("inside modal");
         $scope.feedback = $uibModal.open({
             animation: true,
             templateUrl: "views/content/contactus/contactus.html",
@@ -43,7 +70,6 @@ $scope.dataId = {
     }
 
     $scope.openFeedback = function () {
-        console.log("inside modal");
         $scope.feedback = $uibModal.open({
             animation: true,
             templateUrl: "views/content/feedback/feedback.html",
@@ -54,14 +80,69 @@ $scope.dataId = {
     }
 
 
-$scope.submitFeedback = function (data) {
-        console.log("feedback");
+    $scope.checklen = function (data) {
+        $scope.contacterror = "";
+        var len = data.length;
+        if (len < 10) {
+            $scope.contacterror = "Please enter a valid phone number";
+        } else if (len == 10) {
+            $scope.contacterror = "";
+        }
+    }
 
-        console.log("data in form", data);
+    //new validate//
+
+
+    $scope.contactForm = {};
+    $scope.submitForm = function (data) {
+        if (!data.name) {
+            $scope.nameError = true;
+        }
+        if (!data.email) {
+            $scope.emailError = true;
+        }
+        if (!data.contactno) {
+            $scope.contactnoError = true;
+        }
+        if (!data.query) {
+            $scope.queryError = true;
+        }
+
+
+        $scope.contactData = {};
+        $scope.contactData.userEmail = data.userEmail;
+        $scope.contactData.name = data.name;
+        $scope.contactData.number = data.number;
+        $scope.contactData.comments = data.comments;
+        NavigationService.callApiWithData("Contact/contactUs", $scope.contactData, function (data) {
+            console.log("data in api", data);
+
+
+        });
+
+
+    };
+
+
+    $scope.feedbackForm = {};
+    $scope.submitFeedback = function (data1) {
+        if (!data1.name) {
+            $scope.fnameError = true;
+        }
+        if (!data1.email) {
+            $scope.femailError = true;
+        }
+        if (!data1.contactno) {
+            $scope.fcontactnoError = true;
+        }
+        if (!data1.query) {
+            $scope.fqueryError = true;
+        }
+
         $scope.feedbackData = {};
-        $scope.feedbackData.userEmail = data.userEmail;
-        $scope.feedbackData.comment = data.comment;
-        console.log("$scope.feedbackData", $scope.feedbackData);
+        $scope.feedbackData.userEmail = data1.userEmail;
+        $scope.feedbackData.comment = data1.comment;
+        $scope.feedbackData.rating = data1.rating;
         NavigationService.callApiWithData("Feedback/feedback", $scope.feedbackData, function (data) {
             console.log("data in api", data);
 
@@ -69,51 +150,26 @@ $scope.submitFeedback = function (data) {
         });
     };
 
+    //end
 
-$scope.checklen = function (data) {
-        $scope.contacterror = "";
-        var len = data.length;
-        if (len < 10) {
-            $scope.contacterror = "Please enter a valid phone number";
-            console.log('In Length', len);
-        } else if (len == 10) {
-            $scope.contacterror = "";
-        }
-    }
-
- $scope.submitContact = function (data) {
-        console.log("data in form", data);
-        $scope.contactData = {};
-        $scope.contactData.userEmail = data.userEmail;
-        $scope.contactData.name = data.name;
-        $scope.contactData.number = data.number;
-        $scope.contactData.comments = data.comments;
-        console.log("$scope.contactData", $scope.contactData);
-        NavigationService.callApiWithData("Contact/contactUs", $scope.contactData, function (data) {
-            console.log("data in api", data);
-
-
-        });
-    };
+    // $scope.marcocontent = [{
+    //         title: 'Overview',
+    //         subtitle: 'An AR application to be used on Destinations, Cruises & more.'
+    //     },
+    //     {
+    //         title: 'Challenges',
+    //         subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pellentesque est id lacus eleifend feugiat. Ut ut velit vel nulla venenatis egestas a ac risus. Morbi ex risus, maximus ac nunc id, varius interdum tortor. Pellentesque feugiat, turpis vitae lobortis gravida, ante erat pretium purus, vel efficitur tortor quam nec eros.'
+    //     },
+    //     {
+    //         title: 'Our Solution',
+    //         subtitle: 'Cras in vulputate quam. Nam mollis, ex non scelerisque sodales, ipsum eros aliquam turpis, in feugiat erat metus eu dui. Morbi eu lectus ex. Fusce iaculis nisl condimentum, pharetra urna in, egestas augue. '
+    //     },
+    //     {
+    //         title: 'Use Cases',
+    //         subtitle: 'Donec id interdum erat. Donec vitae orci tellus. Proin scelerisque et justo vel placerat. Mauris dapibus ornare purus eu condimentum. Suspendisse faucibus felis nec elit maximus accumsan. Pellentesque vulputate mi sed mi i'
+    //     }
+    // ]
 
 
 
-    $scope.marcocontent = [{
-            title: 'Overview',
-            subtitle: 'An AR application to be used on Destinations, Cruises & more.'
-        },
-        {
-            title: 'Challenges',
-            subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pellentesque est id lacus eleifend feugiat. Ut ut velit vel nulla venenatis egestas a ac risus. Morbi ex risus, maximus ac nunc id, varius interdum tortor. Pellentesque feugiat, turpis vitae lobortis gravida, ante erat pretium purus, vel efficitur tortor quam nec eros.'
-        },
-        {
-            title: 'Our Solution',
-            subtitle: 'Cras in vulputate quam. Nam mollis, ex non scelerisque sodales, ipsum eros aliquam turpis, in feugiat erat metus eu dui. Morbi eu lectus ex. Fusce iaculis nisl condimentum, pharetra urna in, egestas augue. '
-        },
-        {
-            title: 'Use Cases',
-            subtitle: 'Donec id interdum erat. Donec vitae orci tellus. Proin scelerisque et justo vel placerat. Mauris dapibus ornare purus eu condimentum. Suspendisse faucibus felis nec elit maximus accumsan. Pellentesque vulputate mi sed mi i'
-        }
-    ]
 });
-

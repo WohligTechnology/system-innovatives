@@ -19,5 +19,8 @@ var controller = {
     featuredProjects: function (req, res) {
         Projects.featuredProjects(req.body, res.callback);
     },
+    requestDemo: function (req, res) {
+        Projects.requestDemo(req.body, res.callback);
+    },
 };
 module.exports = _.assign(module.exports, controller);

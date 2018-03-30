@@ -5,22 +5,21 @@
             <div class="swiper-wrapper">
 
                 <!-- SLIDER IMAGES -->
-                <div class="swiper-slide home-slider" ng-repeat="s in mySlides" style="background:url({{s.img}}) center center / 100% 100% no-repeat; background-size: cover; height: 360px;">
+                <div class="swiper-slide home-slider" ng-repeat="s in mySlidess" style="background:url({{s.bannerImage | uploadpath}}) center center / 100% 100% no-repeat; background-size: cover;">
                     <div class="slider-content container text-left">
                         <div class="text-content">
-                            <h4 class="text-uppercase">{{s.title}}</h4>
-                            <p>{{s.subtitle}}</p>
-                            <a href="#" class="mr-3">Learn More
+                            <h4 class="text-uppercase">{{s.name}}</h4>
+                            <p>{{s.shortDescription}}</p>
+                            <p class="mr-3 inline pointer" ng-click="">Learn More
                                 <i class="fas fa-angle-double-right fa-xs"></i>
-                            </a>
-                            <a href="#">View Demo
-                                <i class="fas fa-angle-double-right fa-xs"></i>
+                            </p>
+                            <a class="inline" ng-href=" {{s.demoLink}} " target="_blank ">View Demo
+                                <i class="fas fa-angle-double-right fa-xs "></i>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-
             <!-- NAVIGATION BUTTONS -->
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -30,10 +29,10 @@
     <!-- DISCUSS NOW -->
     <div class="container">
         <div class="discuss-now text-center">
-            <p class="font-Merri mr-3 inline">"A vision is like a dream - it wil ldisappear unless we do something with it."
+            <p class="font-Merri mr-3 inline">"A vision is like a dream - it will disappear unless we do something with it."
             </p>
             <span class="inline">
-                <button type="submit" class="btn btn-primary text-uppercase discuss-btn">Discuss Now</button>
+                <button type="submit" class="btn btn-primary text-uppercase discuss-btn" ng-click="openModal()">Discuss Now</button>
             </span>
         </div>
     </div>
@@ -66,7 +65,7 @@
                             <div class="text">
                                 <h4 class="text-uppercase">{{x.name}}</h4>
                                 <p>{{x.shortDescription}}</p>
-                                <button type="button" class="btn btn-outline-light">View Demo </button>
+                                <a class="view-demo">View Demo</a>
                             </div>
                         </div>
                     </div>

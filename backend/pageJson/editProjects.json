@@ -82,9 +82,19 @@
         "id": "bannerImage",
         "view": true,
         "disabled": true,
-        "validation": ["required", "trim", "unique"],
+        "validation": ["", "trim", "unique"],
         "url": ""
-    }
+    },
+    {
+            "name": "Details",
+            "isSort": "",
+            "tableRef": "details",
+            "type": "wysiwyg",
+            "placeholder": "Enter name",
+            "id": "input1",
+            "validation": ["", "trim", ""],
+            "url": ""
+        }
     ],
     "action": [{
         "name": "submit",

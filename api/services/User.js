@@ -178,8 +178,10 @@ var model = {
                 },
                 function (foundObj, cbWaterfall1) {
                     var emailData = {};
+                    console.log("foundObj: ", foundObj);
                     console.log("data: ", data);
                     emailData.email = data.email;
+                    emailData.tokenKey = foundObj.tokenKey;
                     emailData.from = "sayali.ghule@wohlig.com.com";
                     emailData.filename = "verification.ejs";
                     emailData.subject = "Verify Token key";
@@ -213,15 +215,16 @@ var model = {
     },
 
     verifyToken: function (data, callback) {
+        console.log("data",data);
         User.findOne({
-            tokenKey: data.tokenKey,
+            tokenKey: data.token,
         }).exec(function (err, found) {
             if (err) {
                 callback(err, null);
             } else {
                 if (!_.isEmpty(found)) {
                     var foundObj = found.toObject();
-                    callback(null, foundObj.email);
+                    callback(null, foundObj);
                 } else {
                     callback("Incorrect Credentials!", null);
                 }
