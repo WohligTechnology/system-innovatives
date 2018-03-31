@@ -155,7 +155,6 @@ var model = {
     //email verification
 
     sendAccess: function (data, callback) {
-        console.log("inside sendAccess",data)
         async.waterfall([
                 function (cbWaterfall) {
                     User.findOne({
@@ -166,7 +165,6 @@ var model = {
                         } else {
                             if (!_.isEmpty(found)) {
                                 var foundObj = found.toObject();
-                                delete foundObj.password;
                                 cbWaterfall(null, foundObj);
                             } else {
                                 cbWaterfall("Incorrect Credentials!", null);
@@ -189,7 +187,6 @@ var model = {
 
                     Config.email(emailData, function (err, emailRespo) {
                         if (err) {
-                            console.log(err);
                             cbWaterfall1(null, err);
                         } else if (emailRespo) {
                             cbWaterfall1(null, emailRespo);
@@ -201,7 +198,6 @@ var model = {
             ],
             function (err, data2) {
                 if (err) {
-                    console.log(err);
                     callback(err,null);
                 } else if (data2) {
                     if (_.isEmpty(data2)) {

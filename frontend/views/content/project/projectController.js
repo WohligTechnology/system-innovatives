@@ -12,7 +12,6 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
 
     });
 
-
     $scope.submitForm = function (data) {
         return new Promise(function (callback) {
             $timeout(function () {
@@ -64,6 +63,8 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
         }
     }
 
+
+    //contactus form
     $scope.submitForm = false;
     $scope.contactForm = {};
     $scope.contactBtnClicked = false;
@@ -80,9 +81,11 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
                 if (data.value) {
                     $scope.apiCalling = false;
                     $scope.contactInstance.close();
+                    $scope.contactFormName = {};
                 } else {
                     $scope.apiCalling = false;
                     $scope.contactInstance.close();
+                    $scope.contactFormName = {};
                 }
             });
         } else {
@@ -90,12 +93,13 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
         }
     };
 
+
+    //feedback form
     $scope.submitForm = false;
     $scope.feedbackForm = {};
     $scope.feedbackBtnClicked = false;
     $scope.apiCalling = false;
     $scope.submitfeedbackForm = function (data, valid, rating) {
-        console.log("project name", $scope.project.name);
         if (valid && rating != 0) {
             $scope.apiCalling = true;
             $scope.data = {};
@@ -107,9 +111,11 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
                 if (data.value) {
                     $scope.apiCalling = false;
                     $scope.feedbackInstance.close();
+                    $scope.feedbackFormName = {};
                 } else {
                     $scope.apiCalling = false;
                     $scope.feedbackInstance.close();
+                    $scope.feedbackFormName = {};
                 }
             });
         } else {
