@@ -1,11 +1,11 @@
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http,$state,$stateParams,$uibModal) {
+myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $state, $stateParams, $uibModal) {
     $scope.template = TemplateService.getHTML("content/home/home.html");
     TemplateService.title = "Home"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
 
     NavigationService.callApi("Projects/featuredProjects", function (data) {
-    $scope.mySlidess=data.data;
-   });
+        $scope.mySlidess = data.data;
+    });
 
     $scope.projectType = [{
             type: 'TUI Projects'
@@ -30,7 +30,6 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         $scope.data.type = data;
         NavigationService.callApiWithData('Projects/projectList', $scope.data, function (data) {
             $scope.mySlides2 = data.data;
-
         })
 
     };
@@ -75,7 +74,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 
 
 
-//DISCUSS NOW MODAL
+    //DISCUSS NOW MODAL
     $scope.openModal = function () {
         $scope.feedback = $uibModal.open({
             animation: true,
@@ -86,32 +85,29 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         });
     }
     //DISCUSS NOW- CONTACT FORM VALIDATIONS
+    $scope.submitForm = false;
     $scope.contactForm = {};
-    $scope.submitForm = function (data) {
-        if (!data.name) {
-            $scope.nameError = true;
+    $scope.contactBtnClicked = false;
+    $scope.apiCalling = false;
+    $scope.submitcontactForm = function (data, valid) {
+        if (valid) {
+            $scope.apiCalling = true;
+            $scope.data = {};
+            $scope.data.userEmail = data.userEmail;
+            $scope.data.name = data.name;
+            $scope.data.number = data.number;
+            $scope.data.comments = data.comments;
+            NavigationService.callApiWithData('Contact/contactUs', $scope.data, function (data) {
+                if (data.value) {
+                    $scope.apiCalling = false;
+                    $scope.contactInstance.close();
+                } else {
+                    $scope.apiCalling = false;
+                    $scope.contactInstance.close();
+                }
+            });
+        } else {
+            $scope.contactBtnClicked = true;
         }
-        if (!data.email) {
-            $scope.emailError = true;
-        }
-        if (!data.contactno) {
-            $scope.contactnoError = true;
-        }
-        if (!data.query) {
-            $scope.queryError = true;
-        }
-        $scope.contactData = {};
-        $scope.contactData.userEmail = data.userEmail;
-        $scope.contactData.name = data.name;
-        $scope.contactData.number = data.number;
-        $scope.contactData.comments = data.comments;
-        NavigationService.callApiWithData("Contact/contactUs", $scope.contactData, function (data) {
-            console.log("data in api", data);
-
-        });
     };
-
-
-
-
 });

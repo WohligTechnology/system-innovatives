@@ -33,7 +33,6 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
         });
     };
 
-
     $scope.openContact = function () {
         $scope.contactInstance = $uibModal.open({
             animation: true,
