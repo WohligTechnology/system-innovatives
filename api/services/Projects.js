@@ -20,7 +20,8 @@ var schema = new Schema({
         type: String
     },
     featured: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     bannerImage: {
         type: String

@@ -8,13 +8,15 @@ var schema = new Schema({
         default: ""
     },
     requestApproved: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     lastOpened: {
         type: Date
     },
     admin: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     accessToken: {
         type: [String],
@@ -198,10 +200,10 @@ var model = {
             ],
             function (err, data2) {
                 if (err) {
-                    callback(err,null);
+                    callback(err, null);
                 } else if (data2) {
                     if (_.isEmpty(data2)) {
-                        callback(err,null);
+                        callback(err, null);
                     } else {
                         callback(null, data2);
                     }
@@ -218,6 +220,12 @@ var model = {
             } else {
                 if (!_.isEmpty(found)) {
                     var foundObj = found.toObject();
+                    console.log("founddddddd", foundObj);
+                    if (foundObj.requestApproved) {
+                        cbWaterfall(null, foundObj);
+                    } else {
+                        cbWaterfall("request not approved", null);
+                    }
                     callback(null, foundObj);
                 } else {
                     callback("Incorrect Credentials!", null);
@@ -226,12 +234,12 @@ var model = {
         });
     },
 
-createUser: function (data, callback) {
-    var data1={};
+    createUser: function (data, callback) {
+        var data1 = {};
         data1.tokenKey = md5(data.tokenKey);
         data1.email = data.email;
         User.saveData(data1, function (err, data) {
-            console.log("data1",data1);
+            console.log("data1", data1);
             if (err) {
                 callback(err, null);
             } else {

@@ -23,8 +23,8 @@ var schema = new Schema({
 // });
 
 module.exports = mongoose.model('Config', schema);
-// var requrl = "http://wohlig.io:1337/api/";
-var requrl = "http://innovatives.sptr.co/api/";
+var requrl = "http://wohlig.io:1337/api/";
+// var requrl = "http://innovatives.sptr.co/api/";
 var models = {
 
     maxRow: 10,
@@ -410,7 +410,7 @@ var models = {
                                     project = data.project;
                                     // name = data.name;
                                     content = new helper.Content("text/html", body);
-                                    mail = new helper.Mail(from_email, subject, to_email, content,tokenKey,project);
+                                    mail = new helper.Mail(from_email, subject, to_email, content, tokenKey, project);
                                     if (data.file) {
                                         var attachment = new helper.Attachment();
                                         var file = fs.readFileSync('pdf/' + data.file);
