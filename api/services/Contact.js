@@ -1,9 +1,9 @@
 var schema = new Schema({
-   userEmail: {
+    userEmail: {
         type: String,
         validate: validators.isEmail()
     },
-     name: {
+    name: {
         type: String
     },
     number: {
@@ -22,7 +22,7 @@ module.exports = mongoose.model('Contact', schema);
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
 
-contactUs: function (data, callback) {
+    contactUs: function (data, callback) {
         async.waterfall([
                 function (cbWaterfall) {
                     Contact.saveData(data, function (err, complete) {
@@ -45,19 +45,17 @@ contactUs: function (data, callback) {
                     emailData.email = "sayali.ghule@wohlig.com";
                     emailData.name = data.name;
 
-if (data.number != undefined) {
-                       emailData.number = data.number;
+                    if (data.number != undefined) {
+                        emailData.number = data.number;
                     } else {
                         emailData.a = true;
                         emailData.number = "";
                     }
-
-                    
                     emailData.comments = data.comments;
                     emailData.from = data.userEmail;
                     emailData.filename = "contactUs.ejs";
-                    emailData.subject = "Contact Us";
-                     emailData._id =complete._id;
+                    emailData.subject = "Innovatives - Meeting Requested";
+                    emailData._id = complete._id;
                     console.log("emaildata", emailData);
 
                     Config.email(emailData, function (err, emailRespo) {
@@ -85,6 +83,6 @@ if (data.number != undefined) {
                 }
             });
     },
-    
+
 };
 module.exports = _.assign(module.exports, exports, model);

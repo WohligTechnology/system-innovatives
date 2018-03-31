@@ -35,6 +35,14 @@
     }
     .block {
         margin: 40px 0px 100px;
+        hr {
+            background: url(../img/hr.png)no-repeat;
+            display: block;
+            height: 40px;
+            background-position: center center;
+            margin: auto;
+            border: 0;
+        }
     }
     .marco-content {
         margin-bottom: 20px;

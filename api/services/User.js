@@ -138,8 +138,7 @@ var model = {
 
     //login
     generateTokenKey: function (data, callback) {
-        console.log("data in save with token", data);
-        data.tokenKey = md5(data.tokenKey);
+        data.tokenKey = md5(data.email);
         User.saveData(data, function (err, data) {
 
             if (err) {
@@ -182,9 +181,9 @@ var model = {
                     console.log("data: ", data);
                     emailData.email = data.email;
                     emailData.tokenKey = foundObj.tokenKey;
-                    emailData.from = "sayali.ghule@wohlig.com.com";
+                    emailData.from = "innovatives@sptr.co";
                     emailData.filename = "verification.ejs";
-                    emailData.subject = "Verify Token key";
+                    emailData.subject = "Welcome to Innovatives";
                     emailData._id = foundObj._id;
                     console.log("emaildata", emailData);
 
@@ -215,7 +214,6 @@ var model = {
     },
 
     verifyToken: function (data, callback) {
-        console.log("data",data);
         User.findOne({
             tokenKey: data.token,
         }).exec(function (err, found) {

@@ -15,17 +15,8 @@
             "url": ""
         },
         {
-            "name": "Token Key",
-            "type": "text",
-            "tableRef": "tokenKey",
-            "placeholder": "Enter tokenKey",
-            "id": "tokenKey",
-            "validation": ["", "trim", "unique"],
-            "url": ""
-        },
-        {
             "name": "Request Approved",
-            "type": "text",
+            "type": "checkbox",
             "tableRef": "requestApproved",
             "placeholder": "requestApproved",
             "id": "requestApproved",
@@ -42,7 +33,7 @@
         },
         {
             "name": "Admin",
-            "type": "text",
+            "type": "checkbox",
             "tableRef": "admin",
             "placeholder": "admin",
             "id": "admin",

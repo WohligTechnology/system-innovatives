@@ -5,7 +5,7 @@
             <div class="swiper-wrapper">
 
                 <!-- SLIDER IMAGES -->
-                <div class="swiper-slide home-slider" ng-repeat="s in mySlidess" style="background:url({{s.bannerImage | uploadpath}}) center center / 100% 100% no-repeat; background-size: cover;">
+                <div class="swiper-slide home-slider" ng-repeat="s in mySlidess" style="background:linear-gradient(90deg, rgba(0, 0, 0, 0.8) 5%, rgba(0, 0, 0, 0)), url({{s.bannerImage | uploadpath}}) no-repeat;">
                     <div class="slider-content container text-left">
                         <div class="text-content">
                             <h4 class="text-uppercase">{{s.name}}</h4>

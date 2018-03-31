@@ -109,7 +109,7 @@ var model = {
                     emailData.project = data.project;
                     emailData.from = data.email;
                     emailData.filename = "demorequest.ejs";
-                    emailData.subject = "Demo request for project";
+                    emailData.subject = "Innovatives - Demo Requested";
                     emailData._id = foundObj._id;
                     console.log("emaildata", emailData);
 
@@ -138,11 +138,5 @@ var model = {
                 }
             });
     },
-
-
-
-
-
-
 };
 module.exports = _.assign(module.exports, exports, model);

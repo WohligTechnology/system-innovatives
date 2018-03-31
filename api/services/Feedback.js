@@ -49,8 +49,9 @@ var model = {
 
                     emailData.comment = data.comment;
                     emailData.from = data.userEmail;
+                    emailData.project = data.project;
                     emailData.filename = "feedback.ejs";
-                    emailData.subject = "FEEDBACK";
+                    emailData.subject = "Innovatives - Feedback";
                     emailData._id = complete._id;
                     console.log("emaildata", emailData);
 

@@ -3,8 +3,6 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
     TemplateService.title = "Project"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
 
-    console.log("stateparam id", $stateParams.id)
-
     $scope.dataId = {
         _id: $stateParams.id
     };
@@ -67,90 +65,57 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
         }
     }
 
-    //new validate//
-
-
+    $scope.submitForm = false;
     $scope.contactForm = {};
-    $scope.submitForm = function (data,validation) {
-        if (!data.name) {
-            $scope.nameError = true;
-        }
-        if (!data.email) {
-            $scope.emailError = true;
-        }
-        if (!data.contactno) {
-            $scope.contactnoError = true;
-        }
-        if (!data.query) {
-            $scope.queryError = true;
-        }
-
-        $scope.contactData = {};
-        $scope.contactData.userEmail = data.userEmail;
-        $scope.contactData.name = data.name;
-        $scope.contactData.number = data.number;
-        $scope.contactData.comments = data.comments;
-        if (validation) {
-            NavigationService.callApiWithData("Contact/contactUs", $scope.contactData, function (data) {
-                console.log("data in api", data);
-                $scope.contactForm = {};
-                $scope.contactInstance.close();
+    $scope.contactBtnClicked = false;
+    $scope.apiCalling = false;
+    $scope.submitcontactForm = function (data, valid) {
+        if (valid) {
+            $scope.apiCalling = true;
+            $scope.data = {};
+            $scope.data.userEmail = data.userEmail;
+            $scope.data.name = data.name;
+            $scope.data.number = data.number;
+            $scope.data.comments = data.comments;
+            NavigationService.callApiWithData('Contact/contactUs', $scope.data, function (data) {
+                if (data.value) {
+                    $scope.apiCalling = false;
+                    $scope.contactInstance.close();
+                } else {
+                    $scope.apiCalling = false;
+                    $scope.contactInstance.close();
+                }
             });
+        } else {
+            $scope.contactBtnClicked = true;
         }
-
-
-
     };
 
-
+    $scope.submitForm = false;
     $scope.feedbackForm = {};
-    $scope.submitFeedback = function (data1) {
-        if (!data1.name) {
-            $scope.fnameError = true;
-        }
-        if (!data1.email) {
-            $scope.femailError = true;
-        }
-        if (!data1.contactno) {
-            $scope.fcontactnoError = true;
-        }
-        if (!data1.query) {
-            $scope.fqueryError = true;
+    $scope.feedbackBtnClicked = false;
+    $scope.apiCalling = false;
+    $scope.submitfeedbackForm = function (data, valid, rating) {
+        console.log("project name", $scope.project.name);
+        if (valid && rating != 0) {
+            $scope.apiCalling = true;
+            $scope.data = {};
+            $scope.data.userEmail = data.userEmail;
+            $scope.data.comment = data.comment;
+            $scope.data.rating = data.rating;
+            $scope.data.project = $scope.project.name;
+            NavigationService.callApiWithData('Feedback/feedback', $scope.data, function (data) {
+                if (data.value) {
+                    $scope.apiCalling = false;
+                    $scope.feedbackInstance.close();
+                } else {
+                    $scope.apiCalling = false;
+                    $scope.feedbackInstance.close();
+                }
+            });
+        } else {
+            $scope.feedbackBtnClicked = true;
         }
 
-        $scope.feedbackData = {};
-        $scope.feedbackData.userEmail = data1.userEmail;
-        $scope.feedbackData.comment = data1.comment;
-        $scope.feedbackData.rating = data1.rating;
-        NavigationService.callApiWithData("Feedback/feedback", $scope.feedbackData, function (data) {
-            console.log("data in api", data);
-            $scope.feedbackData = {};
-
-
-
-        });
     };
-
-    //end
-
-    // $scope.marcocontent = [{
-    //         title: 'Overview',
-    //         subtitle: 'An AR application to be used on Destinations, Cruises & more.'
-    //     },
-    //     {
-    //         title: 'Challenges',
-    //         subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pellentesque est id lacus eleifend feugiat. Ut ut velit vel nulla venenatis egestas a ac risus. Morbi ex risus, maximus ac nunc id, varius interdum tortor. Pellentesque feugiat, turpis vitae lobortis gravida, ante erat pretium purus, vel efficitur tortor quam nec eros.'
-    //     },
-    //     {
-    //         title: 'Our Solution',
-    //         subtitle: 'Cras in vulputate quam. Nam mollis, ex non scelerisque sodales, ipsum eros aliquam turpis, in feugiat erat metus eu dui. Morbi eu lectus ex. Fusce iaculis nisl condimentum, pharetra urna in, egestas augue. '
-    //     },
-    //     {
-    //         title: 'Use Cases',
-    //         subtitle: 'Donec id interdum erat. Donec vitae orci tellus. Proin scelerisque et justo vel placerat. Mauris dapibus ornare purus eu condimentum. Suspendisse faucibus felis nec elit maximus accumsan. Pellentesque vulputate mi sed mi i'
-    //     }
-    // ]
-
-
-
 });
