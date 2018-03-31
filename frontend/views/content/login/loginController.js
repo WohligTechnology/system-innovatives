@@ -24,7 +24,7 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
                         title: 'Email Sent Successfully!',
                         text: 'We have sent you the access link via email.'
                     });
-                    $scope.Form2 = {};
+                    $scope.loginForm = {};
                 } else {
                     $scope.apiCalling = false;
                     swal({
@@ -32,6 +32,7 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
                         title: 'Oops...',
                         text: 'Your Email ID doesn\'t exist with us!'
                     });
+                    $scope.loginForm = {};
                 }
             });
         } else {

@@ -87,7 +87,7 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
                 if (data.value) {
                     $scope.apiCalling = false;
                     $scope.contactInstance.close();
-                    $scope.contactFormName = {};
+                    $scope.contactForm = {};
                     swal({
                         type: 'success',
                         title: 'Thank you for contacting us!',
@@ -96,7 +96,7 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
                 } else {
                     $scope.apiCalling = false;
                     $scope.contactInstance.close();
-                    $scope.contactFormName = {};
+                    $scope.contactForm = {};
                 }
             });
         } else {
@@ -122,7 +122,7 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
                 if (data.value) {
                     $scope.apiCalling = false;
                     $scope.feedbackInstance.close();
-                    $scope.feedbackFormName = {};
+                    $scope.feedbackForm = {};
                     swal({
                         type: 'success',
                         title: 'Thank you!',
@@ -131,7 +131,7 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
                 } else {
                     $scope.apiCalling = false;
                     $scope.feedbackInstance.close();
-                    $scope.feedbackFormName = {};
+                    $scope.feedbackForm = {};
                 }
             });
         } else {
