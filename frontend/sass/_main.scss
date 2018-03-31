@@ -33,6 +33,14 @@ $green: $tui-green !default;
 $yellow: $tui-yellow !default;
 $red: $tui-red !default;
 $cyan: $tui-blue !default;
+/* Sweet Alert */
+
+$swal2-success: $green !default;
+$swal2-error: $red !default;
+$swal2-warning: $yellow !default;
+$swal2-info: $cyan !default;
+$swal2-question: $cyan !default;
+$swal2-confirm-button-background-color: $blue !default;
 /* Button */
 
 $btn-default-color: $tui-dark-blue !default;
@@ -210,7 +218,7 @@ a,
 
 footer {
     font-size: 12px;
-    background-color: #eee;
+    background-color: #d4d4d4;
     padding: 10px 0;
     p {
         margin: 0;
@@ -389,10 +397,10 @@ header {
 //FOOTER
 .custom-footer {
     p {
-        color: $neavyblue;
+        color: $blue;
         font-size: 12px;
         a {
-            color: $neavyblue;
+            color: $blue;
         }
     }
 }

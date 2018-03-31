@@ -8,6 +8,7 @@ module.exports = [
   "bower_components/moment/min/moment.min.js",
   "bower_components/font-awesome/svg-with-js/js/fontawesome-all.min.js",
   "bower_components/swiper/dist/js/swiper.min.js",
+  "bower_components/sweetalert2/dist/sweetalert2.js",
 
 
   //Angular Libs

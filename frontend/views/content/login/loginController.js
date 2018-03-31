@@ -19,11 +19,19 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
             NavigationService.callApiWithData('User/sendAccess', $scope.data, function (data) {
                 if (data.value) {
                     $scope.apiCalling = false;
-                    toastr.success('Login successful. Please check your email to verify token.');
+                    swal({
+                        type: 'success',
+                        title: 'Email Sent Successfully!',
+                        text: 'We have sent you the access link via email.'
+                    });
                     $scope.Form2 = {};
                 } else {
                     $scope.apiCalling = false;
-                    toastr.error('Oops, Your Email ID doesn\'t exist with us!');
+                    swal({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Your Email ID doesn\'t exist with us!'
+                    });
                 }
             });
         } else {

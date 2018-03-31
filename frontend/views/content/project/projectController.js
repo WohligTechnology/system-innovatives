@@ -28,7 +28,11 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
         $scope.requestData.email = $.jStorage.get("user").email;
         NavigationService.callApiWithData("Projects/requestDemo", $scope.requestData, function (data) {
             if (data.value) {
-                toastr.success('We have your request, will get back to you shortly!');
+                swal({
+                    type: 'success',
+                    title: 'We have you request!',
+                    text: 'We will get back to you shortly.'
+                });
             }
 
         });
@@ -42,7 +46,7 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
             size: 'lg',
             // backdropClass: 'back-drop'
         });
-    }
+    };
 
     $scope.openFeedback = function () {
         $scope.feedbackInstance = $uibModal.open({
@@ -84,6 +88,11 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
                     $scope.apiCalling = false;
                     $scope.contactInstance.close();
                     $scope.contactFormName = {};
+                    swal({
+                        type: 'success',
+                        title: 'Thank you for contacting us!',
+                        text: 'We will be in touch with you shortly.'
+                    });
                 } else {
                     $scope.apiCalling = false;
                     $scope.contactInstance.close();
@@ -114,6 +123,11 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
                     $scope.apiCalling = false;
                     $scope.feedbackInstance.close();
                     $scope.feedbackFormName = {};
+                    swal({
+                        type: 'success',
+                        title: 'Thank you!',
+                        text: 'Your feedback is valuable to us.'
+                    });
                 } else {
                     $scope.apiCalling = false;
                     $scope.feedbackInstance.close();

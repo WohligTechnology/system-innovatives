@@ -10,11 +10,9 @@
                         <div class="text-content">
                             <h4 class="text-uppercase">{{s.name}}</h4>
                             <p>{{s.shortDescription}}</p>
-                            <a class="mr-3 inline pointer" ui-sref="app.project({id:s._id})">Learn More
-                                <i class="fas fa-angle-double-right fa-xs"></i>
+                            <a class="mr-3 inline pointer" ui-sref="app.project({id:s._id})">Learn More »</i>
                             </a>
-                            <a class="inline" ng-if="s.demoLink" ng-href="{{s.demoLink}}" target="_blank">View Demo
-                                <i class="fas fa-angle-double-right fa-xs"></i>
+                            <a class="inline" ng-if="s.demoLink" ng-href="{{s.demoLink}}" target="_blank">View Demo »</i>
                             </a>
                         </div>
                     </div>
@@ -32,7 +30,7 @@
             <p class="font-Merri mr-3 inline">"A vision is like a dream - it will disappear unless we do something with it."
             </p>
             <span class="inline">
-                <button type="submit" class="btn btn-primary text-uppercase discuss-btn" ng-click="openModal()">Discuss Now</button>
+                <button type="submit" class="btn btn-primary text-uppercase discuss-btn" ng-click="openContact()">Discuss Now</button>
             </span>
         </div>
     </div>
@@ -65,6 +63,7 @@
                                 </h4>
                                 <p>{{x.shortDescription}}</p>
                                 <a class="btn btn-primary btn-sm btn-block" ng-if="x.demoLink" ng-href="{{x.demoLink}}" target="_blank">View Demo</a>
+                                <a class="btn btn-secondary btn-sm btn-block" ng-if="!x.demoLink" ui-sref="app.project({id: x._id})">Learn More</a>
                             </div>
                         </div>
                     </div>

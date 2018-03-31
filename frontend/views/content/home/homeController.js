@@ -5,6 +5,14 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 
     NavigationService.callApi("Projects/featuredProjects", function (data) {
         $scope.mySlidess = data.data;
+        $timeout(function () {
+            var mySwiper = new Swiper('.swiper-container', {
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                }
+            });
+        }, 300);
     });
 
     $scope.projectType = [{
@@ -64,27 +72,18 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         }
     ];
 
-    $timeout(function () {
-        var mySwiper = new Swiper('.swiper-container', {
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-            }
-        })
-    }, 100);
-
 
 
     //DISCUSS NOW MODAL
-    $scope.openModal = function () {
-        $scope.feedback = $uibModal.open({
+    $scope.openContact = function () {
+        $scope.contactInstance = $uibModal.open({
             animation: true,
             templateUrl: "views/content/contactus/contactus.html",
             scope: $scope,
             size: 'lg',
             // backdropClass: 'back-drop'
         });
-    }
+    };
     //DISCUSS NOW- CONTACT FORM VALIDATIONS
     $scope.submitForm = false;
     $scope.contactForm = {};
@@ -102,6 +101,11 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                 if (data.value) {
                     $scope.apiCalling = false;
                     $scope.contactInstance.close();
+                    swal({
+                        type: 'success',
+                        title: 'Thank you for contacting us!',
+                        text: 'We will be in touch with you shortly.'
+                    });
                 } else {
                     $scope.apiCalling = false;
                     $scope.contactInstance.close();
