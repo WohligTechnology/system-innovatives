@@ -1,3 +1,4 @@
+var adminurl = 'http://innovatives.sptr.co/api/';
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 

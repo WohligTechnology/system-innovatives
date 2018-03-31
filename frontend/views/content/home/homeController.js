@@ -8,18 +8,19 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     });
 
     $scope.projectType = [{
-            type: 'TUI Projects'
-
+            type: 'TUI Projects',
+            id: "TUI Projects"
         }, {
-            type: 'TUI Innovative Pilots'
-
+            type: 'TUI Innovative Pilots',
+            id: "Innovative PoC"
         },
+        // {
+        //     type: 'TUI Potential Pilots',
+        //     id: "Potential Poc"
+        // },
         {
-            type: 'TUI Potential Pilots'
-
-        },
-        {
-            type: 'Cross Industry Innovations'
+            type: 'Cross Industry Innovations',
+            id: "More Innovations"
         }
     ];
 

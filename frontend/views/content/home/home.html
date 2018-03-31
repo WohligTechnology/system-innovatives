@@ -10,11 +10,11 @@
                         <div class="text-content">
                             <h4 class="text-uppercase">{{s.name}}</h4>
                             <p>{{s.shortDescription}}</p>
-                            <p class="mr-3 inline pointer" ng-click="">Learn More
+                            <a class="mr-3 inline pointer" ui-sref="app.project({id:s._id})">Learn More
                                 <i class="fas fa-angle-double-right fa-xs"></i>
-                            </p>
-                            <a class="inline" ng-href=" {{s.demoLink}} " target="_blank ">View Demo
-                                <i class="fas fa-angle-double-right fa-xs "></i>
+                            </a>
+                            <a class="inline" ng-if="s.demoLink" ng-href="{{s.demoLink}}" target="_blank">View Demo
+                                <i class="fas fa-angle-double-right fa-xs"></i>
                             </a>
                         </div>
                     </div>
@@ -42,29 +42,29 @@
         <div class="container">
             <div class="title text-uppercase text-center">
                 <h4 class="background">
-                    <span>OUTCOMES & EXPERIENCES</span>
+                    <span>OUTCOMES &amp; EXPERIENCES</span>
                 </h4>
             </div>
 
             <!-- Tabs -->
             <div class="text-center">
-                <button class="btn btn-outline-primary text-uppercase" ng-repeat="p in projectType" ng-click="clickType(p.type)" ng-class="{'blue':selected==p.type}">{{p.type}}</button>
-
-                <!--<button class="btn btn-outline-primary text-uppercase">TUI Innovative Pilots</button>
-                <button class="btn btn-outline-primary text-uppercase">TUI Projects</button>
-                <button class="btn btn-outline-primary text-uppercase">TUI Potential Pilots</button>
-                <button class="btn btn-outline-primary text-uppercase">Cross Industry Innovations</button>-->
+                <button class="btn btn-outline-primary text-uppercase" ng-repeat="p in projectType" ng-click="clickType(p.id)" ng-class="{'blue':selected==p.id}">{{p.type}}</button>
             </div>
             <!-- Images -->
             <div class="row block">
-                <div class="col-md-6 col-lg-4 col-sm-12" ng-repeat="x in mySlides2" ng-click="clickProject(x._id)">
-                    <div class="bg-block" style="background:url({{x.bannerImage | uploadpath}}) no-repeat center center;">
-                        <img class="img-full" src="img/rect.png">
+                <div class="col-md-6 col-lg-4 col-sm-12" ng-repeat="x in mySlides2">
+                    <div class="hover-shadow">
+                        <a class="bg-block" ui-sref="app.project({id: x._id})">
+                            <img class="img-full" src="img/rect.png">
+                            <div class="banner-image" style="background-image :url({{x.bannerImage | uploadpath}});"></div>
+                        </a>
                         <div class="middle">
                             <div class="text">
-                                <h4 class="text-uppercase">{{x.name}}</h4>
+                                <h4 class="text-uppercase">
+                                    <a ui-sref="app.project({id: x._id})">{{x.name}}</a>
+                                </h4>
                                 <p>{{x.shortDescription}}</p>
-                                <a class="view-demo">View Demo</a>
+                                <a class="btn btn-primary btn-sm btn-block" ng-if="x.demoLink" ng-href="{{x.demoLink}}" target="_blank">View Demo</a>
                             </div>
                         </div>
                     </div>

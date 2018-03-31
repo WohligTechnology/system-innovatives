@@ -224,7 +224,7 @@ footer {
 .input-group-lg>.input-group-btn>.btn,
 .btn,
 .form-control {
-    border-radius: 0;
+    // border-radius: 0;
     box-shadow: none;
 }
 
@@ -424,5 +424,9 @@ header {
         .custom-header {
             height: 50px;
         }
-    } 
+    }
+}
+
+.block {
+    min-height: 200px;
 }
