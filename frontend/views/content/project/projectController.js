@@ -7,9 +7,11 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
         _id: $stateParams.id
     };
 
-    NavigationService.callApiWithData("Projects/getOne", $scope.dataId, function (data) {
-        $scope.project = data.data;
+    $scope.project = undefined;
 
+    NavigationService.callApiWithData("Projects/getOne", $scope.dataId, function (data) {
+        $scope.project = [];
+        $scope.project = data.data;
     });
 
     $scope.submitForm = function (data) {
@@ -26,7 +28,7 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
         $scope.requestData.email = $.jStorage.get("user").email;
         NavigationService.callApiWithData("Projects/requestDemo", $scope.requestData, function (data) {
             if (data.value) {
-                toastr.success('Demo request sent. We will get back you shortly');
+                toastr.success('We have your request, will get back to you shortly!');
             }
 
         });
