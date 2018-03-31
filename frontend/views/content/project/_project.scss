@@ -29,7 +29,9 @@
             @include prefixer(transform, translate(-50%, 0%), ("webkit", "moz"));
             p {
                 font-family: $Merri;
-                color: #022b63;
+                color: $blue;
+                margin: 0;
+                padding: 5px 0;
             }
         }
     }
