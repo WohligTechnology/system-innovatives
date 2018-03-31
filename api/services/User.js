@@ -221,11 +221,6 @@ var model = {
                 if (!_.isEmpty(found)) {
                     var foundObj = found.toObject();
                     console.log("founddddddd", foundObj);
-                    if (foundObj.requestApproved) {
-                        cbWaterfall(null, foundObj);
-                    } else {
-                        cbWaterfall("request not approved", null);
-                    }
                     callback(null, foundObj);
                 } else {
                     callback("Incorrect Credentials!", null);
