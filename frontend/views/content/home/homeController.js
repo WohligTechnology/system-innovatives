@@ -101,6 +101,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                 if (data.value) {
                     $scope.apiCalling = false;
                     $scope.contactInstance.close();
+                    $scope.contactForm = {};
                     swal({
                         type: 'success',
                         title: 'Thank you for contacting us!',
@@ -109,6 +110,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                 } else {
                     $scope.apiCalling = false;
                     $scope.contactInstance.close();
+                    $scope.contactForm = {};
                 }
             });
         } else {

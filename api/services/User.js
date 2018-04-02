@@ -142,7 +142,6 @@ var model = {
     generateTokenKey: function (data, callback) {
         data.tokenKey = md5(data.email);
         User.saveData(data, function (err, data) {
-
             if (err) {
                 console.log("err in save", err)
                 callback(err, null);
@@ -153,9 +152,7 @@ var model = {
         })
     },
 
-
     //email verification
-
     sendAccess: function (data, callback) {
         async.waterfall([
                 function (cbWaterfall) {
@@ -221,7 +218,12 @@ var model = {
                 if (!_.isEmpty(found)) {
                     var foundObj = found.toObject();
                     console.log("founddddddd", foundObj);
-                    callback(null, foundObj);
+                    if (found.requestApproved) {
+                        callback(null, foundObj);
+                    }
+                    else{
+                        callback("Request not approved", null);
+                    }
                 } else {
                     callback("Incorrect Credentials!", null);
                 }
