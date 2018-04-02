@@ -428,10 +428,19 @@ header {
     .content {
         min-height: 0px;
     }
-    header {
-        .custom-header {
-            height: 50px;
+    .home {
+        .swiper-container {
+            .home-slider {
+                height: 82vh !important;
+            }
+            .slider-content {
+                position: absolute;
+                bottom: 30px;
+            }
         }
+    }
+    .project .bg-project {
+        height: 82vh !important;
     }
 }
 

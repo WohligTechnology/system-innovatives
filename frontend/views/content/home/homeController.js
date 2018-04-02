@@ -10,6 +10,9 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev'
+                },
+                 autoplay: {
+                    delay: 2000,
                 }
             });
         }, 300);
@@ -117,4 +120,8 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             $scope.contactBtnClicked = true;
         }
     };
+
+    $scope.clearData = function () {
+        $scope.contactForm = {};
+    }
 });
