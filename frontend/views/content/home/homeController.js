@@ -12,7 +12,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                     prevEl: '.swiper-button-prev'
                 },
                  autoplay: {
-                    delay: 2000,
+                    delay: 4000,
                 }
             });
         }, 300);

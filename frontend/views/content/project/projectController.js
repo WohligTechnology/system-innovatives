@@ -30,7 +30,7 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
             if (data.value) {
                 swal({
                     type: 'success',
-                    title: 'We have you request!',
+                    title: 'We have received your request!',
                     text: 'We will get back to you shortly.'
                 });
             }

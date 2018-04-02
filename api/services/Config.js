@@ -301,6 +301,9 @@ var models = {
             dataObj.push({});
             _.each(val, function (value, key2) {
                 dataObj[key][firstRow[key2]] = value;
+                _.each(dataObj, function (dataObj, key3) {
+                     dataObj.tokenKey = md5(dataObj.email);
+                })
             });
         });
         return dataObj;
