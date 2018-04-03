@@ -7,7 +7,6 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         $scope.mySlidess = data.data;
         $timeout(function () {
             var mySwiper = new Swiper('.swiper-container', {
-                grabCursor: true,
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev'

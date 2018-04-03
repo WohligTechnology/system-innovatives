@@ -62,7 +62,8 @@
                                     <a ui-sref="app.project({id: x._id})">{{x.name}}</a>
                                 </h4>
                                 <p>{{x.shortDescription}}</p>
-                                <a class="btn btn-primary btn-sm btn-block" ng-if="x.demoLink" ng-href="{{x.demoLink}}" target="_blank">View Demo</a>
+                                <!--<a class="btn btn-primary btn-sm btn-block" ng-if="x.demoLink" ng-href="{{x.demoLink}}" target="_blank">View Demo</a>-->
+                                <a class="btn btn-primary btn-sm btn-block" ng-if="x.demoLink" ui-sref="app.project-demo({url: x.demoLink})">View Demo</a>
                                 <a class="btn btn-secondary btn-sm btn-block" ng-if="!x.demoLink" ui-sref="app.project({id: x._id})">Learn More</a>
                             </div>
                         </div>
