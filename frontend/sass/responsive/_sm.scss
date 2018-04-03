@@ -18,26 +18,22 @@
             }
         }
     }
-    .contactus {
-        .contactus-box {
-            width: 300px;
-            .subtitle {
-                padding: 2px;
-            }
-            .custom-form {
-                padding: 10px;
-            }
+    .form-box {
+        width: 300px;
+        .subtitle {
+            padding: 2px;
+        }
+        .custom-form {
+            padding: 10px;
         }
     }
-    .feedback {
-        .feedback-box {
-            width: 300px;
-            .subtitle {
-                padding: 2px;
-            }
-            .custom-form {
-                padding: 10px;
-            }
+    .form-box {
+        width: 300px;
+        .subtitle {
+            padding: 2px;
+        }
+        .custom-form {
+            padding: 10px;
         }
     }
     .home {
@@ -48,16 +44,23 @@
             .swiper-button-next {
                 right: 5px;
             }
+            .slider-content {
+                bottom: 80px !important;
+                left: 30px;
+                text-content {
+                    width: 280px !important;
+                }
+                p {
+                    margin-bottom: 0;
+                }
+            }
         }
-        .slider-content {
-            bottom: 80px !important;
-            left: 30px;
-            text-content {
-                width: 230px !important;
-            }
-            p {
-                margin-bottom: 0;
-            }
+    }
+    .project-header {
+        padding-top: 19px !important;
+        .custom-button {
+            padding: 0.5rem;
+            font-size: 0.5rem;
         }
     }
 }
