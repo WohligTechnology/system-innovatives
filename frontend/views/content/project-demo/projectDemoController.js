@@ -1,6 +1,7 @@
 myApp.controller('ProjectDemoCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $uibModal, $stateParams, $sce, $state) {
     $scope.template = TemplateService.getHTML("content/project-demo/project-demo.html");
     $scope.template.header = "frontend/views/template/project-header.html";
+    $scope.template.footer = "";
     var trustSrc = function (src) {
         return $sce.trustAsResourceUrl(src);
     };
@@ -17,7 +18,7 @@ myApp.controller('ProjectDemoCtrl', function ($scope, TemplateService, Navigatio
         }
     };
 
-$scope.openContact = function () {
+    $scope.openContact = function () {
         $scope.contactInstance = $uibModal.open({
             animation: true,
             templateUrl: "views/content/contactus/contactus.html",
@@ -27,7 +28,7 @@ $scope.openContact = function () {
         });
     };
 
-$scope.submitForm = false;
+    $scope.submitForm = false;
     $scope.contactForm = {};
     $scope.contactBtnClicked = false;
     $scope.apiCalling = false;
