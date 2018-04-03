@@ -100,7 +100,28 @@ var controller = {
     },
     sendmail: function (req, res) {
         Config.sendEmail("chintan@wohlig.com", "jagruti@wohlig.com", "first email from endgrid", "", "<html><body>dome content</body></html>");
-    }
+    },
+    createUser: function (req, res) {
+        User.createUser(req.body, res.callback);
+    },
+    generateTokenKey: function (req, res) {
+        User.generateTokenKey(req.body, res.callback);
+    },
+    verifyToken: function (req, res) {
+        User.verifyToken(req.body, res.callback);
+    },
+    sendAccess: function (req, res) {
+        if (req.body) {
+            User.sendAccess(req.body, res.callback);
+        } else {
+            res.json({
+                value: false,
+                data: "User Not logged in"
+            });
+        }
+
+    },
+
 
 };
 module.exports = _.assign(module.exports, controller);

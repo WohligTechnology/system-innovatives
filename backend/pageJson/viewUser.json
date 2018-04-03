@@ -5,18 +5,25 @@
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
     "fields": [{
-        "name": "Name",
-        "isSort": "",
-        "tableRef": "name"
-    }, {
-        "name": "Email",
-        "isSort": "",
-        "tableRef": "email"
-    }, {
-        "name": "Mobile",
-        "isSort": "",
-        "tableRef": "mobile"
-    }],
+            "name": "Email",
+            "isSort": "",
+            "tableRef": "email"
+        }, {
+            "name": "Token Key",
+            "isSort": "",
+            "tableRef": "tokenKey"
+        },
+        {
+            "name": "Request Approved",
+            "isSort": "",
+            "tableRef": "requestApproved"
+        },
+        {
+            "name": "Admin",
+            "isSort": "",
+            "tableRef": "admin"
+        }
+    ],
     "action": [{
         "name": "edit",
         "icon": "fa-pencil",

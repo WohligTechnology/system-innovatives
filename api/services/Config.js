@@ -23,9 +23,12 @@ var schema = new Schema({
 // });
 
 module.exports = mongoose.model('Config', schema);
-
+var requrl = "http://wohlig.io:1337/api/";
+// var requrl = "http://innovatives.sptr.co/api/";
 var models = {
+
     maxRow: 10,
+
     getForeignKeys: function (schema) {
         var arr = [];
         _.each(schema.tree, function (n, name) {
@@ -298,6 +301,9 @@ var models = {
             dataObj.push({});
             _.each(val, function (value, key2) {
                 dataObj[key][firstRow[key2]] = value;
+                _.each(dataObj, function (dataObj, key3) {
+                     dataObj.tokenKey = md5(dataObj.email);
+                })
             });
         });
         return dataObj;
@@ -377,6 +383,86 @@ var models = {
             fs.unlink(dest);
             callback(err);
         });
+    },
+
+    email: function (data, callback) {
+        console.log("insode email api****", data),
+            Password.find().exec(function (err, userdata) {
+                if (err) {
+                    console.log(err);
+                    callback(err, null);
+                } else if (userdata && userdata.length > 0) {
+                    if (data.filename && data.filename != "") {
+                        console.log("Email data: ", data);
+                        request.post({
+                            url: requrl + "config/emailReader/",
+                            json: data
+                        }, function (err, http, body) {
+                            console.log("body : ", body);
+                            if (err) {
+                                console.log(err);
+                                callback(err, null);
+                            } else {
+                                if (body && body.value != false) {
+                                    var helper = require('sendgrid').mail;
+                                    console.log("data in mail", data);
+                                    from_email = new helper.Email(data.from);
+                                    to_email = new helper.Email(data.email);
+                                    subject = data.subject;
+                                    tokenKey = data.tokenKey;
+                                    project = data.project;
+                                    // name = data.name;
+                                    content = new helper.Content("text/html", body);
+                                    mail = new helper.Mail(from_email, subject, to_email, content, tokenKey, project);
+                                    if (data.file) {
+                                        var attachment = new helper.Attachment();
+                                        var file = fs.readFileSync('pdf/' + data.file);
+                                        var base64File = new Buffer(file).toString('base64');
+                                        attachment.setContent(base64File);
+                                        attachment.setType('application/pdf');
+                                        var pdfgen = data.filename.split(".");
+                                        data.filename = pdfgen[0] + ".pdf";
+                                        attachment.setFilename(data.filename);
+                                        attachment.setDisposition('attachment');
+                                        mail.addAttachment(attachment);
+
+                                    }
+
+                                    // console.log("api_key", userdata[0].name);
+                                    var sg = require('sendgrid')(userdata[0].name);
+                                    var request = sg.emptyRequest({
+                                        method: 'POST',
+                                        path: '/v3/mail/send',
+                                        body: mail.toJSON()
+                                    });
+                                    // console.log("request", request.body.attachments);
+                                    sg.API(request, function (error, response) {
+                                        console.log("response", data);
+                                        if (error) {
+                                            console.log('Error response received', error);
+                                            callback(error, null);
+                                        } else {
+                                            callback(null, data);
+                                        }
+                                    })
+                                } else {
+                                    callback({
+                                        message: "Error while sending mail."
+                                    }, null);
+                                }
+                            }
+                        });
+                    } else {
+                        callback({
+                            message: "Please provide params"
+                        }, null);
+                    }
+                } else {
+                    callback({
+                        message: "No api keys found"
+                    }, null);
+                }
+            });
     },
     sendEmail: function (fromEmail, toEmail, subject, html, attachments, callback) {
 

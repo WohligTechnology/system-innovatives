@@ -1,82 +1,25 @@
 var schema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        unique: true
-    },
     email: {
         type: String,
-        validate: validators.isEmail(),
-        excel: "User Email",
-        unique: true
-    },
-    dob: {
-        type: Date,
-        excel: {
-            name: "Birthday",
-            modify: function (val, data) {
-                return moment(val).format("MMM DD YYYY");
-            }
-        }
-    },
-    photo: {
-        type: String,
-        default: "",
-        required: true,
-        excel: [{
-            name: "Photo Val"
-        }, {
-            name: "Photo String",
-            modify: function (val, data) {
-                return "http://abc/" + val;
-            }
-        }, {
-            name: "Photo Kebab",
-            modify: function (val, data) {
-                return data.name + " " + moment(data.dob).format("MMM DD YYYY");
-            }
-        }]
-    },
-    password: {
-        type: String,
-        default: ""
-    },
-    forgotPassword: {
-        type: String,
-        default: ""
-    },
-    mobile: {
-        type: String,
-        default: ""
-    },
-    otp: {
-        type: String,
-        default: ""
-    },
-    accessToken: {
-        type: [String],
-        index: true
+        validate: validators.isEmail()
     },
     tokenKey: {
-        type: [String],
-        index: true
+        type: String,
+        default: ""
     },
     requestApproved: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     lastOpened: {
         type: Date
     },
-    newsletter: {
-        type: Boolean
+    admin: {
+        type: Boolean,
+        default: false
     },
-    googleAccessToken: String,
-    googleRefreshToken: String,
-    oauthLogin: {
-        type: [{
-            socialId: String,
-            socialProvider: String
-        }],
+    accessToken: {
+        type: [String],
         index: true
     },
     accessLevel: {
@@ -193,6 +136,114 @@ var model = {
      */
     getAllMedia: function (data, callback) {
 
-    }
+    },
+
+    //login
+    generateTokenKey: function (data, callback) {
+        data.tokenKey = md5(data.email);
+        User.saveData(data, function (err, data) {
+            if (err) {
+                console.log("err in save", err)
+                callback(err, null);
+            } else {
+                console.log("data in save", data)
+                callback(null, data);
+            }
+        })
+    },
+
+    //email verification
+    sendAccess: function (data, callback) {
+        async.waterfall([
+                function (cbWaterfall) {
+                    User.findOne({
+                        email: data.email,
+                    }).exec(function (err, found) {
+                        if (err) {
+                            cbWaterfall(err, null);
+                        } else {
+                            if (!_.isEmpty(found)) {
+                                var foundObj = found.toObject();
+                                cbWaterfall(null, foundObj);
+                            } else {
+                                cbWaterfall("Incorrect Credentials!", null);
+                            }
+                        }
+
+                    });
+                },
+                function (foundObj, cbWaterfall1) {
+                    var emailData = {};
+                    console.log("foundObj: ", foundObj);
+                    console.log("data: ", data);
+                    emailData.email = data.email;
+                    emailData.tokenKey = foundObj.tokenKey;
+                    emailData.from = "innovatives@sptr.co";
+                    emailData.filename = "verification.ejs";
+                    emailData.subject = "Welcome to Innovatives";
+                    emailData._id = foundObj._id;
+                    console.log("emaildata", emailData);
+
+                    Config.email(emailData, function (err, emailRespo) {
+                        if (err) {
+                            cbWaterfall1(null, err);
+                        } else if (emailRespo) {
+                            cbWaterfall1(null, emailRespo);
+                        } else {
+                            cbWaterfall1(null, "Invalid data");
+                        }
+                    });
+                },
+            ],
+            function (err, data2) {
+                if (err) {
+                    callback(err, null);
+                } else if (data2) {
+                    if (_.isEmpty(data2)) {
+                        callback(err, null);
+                    } else {
+                        callback(null, data2);
+                    }
+                }
+            });
+    },
+
+    verifyToken: function (data, callback) {
+        User.findOne({
+            tokenKey: data.token,
+        }).exec(function (err, found) {
+            if (err) {
+                callback(err, null);
+            } else {
+                if (!_.isEmpty(found)) {
+                    var foundObj = found.toObject();
+                    console.log("founddddddd", foundObj);
+                    if (found.requestApproved) {
+                        callback(null, foundObj);
+                    }
+                    else{
+                        callback("Request not approved", null);
+                    }
+                } else {
+                    callback("Incorrect Credentials!", null);
+                }
+            }
+        });
+    },
+
+    createUser: function (data, callback) {
+        var data1 = {};
+        data1.tokenKey = md5(data.tokenKey);
+        data1.email = data.email;
+        User.saveData(data1, function (err, data) {
+            console.log("data1", data1);
+            if (err) {
+                callback(err, null);
+            } else {
+                callback(null, data);
+            }
+        })
+    },
+
 };
 module.exports = _.assign(module.exports, exports, model);

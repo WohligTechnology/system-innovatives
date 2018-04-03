@@ -1,0 +1,35 @@
+<div class="login">
+    <div class="container">
+        <div class="login-box">
+            <div class="text-center title">
+                <h4 class="text-uppercase">Login</h4>
+                <div class="subtitle">
+                    <p>The access is limited to TUI members as it holds ongoing internal projects.</p>
+                </div>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <div class="custom-form">
+                <form novalidate name="loginFormName" class="form-group" ng-submit="submitloginForm(loginForm,loginFormName.$valid);">
+                    <div class="form-spacing">
+                        <div class="form-group">
+
+                            <label for="email">Email *</label>
+
+                            <input type="email" ng-model="loginForm.email" class="form-control" id="email" placeholder="Please enter your TUI email"
+                                name="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+                            <div class="pull-right">
+                                <span class="label label-danger" ng-show="loginFormName.email.$invalid && loginFormName.email.$viewValue && loginFormName.email.$dirty">Please enter valid email</span>
+                                <span class="label label-danger" ng-show="loginBtnClicked  && loginFormName.email.$error.required">Please enter email</span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="text-center text-uppercase">
+                        <button type="submit" ng-disabled="apiCalling" class="btn btn-primary text-uppercase send" promise-btn>Send Access Link</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

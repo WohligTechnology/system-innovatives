@@ -1,5 +1,5 @@
-//  $output-bourbon-deprecation-warnings: false;
 @import "../../bower_components/bourbon/core/bourbon";
+<<<<<<< HEAD
 //  @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 //  @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
  @import "../../bower_components/flexslider/flexslider";
@@ -17,3 +17,29 @@
  @import "responsive/md";
  @import "responsive/sm";
  @import "responsive/xs";
+=======
+@import "../../bower_components/flexslider/flexslider";
+@import "../../bower_components/angular-ui-swiper/dist/angular-ui-swiper";
+@import "../../bower_components/fancybox/dist/jquery.fancybox";
+@import "../../bower_components/smart-app-banner/smart-app-banner";
+@import "../../bower_components/angular-promise-buttons/src/styles/style";
+@import "../../bower_components/angular-toastr/dist/angular-toastr";
+@import "../../bower_components/ui-bootstrap4/docs/ui-bootstrap-csp";
+/****** Please Import Libraries Above This!!!!!! ******/
+
+@import "other/tui-fonts";
+@import "other/tui-icons";
+@import "main";
+@import "../../bower_components/sweetalert2/src/sweetalert2";
+@import "../views/content/home/_home.scss";
+@import "../views/content/login/_login.scss";
+@import "../views/content/project/_project.scss";
+@import "../views/content/project-demo/_project-demo.scss";
+@import "../views/content/contactus/_contactus.scss";
+@import "../views/content/feedback/_feedback.scss";
+@import "other/fancybox-override";
+@import "responsive/lg";
+@import "responsive/md";
+@import "responsive/sm";
+@import "responsive/xs";
+>>>>>>> 87f45b54325e42808f314066b6e7d0e7fafe9190

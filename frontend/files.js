@@ -6,6 +6,12 @@ module.exports = [
   'bower_components/fancybox/dist/jquery.fancybox.js',
   'bower_components/smart-app-banner/smart-app-banner.js',
   "bower_components/moment/min/moment.min.js",
+<<<<<<< HEAD
+=======
+  "bower_components/font-awesome/svg-with-js/js/fontawesome-all.min.js",
+  "bower_components/swiper/dist/js/swiper.min.js",
+  "bower_components/sweetalert2/dist/sweetalert2.js",
+>>>>>>> 87f45b54325e42808f314066b6e7d0e7fafe9190
 
 
   //Angular Libs
@@ -21,6 +27,9 @@ module.exports = [
   'bower_components/angulartics/dist/angulartics.min.js',
   'bower_components/angulartics-google-analytics/dist/angulartics-ga.min.js',
   'bower_components/angular-ui-swiper/dist/angular-ui-swiper.js',
+  'bower_components/angular-toastr/dist/angular-toastr.js',
+  'bower_components/angular-toastr/dist/angular-toastr.tpls.js',
+  'bower_components/jStorage/jstorage.js',
   "bower_components/angular-toastr/dist/angular-toastr.js",
   "bower_components/angular-toastr/dist/angular-toastr.tpls.js",
   "bower_components/angular-promise-buttons/dist/angular-promise-buttons.js",
@@ -47,6 +56,13 @@ module.exports = [
 
   // Contorllers
   'frontend/js/controllers/controller.js',
+<<<<<<< HEAD
+=======
+  'frontend/views/content/home/homeController.js',
+  'frontend/views/content/login/loginController.js',
+  'frontend/views/content/project/projectController.js',
+  'frontend/views/content/project-demo/projectDemoController.js',
+>>>>>>> 87f45b54325e42808f314066b6e7d0e7fafe9190
   'frontend/js/controllers/header-controller.js',
   'frontend/js/controllers/language-controller.js',
 ];

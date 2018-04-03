@@ -20,17 +20,48 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
     // for http request with session
     $httpProvider.defaults.withCredentials = true;
     $stateProvider
-        .state('home', {
-            url: "/",
-            templateUrl: tempateURL,
-            controller: 'HomeCtrl'
+        .state('app', {
+            abstract: true,
+            templateUrl: "views/template/blank.html",
+            controller: 'AppCtrl'
         })
+<<<<<<< HEAD
         .state('links', {
             url: "/links",
             templateUrl: tempateURL,
             controller: 'LinksCtrl'
         });
     $urlRouterProvider.otherwise("/");
+=======
+
+        .state('login', {
+            url: "/login",
+            templateUrl: tempateURL,
+            controller: 'LoginCtrl'
+        })
+
+        .state('app.validation', {
+            url: "/validation?token",
+            templateUrl: "views/template/empty.html",
+            controller: 'ValidationCtrl'
+        })
+        .state('app.home', {
+            url: "/",
+            templateUrl: tempateURL,
+            controller: 'HomeCtrl'
+        })
+        .state('app.project', {
+            url: "/project/:id",
+            templateUrl: tempateURL,
+            controller: 'ProjectCtrl'
+        })
+        .state('app.project-demo', {
+            url: "/demo?url&id",
+            templateUrl: tempateURL,
+            controller: 'ProjectDemoCtrl'
+        });
+    $urlRouterProvider.otherwise("/validation");
+>>>>>>> 87f45b54325e42808f314066b6e7d0e7fafe9190
     $locationProvider.html5Mode(isproduction);
 });
 

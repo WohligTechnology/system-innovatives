@@ -6,6 +6,7 @@
   "keywords": [],
   "dependencies": {
     "@google-cloud/storage": "^1.5.2",
+    "angular-toastr": "^2.1.1",
     "async": "^2.6.0",
     "autoprefixer": "^7.2.5",
     "chalk": "^2.3.0",
@@ -90,6 +91,7 @@
     "grunt-http": "^2.3.0",
     "grunt-mocha-istanbul": "^5.0.2",
     "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^2.1.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.5.3",
     "sinon": "^3.3.0",

@@ -25,9 +25,9 @@ module.exports = {
    * Set the port in the production environment to 80                        *
    ***************************************************************************/
 
-  port: 1337,
-  realHost: "http://wohlig.io:1337",
-  emails: ["chintan@wohlig.com", "jagruti@wohlig.com", "tushar@wohlig.com", "chirag@wohlig.com", "harsh@wohlig.com"]
+  port: 95,
+  realHost: "http://innovatives.sptr.co",
+  emails: ["chintan@wohlig.com", "jagruti@wohlig.com", "tushar@wohlig.com", "chirag@wohlig.com", "harsh@wohlig.com","sohan@wohlig.com","sayali.ghule@wohlig.com"]
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *
