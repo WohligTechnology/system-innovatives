@@ -1,6 +1,6 @@
 myApp.controller('ProjectDemoCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $uibModal, $stateParams, $sce, $state) {
     $scope.template = TemplateService.getHTML("content/project-demo/project-demo.html");
-    $scope.template.header = "frontend/views/template/project-header.html";
+    $scope.template.header = "views/template/project-header.html";
     $scope.template.footer = "";
     var trustSrc = function (src) {
         return $sce.trustAsResourceUrl(src);
