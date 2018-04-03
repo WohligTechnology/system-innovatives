@@ -5,7 +5,7 @@
             <h3>{{project.name}}</h3>
 
             <!-- If We have demo link -->
-            <a ng-if="project.demoLink" class="btn btn-light text-uppercase" ng-href="{{project.demoLink}}" target="_blank">
+            <a ng-if="project.demoLink" class="btn btn-light text-uppercase" ui-sref="app.project-demo({url: project.demoLink,id: project._id})">
                 <i class="fas fa-eye"></i> View Demo
             </a>
 

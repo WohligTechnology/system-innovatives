@@ -12,6 +12,7 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
     NavigationService.callApiWithData("Projects/getOne", $scope.dataId, function (data) {
         $scope.project = [];
         $scope.project = data.data;
+        TemplateService.title = $scope.project.name; // This is the Title of the Website
     });
 
     $scope.submitForm = function (data) {

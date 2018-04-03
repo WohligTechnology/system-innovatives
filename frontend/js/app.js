@@ -46,6 +46,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/project/:id",
             templateUrl: tempateURL,
             controller: 'ProjectCtrl'
+        })
+        .state('app.project-demo', {
+            url: "/demo?url&id",
+            templateUrl: tempateURL,
+            controller: 'ProjectDemoCtrl'
         });
     $urlRouterProvider.otherwise("/validation");
     $locationProvider.html5Mode(isproduction);
