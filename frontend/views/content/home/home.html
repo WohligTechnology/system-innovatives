@@ -50,7 +50,7 @@
             </div>
             <!-- Images -->
             <div class="row block">
-                <div class="col-md-6 col-lg-4 col-sm-12" ng-repeat="x in mySlides2">
+                <div class="col-md-6 col-lg-4 col-sm-12" ng-repeat="x in mySlides2 | filter:type">
                     <div class="hover-shadow">
                         <a class="bg-block" ui-sref="app.project({id: x._id})">
                             <img class="img-full" src="img/rect.png">

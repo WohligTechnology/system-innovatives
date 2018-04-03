@@ -17,11 +17,6 @@
             "name": "Request Approved",
             "isSort": "",
             "tableRef": "requestApproved"
-        }, 
-        {
-            "name": "Last Opened",
-            "isSort": "",
-            "tableRef": "lastOpened"
         },
         {
             "name": "Admin",

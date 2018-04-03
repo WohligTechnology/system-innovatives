@@ -50,8 +50,11 @@
             }
         }
         .slider-content {
-            position: absolute;
-            bottom: 20px;
+            bottom: 80px !important;
+            left: 30px;
+            text-content {
+                width: 230px !important;
+            }
             p {
                 margin-bottom: 0;
             }

@@ -7,13 +7,20 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         $scope.mySlidess = data.data;
         $timeout(function () {
             var mySwiper = new Swiper('.swiper-container', {
+                grabCursor: true,
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev'
                 },
-                 autoplay: {
-                    delay: 4000,
+                autoplay: {
+                    delay: 5000,
                 }
+            })
+            $('.swiper-container').on('mouseenter', function (e) {
+                mySwiper.autoplay.stop();;
+            })
+            $('.swiper-container').on('mouseleave', function (e) {
+                mySwiper.autoplay.start();;
             });
         }, 300);
     });
@@ -35,20 +42,18 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         }
     ];
 
-
-    $scope.clickType = function (data) {
-        $scope.selected = data;
-        $scope.data = {};
-        $scope.data.type = data;
-        NavigationService.callApiWithData('Projects/projectList', $scope.data, function (data) {
-            $scope.mySlides2 = data.data;
-        })
-
-    };
+    NavigationService.callApi('Projects/search', function (data) {
+        console.log("datttttttttttt", data.data.results);
+        $scope.mySlides2 = data.data.results;
+        console.log("  $scope.mySlides2 ", $scope.mySlides2);
+    })
+    $scope.clickType = function (type) {
+        console.log("type", type);
+        $scope.type = type;
+        $scope.selected = type;
+    }
 
     $scope.clickType($scope.projectType[0].type);
-
-
 
     $scope.clickProject = function (id) {
         $scope.id = id;
@@ -57,7 +62,6 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         });
 
     };
-
 
     $scope.mySlides = [{
             img: 'img/slider-image1.png',
