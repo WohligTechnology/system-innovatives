@@ -9,11 +9,11 @@ myApp.factory('NavigationService', function () {
             anchor: "home"
         }]
     }, {
-        name: "Login",
+        name: "Links",
         classis: "active",
-        anchor: "login",
+        anchor: "links",
         subnav: []
-    }, ];
+    }];
 
     return {
         getNavigation: function () {

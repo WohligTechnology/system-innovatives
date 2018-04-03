@@ -25,11 +25,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'HomeCtrl'
         })
-        .state('login', {
-            url: "/login",
+        .state('links', {
+            url: "/links",
             templateUrl: tempateURL,
-            controller: 'LoginCtrl'
-        })
+            controller: 'LinksCtrl'
+        });
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode(isproduction);
 });

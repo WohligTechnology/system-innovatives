@@ -1,177 +1,161 @@
 /* Bootstrap Variables Goes Here */
-
 // Colors
 //
 // Grayscale and brand colors for use across Bootstrap.
+
 // Start with assigning color names to specific hex values.
-/* Secondary colours */
-
-$tui-red: rgb(212, 14, 20);
-$tui-blue: rgb(112, 203, 244);
-$tui-blue-25: rgb(194, 230, 250);
-$tui-blue-15: rgb(226, 243, 254);
-$tui-dark-blue: rgb(9, 42, 94);
-$tui-white: rgb(255, 255, 255);
-$gray-text: #878787;
-/* Secondary colours */
-
-$tui-green: rgb(170, 215, 0);
-$tui-yellow: rgb(255, 225, 0);
-/* Achromatic colours */
-
-$tui-beige: rgb(215, 210, 195);
-$tui-beige-50: rgb(231, 227, 219);
-$tui-beige-25: rgb(243, 240, 236);
-$tui-grey: rgb(115, 115, 115);
-$tui-grey-50: rgb(185, 185, 185);
-$tui-grey-25: rgb(220, 220, 220);
-$tui-black: rgb(0, 0, 0);
-/* Bootstrap Colours */
-
-$blue: #022b63 !default;
-$green: $tui-green !default;
-$yellow: $tui-yellow !default;
-$red: $tui-red !default;
-$cyan: $tui-blue !default;
-/* Button */
-
-$btn-default-color: $tui-dark-blue !default;
-$btn-default-bg: $tui-grey-25 !default;
-$btn-default-border: $tui-grey-25 !default;
-/* Others */
-
-$white: #fff !default;
-$black: #000 !default;
+$white:  #fff !default;
+$black:  #000 !default;
+$red:    #d9534f !default;
 $orange: #f0ad4e !default;
-$teal: #5bc0de !default;
-$pink: #ff5b77 !default;
+$yellow: #ffd500 !default;
+$green:  #5cb85c !default;
+$blue:   #0275d8 !default;
+$teal:   #5bc0de !default;
+$pink:   #ff5b77 !default;
 $purple: #613d7c !default;
-$neavyblue: #022b63;
+
 // Create grayscale
-$gray-dark: #292b2c !default;
-$gray: #464a4c !default;
-$gray-light: #636c72 !default;
-$gray-lighter: #eceeef !default;
-$gray-lightest: #f4f4f4 !default;
+$gray-dark:                 #292b2c !default;
+$gray:                      #464a4c !default;
+$gray-light:                #636c72 !default;
+$gray-lighter:              #eceeef !default;
+$gray-lightest:             #f7f7f9 !default;
+
 // Reassign color vars to semantic color scheme
-$brand-primary: $blue !default;
-$brand-success: $green !default;
-$brand-info: $teal !default;
-$brand-warning: $orange !default;
-$brand-danger: $red !default;
-$brand-inverse: $gray-dark !default;
+$brand-primary:             $blue !default;
+$brand-success:             $green !default;
+$brand-info:                $teal !default;
+$brand-warning:             $orange !default;
+$brand-danger:              $red !default;
+$brand-inverse:             $gray-dark !default;
+
+
 // Options
 //
 // Quickly modify global styling by enabling or disabling optional features.
-$enable-rounded: true !default;
-$enable-shadows: false !default;
-$enable-gradients: false !default;
-$enable-transitions: true !default;
-$enable-hover-media-query: false !default;
-$enable-grid-classes: true !default;
-$enable-print-styles: true !default;
+
+$enable-rounded:            true !default;
+$enable-shadows:            false !default;
+$enable-gradients:          false !default;
+$enable-transitions:        true !default;
+$enable-hover-media-query:  false !default;
+$enable-grid-classes:       true !default;
+$enable-print-styles:       true !default;
+
 // Spacing
 //
 // Control the default styling of most Bootstrap elements by modifying these
 // variables. Mostly focused on spacing.
 // You can add more entries to the $spacers map, should you need more variation.
-$spacer: 1rem !default;
+
+$spacer:   1rem !default;
 $spacer-x: $spacer !default;
 $spacer-y: $spacer !default;
+
+
 // Style anchor elements.
-$link-color: $brand-primary !default;
-$link-decoration: none !default;
-$link-hover-color: darken($link-color, 15%) !default;
+
+$link-color:            $brand-primary !default;
+$link-decoration:       none !default;
+$link-hover-color:      darken($link-color, 15%) !default;
 $link-hover-decoration: underline !default;
+
+
 // Fonts
 //
 // Font, line-height, and color for body text, headings, and more.
-$font-family-sans-serif: "TUITypeLt",
-"Helvetica Neue",
-Helvetica,
-Arial,
-sans-serif !default;
-$font-family-serif: "TUITypeLt",
-Georgia,
-"Times New Roman",
-Times,
-serif !default;
-$font-family-base: $font-family-sans-serif !default;
+
+$font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-family-serif:      Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:       $font-family-sans-serif !default;
+
 $font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
-$font-size-lg: 1.25rem !default;
-$font-size-sm: .875rem !default;
-$font-size-xs: .75rem !default;
+$font-size-lg:   1.25rem !default;
+$font-size-sm:   .875rem !default;
+$font-size-xs:   .75rem !default;
+
 $font-weight-normal: normal !default;
 $font-weight-bold: bold !default;
+
 $font-weight-base: $font-weight-normal !default;
 $line-height-base: 1.5 !default;
+
 $font-size-h1: 2.5rem !default;
 $font-size-h2: 2rem !default;
 $font-size-h3: 1.75rem !default;
 $font-size-h4: 1.5rem !default;
 $font-size-h5: 1.25rem !default;
 $font-size-h6: 1rem !default;
+
 $headings-margin-bottom: ($spacer / 2) !default;
-$headings-font-family: inherit !default;
-$headings-font-weight: 500 !default;
-$headings-line-height: 1.1 !default;
-$headings-color: inherit !default;
+$headings-font-family:   inherit !default;
+$headings-font-weight:   500 !default;
+$headings-line-height:   1.1 !default;
+$headings-color:         inherit !default;
+
 // Components
 //
 // Define common padding and border radius sizes and more.
-$line-height-lg: (4 / 3) !default;
-$line-height-sm: 1.5 !default;
-$border-radius: .25rem !default;
-$border-radius-lg: .3rem !default;
-$border-radius-sm: .2rem !default;
+
+$line-height-lg:         (4 / 3) !default;
+$line-height-sm:         1.5 !default;
+
+$border-radius:          .25rem !default;
+$border-radius-lg:       .3rem !default;
+$border-radius-sm:       .2rem !default;
+
 $component-active-color: $white !default;
-$component-active-bg: $brand-primary !default;
-$caret-width: .3em !default;
-$transition-base: all .2s ease-in-out !default;
-$transition-fade: opacity .15s linear !default;
-$transition-collapse: height .35s ease !default;
+$component-active-bg:    $brand-primary !default;
+
+$caret-width:            .3em !default;
+
+$transition-base:        all .2s ease-in-out !default;
+$transition-fade:        opacity .15s linear !default;
+$transition-collapse:    height .35s ease !default;
+
+
 // Buttons
 //
 // For each of Bootstrap's buttons, define text, background and border color.
-$btn-padding-x: 1rem !default;
-$btn-padding-y: .5rem !default;
-$btn-line-height: 1.25 !default;
-$btn-font-weight: $font-weight-normal !default;
-$btn-box-shadow: inset 0 1px 0 rgba($white, .15),
-0 1px 1px rgba($black, .075) !default;
-$btn-focus-box-shadow: 0 0 0 2px rgba($brand-primary, .25) !default;
-$btn-active-box-shadow: inset 0 3px 5px rgba($black, .125) !default;
+
+$btn-padding-x:                  1rem !default;
+$btn-padding-y:                  .5rem !default;
+$btn-line-height:                1.25 !default;
+$btn-font-weight:                $font-weight-normal !default;
+$btn-box-shadow:                 inset 0 1px 0 rgba($white,.15), 0 1px 1px rgba($black,.075) !default;
+$btn-focus-box-shadow:           0 0 0 2px rgba($brand-primary, .25) !default;
+$btn-active-box-shadow:          inset 0 3px 5px rgba($black,.125) !default;
+
+
 // Forms
-$input-padding-x: .75rem !default;
-$input-padding-y: .5rem !default;
-$input-line-height: 1.25 !default;
-$input-bg: $white !default;
-$input-bg-disabled: $gray-lighter !default;
-$input-color: $gray !default;
+
+$input-padding-x:                .75rem !default;
+$input-padding-y:                .5rem !default;
+$input-line-height:              1.25 !default;
+
+$input-bg:                       $white !default;
+$input-bg-disabled:              $gray-lighter !default;
+
+$input-color:                    $gray !default;
+
+
 // Dropdowns
 //
 // Dropdown menu container and contents.
-$dropdown-min-width: 10rem !default;
-$dropdown-padding-y: .5rem !default;
-$dropdown-margin-top: .125rem !default;
-$dropdown-bg: $white !default;
-$dropdown-border-color: rgba($black, .15) !default;
-$dropdown-box-shadow: 0 .5rem 1rem rgba($black, .175) !default;
+
+$dropdown-min-width:             10rem !default;
+$dropdown-padding-y:             .5rem !default;
+$dropdown-margin-top:            .125rem !default;
+$dropdown-bg:                    $white !default;
+$dropdown-border-color:          rgba($black,.15) !default;
+$dropdown-box-shadow:            0 .5rem 1rem rgba($black,.175) !default;
 // @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "../../bower_components/bootstrap/scss/bootstrap";
 @import "other/font-fix";
 body {
     padding-top: 70px;
-}
-
-@font-face {
-    font-family: TUI_Regular;
-    src: url("../fonts/tuitype-webfont.ttf");
-}
-
-@font-face {
-    font-family: TUI_Bold;
-    src: url("../fonts/tuitypebd-webfont.ttf");
 }
 
 img.loading {
@@ -278,248 +262,4 @@ header {
 
 .nav-up {
     transform: translateY(-100%);
-}
-
-.gray-bg {
-    background: $gray-lightest;
-}
-
-h4,
-h5 {
-    font-family: TUI_Bold;
-    color: $neavyblue;
-}
-
-label {
-    color: $neavyblue;
-}
-
-p {
-    font-family: TUI_Regular;
-    -webkit-font-smoothing: antialiased;
-    font-size: 19px;
-}
-
-a {
-    text-decoration: none !important;
-}
-
-.btn-outline-primary {
-    border-radius: 13px !important;
-    font-size: 14px;
-    margin: 0px 6px 15px;
-}
-
-.label-danger {
-    color: $red;
-}
-
-//HEADER
-.custom-header {
-    background: $white;
-}
-
-.logo {
-    padding: 1% 0%;
-}
-
-//HOME PAGE
-.wdh {
-    width: 100%;
-}
-
-.home {
-    .pull-right {
-        float: right
-    }
-    .swiper-container {
-        width: 100%;
-        height: 100%;
-        a {
-            color: $white;
-            -webkit-font-smoothing: antialiased;
-        }
-        .swiper-button-next {
-            background-image: url('../img/gonext.png');
-            right: 50px;
-            left: auto;
-        }
-        .swiper-button-prev {
-            background-image: url('../img/goprevious.png');
-            left: 50px;
-            right: auto;
-        }
-        .slider-content {
-            position: absolute;
-            bottom: 50px;
-            h4 {
-                color: $white;
-            }
-            .text-content {
-                color: $white;
-                width: 300px;
-            }
-        }
-    }
-    .outnexp {
-        @extend .gray-bg;
-        .title {
-            h4.background {
-                color: $neavyblue;
-                padding: 3% 0%;
-                margin-bottom: 0;
-                position: relative;
-                z-index: 1;
-                &:before {
-                    border-top: 2px solid $neavyblue;
-                    content: "";
-                    margin: 0 auto;
-                    /* this centers the line to the full width specified */
-                    position: absolute;
-                    /* positioning must be absolute here, and relative positioning must be applied to the parent */
-                    top: 50%;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    width: 50%;
-                    z-index: -1;
-                }
-                span {
-                    /* to hide the lines from behind the text, you have to set the background color the same as the container */
-                    padding: 0 15px;
-                    background: $gray-lightest;
-                }
-            }
-        }
-        .block {
-            .bg-block {
-                min-height: 210px;
-                background-size: cover !important;
-                position: relative;
-                margin-bottom: 8%;
-                .middle {
-                    position: absolute;
-                    z-index: 999;
-                    top: 0;
-                    left: 50%;
-                    top: 20%;
-                    width: 87%;
-                    transform: translatex(-50%);
-                    -webkit-transform: translatex(-50%);
-                    text-align: center;
-                    .text {
-                        color: $white;
-                        h3 {
-                            font-family: TUI_Bold;
-                            color: $white;
-                        }
-                        p {
-                            font-family: TUI_Regular;
-                            font-size: 20px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .contact-us {
-        padding: 15px 0px;
-        color: $gray-text;
-    }
-}
-
-//FOOTER
-.custom-footer {
-    p {
-        color: $neavyblue;
-        font-size: 12px;
-        a {
-            color: $neavyblue;
-        }
-    }
-}
-
-//LOGIN PAGE
-.login {
-    background: url('../img/bg-login.png') no-repeat center center;
-    min-height: calc(100vh - 109px);
-    background-size: cover;
-    position: relative;
-    .login-box {
-        background: #fff;
-        margin: auto;
-        width: 600px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        @include prefixer(transform,
-        translate(-50%,
-        -50%),
-        ("webkit",
-        "moz"));
-        hr {
-            border: 0.6px solid $neavyblue;
-        }
-        .subtitle {
-            color: #898989;
-            font-family: TUI_Regular;
-            -webkit-font-smoothing: antialiased;
-        }
-        form {
-            padding: 20px 30px;
-            input[type="email"] {
-                background: #ebebeb;
-            }
-            ::-webkit-input-placeholder {
-                /* Chrome/Opera/Safari */
-                color: #898989;
-            }
-            ::-moz-placeholder {
-                /* Firefox 19+ */
-                color: #898989;
-            }
-            :-ms-input-placeholder {
-                /* IE 10+ */
-                color: #898989;
-            }
-            :-moz-placeholder {
-                /* Firefox 18- */
-                color: #898989;
-            }
-        }
-        .title {
-            @extend .gray-bg;
-            padding: 20px 30px 10px;
-        }
-    }
-    .custom-submit {
-        background: $neavyblue;
-        color: #fff;
-        padding: 2% 9%;
-        border: none;
-        font-size: 14pt;
-        text-transform: uppercase;
-        font-family: TUI_Regular;
-        -webkit-font-smoothing: antialiased;
-    }
-}
-
-//MEDIA QUERY
-@media only screen and (max-device-width: 812px) and (orientation: landscape) {
-    .login {
-        padding: 30px;
-        .login-box {
-            background: #fff;
-            margin: auto;
-            padding: 20px 30px;
-            width: 450px !important;
-            position: static;
-            top: 0;
-            left: 0;
-            transform: none;
-        }
-    }
-    .content {
-        min-height: 0px;
-    }
 }
