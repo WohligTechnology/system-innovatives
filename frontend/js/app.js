@@ -25,6 +25,14 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: "views/template/blank.html",
             controller: 'AppCtrl'
         })
+<<<<<<< HEAD
+        .state('links', {
+            url: "/links",
+            templateUrl: tempateURL,
+            controller: 'LinksCtrl'
+        });
+    $urlRouterProvider.otherwise("/");
+=======
 
         .state('login', {
             url: "/login",
@@ -53,6 +61,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'ProjectDemoCtrl'
         });
     $urlRouterProvider.otherwise("/validation");
+>>>>>>> 87f45b54325e42808f314066b6e7d0e7fafe9190
     $locationProvider.html5Mode(isproduction);
 });
 

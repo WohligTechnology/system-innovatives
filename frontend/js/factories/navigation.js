@@ -13,15 +13,18 @@ myApp.factory('NavigationService', function ($http) {
             anchor: "home"
         }]
     }, {
-        name: "Login",
+        name: "Links",
         classis: "active",
-        anchor: "login",
+        anchor: "links",
         subnav: []
+<<<<<<< HEAD
+=======
     }, {
         name: "Project",
         classis: "active",
         anchor: "project",
         subnav: []
+>>>>>>> 87f45b54325e42808f314066b6e7d0e7fafe9190
     }];
 
     return {

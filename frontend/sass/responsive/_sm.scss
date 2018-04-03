@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+@media (min-width(var(--breakpoint-sm))) {}
+=======
 /* Breakpoint for medium viewport */
 
 @include media-breakpoint-down(sm) {
@@ -61,3 +64,4 @@
         }
     }
 }
+>>>>>>> 87f45b54325e42808f314066b6e7d0e7fafe9190

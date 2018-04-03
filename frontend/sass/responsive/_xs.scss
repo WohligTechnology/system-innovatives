@@ -1,3 +1,1 @@
-/* Breakpoint for medium viewport */
-
-@include media-breakpoint-up(xs) {}
+@media (min-width(var(--breakpoint-xs))) {}

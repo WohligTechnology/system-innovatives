@@ -12,7 +12,7 @@
                             <p>{{s.shortDescription}}</p>
                             <a class="mr-3 inline pointer" ui-sref="app.project({id:s._id})">Learn More »</i>
                             </a>
-                            <a class="inline" ng-if="s.demoLink" ng-href="{{s.demoLink}}" target="_blank">View Demo »</i>
+                            <a class="inline" ng-if="s.demoLink" ui-sref="app.project-demo({url: s.demoLink})">View Demo »</i>
                             </a>
                         </div>
                     </div>
@@ -30,7 +30,9 @@
             <p class="font-Merri mr-3 inline">"A vision is like a dream - it will disappear unless we do something with it."
             </p>
             <span class="inline">
-                <button type="submit" class="btn btn-primary text-uppercase discuss-btn" ng-click="openContact()">Discuss Now</button>
+                <button type="submit" class="btn btn-primary text-uppercase discuss-btn" ng-click="openContact()">
+                    <i class="fas fa-phone-volume"></i> Let's Discuss
+                </button>
             </span>
         </div>
     </div>
