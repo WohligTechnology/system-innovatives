@@ -26,7 +26,8 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
     $scope.submitRequestForm = function (projectName) {
         $scope.requestData = {};
         $scope.requestData.project = projectName;
-        $scope.requestData.email = $.jStorage.get("user").email;
+        $scope.requestData.project.projectName = $scope.project.name;
+        $scope.requestData.tokenKey = $.jStorage.get("user").tokenKey;
         NavigationService.callApiWithData("Projects/requestDemo", $scope.requestData, function (data) {
             if (data.value) {
                 swal({

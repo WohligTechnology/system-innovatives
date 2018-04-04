@@ -81,12 +81,12 @@ var model = {
 
 
 
- requestDemo: function (data, callback) {
-        console.log("inside requestDemo",data)
+    requestDemo: function (data, callback) {
+        console.log("inside requestDemo", data)
         async.waterfall([
                 function (cbWaterfall) {
                     User.findOne({
-                        email: data.email,
+                        tokenKey: data.tokenKey,
                     }).exec(function (err, found) {
                         if (err) {
                             cbWaterfall(err, null);
@@ -102,13 +102,14 @@ var model = {
 
                     });
                 },
-                function (foundObj, cbWaterfall1) {
+                function (foundObj,cbWaterfall1) {
                     var emailData = {};
-                    console.log("foundObj: ", foundObj);
                     console.log("data: ", data);
-                    emailData.email = "sayali.ghule@wohlig.com" ;
-                    emailData.project = data.project;
-                    emailData.from = data.email;
+                    emailData.email = "sanket.deshmukh@wohlig.com";
+                    emailData.projectName = data.project.projectName;
+                    emailData.name = data.project.name;
+                    emailData.number = data.project.number;
+                    emailData.from = data.project.userEmail;
                     emailData.filename = "demorequest.ejs";
                     emailData.subject = "Innovatives - Demo Requested";
                     emailData._id = foundObj._id;
@@ -129,10 +130,10 @@ var model = {
             function (err, data2) {
                 if (err) {
                     console.log(err);
-                    callback(err,null);
+                    callback(err, null);
                 } else if (data2) {
                     if (_.isEmpty(data2)) {
-                        callback(err,null);
+                        callback(err, null);
                     } else {
                         callback(null, data2);
                     }
