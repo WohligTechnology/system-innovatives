@@ -1,5 +1,5 @@
 
-## Node Framework - Wohlig Transformation Pvt. Ltd.
+## Node Framework - Wohlig Transformations Pvt. Ltd.
 
 **How to run frontend?**
 
