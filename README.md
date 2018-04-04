@@ -1,7 +1,14 @@
-Node Framework - Wohlig Transformation Pvt. Ltd.
 
-How to run?
-grunt ui --target=frontend
+## Node Framework - Wohlig Transformation Pvt. Ltd.
 
-How to make prod?
-grunt ui --target=frontend --production
+**How to run frontend?**
+
+    grunt ui --target=frontend
+
+**How to run backend?**
+
+    grunt ui --target=backend
+
+**How to build for production?**
+
+    grunt ui --target=frontend --production
