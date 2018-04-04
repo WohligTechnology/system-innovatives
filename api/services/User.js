@@ -26,6 +26,12 @@ var schema = new Schema({
         type: String,
         default: "User",
         enum: ['User', 'Admin']
+    },
+    username: {
+        type: String
+    },
+    password: {
+        type: String
     }
 });
 
@@ -153,59 +159,71 @@ var model = {
     },
 
     //email verification
+    // sendAccess: function (data, callback) {
+    //     console.log("Data",data);
+    //     async.waterfall([
+    //             function (cbWaterfall) {
+    //                 User.findOne({
+    //                     username: data.username,
+    //                     password:data.password
+    //                 }).exec(function (err, found) {
+    //                     if (err) {
+    //                         cbWaterfall(err, null);
+    //                     } else {
+    //                         if (!_.isEmpty(found)) {
+    //                             var foundObj = found.toObject();
+    //                             cbWaterfall(null, foundObj);
+    //                         } else {
+    //                             cbWaterfall("Incorrect Credentials!", null);
+    //                         }
+    //                     }
+
+    //                 });
+    //             },
+    //             function (foundObj, cbWaterfall1) {
+    //                 var emailData = {};
+    //                 console.log("foundObj: ", foundObj);
+    //                 console.log("data: ", data);
+    //                 emailData.email = foundObj.email;
+    //                 emailData.tokenKey = foundObj.tokenKey;
+    //                 emailData.from = "innovatives@sptr.co";
+    //                 emailData.filename = "verification.ejs";
+    //                 emailData.subject = "Welcome to Innovatives";
+    //                 emailData._id = foundObj._id;
+    //                 console.log("emaildata", emailData);
+
+    //                 Config.email(emailData, function (err, emailRespo) {
+    //                     if (err) {
+    //                         cbWaterfall1(null, err);
+    //                     } else if (emailRespo) {
+    //                         cbWaterfall1(null, emailRespo);
+    //                     } else {
+    //                         cbWaterfall1(null, "Invalid data");
+    //                     }
+    //                 });
+    //             },
+    //         ],
+    //         function (err, data2) {
+    //             if (err) {
+    //                 callback(err, null);
+    //             } else if (data2) {
+    //                 if (_.isEmpty(data2)) {
+    //                     callback(err, null);
+    //                 } else {
+    //                     callback(null, data2);
+    //                 }
+    //             }
+    //         });
+    // },
+
+    // Login Using Username & Passowrd
     sendAccess: function (data, callback) {
-        async.waterfall([
-                function (cbWaterfall) {
-                    User.findOne({
-                        email: data.email,
-                    }).exec(function (err, found) {
-                        if (err) {
-                            cbWaterfall(err, null);
-                        } else {
-                            if (!_.isEmpty(found)) {
-                                var foundObj = found.toObject();
-                                cbWaterfall(null, foundObj);
-                            } else {
-                                cbWaterfall("Incorrect Credentials!", null);
-                            }
-                        }
-
-                    });
-                },
-                function (foundObj, cbWaterfall1) {
-                    var emailData = {};
-                    console.log("foundObj: ", foundObj);
-                    console.log("data: ", data);
-                    emailData.email = data.email;
-                    emailData.tokenKey = foundObj.tokenKey;
-                    emailData.from = "innovatives@sptr.co";
-                    emailData.filename = "verification.ejs";
-                    emailData.subject = "Welcome to Innovatives";
-                    emailData._id = foundObj._id;
-                    console.log("emaildata", emailData);
-
-                    Config.email(emailData, function (err, emailRespo) {
-                        if (err) {
-                            cbWaterfall1(null, err);
-                        } else if (emailRespo) {
-                            cbWaterfall1(null, emailRespo);
-                        } else {
-                            cbWaterfall1(null, "Invalid data");
-                        }
-                    });
-                },
-            ],
-            function (err, data2) {
-                if (err) {
-                    callback(err, null);
-                } else if (data2) {
-                    if (_.isEmpty(data2)) {
-                        callback(err, null);
-                    } else {
-                        callback(null, data2);
-                    }
-                }
-            });
+        User.findOne({
+            username: data.username,
+            password: data.password
+        }, {
+            tokenKey: 1
+        }).exec(callback);
     },
 
     verifyToken: function (data, callback) {
@@ -220,8 +238,7 @@ var model = {
                     console.log("founddddddd", foundObj);
                     if (found.requestApproved) {
                         callback(null, foundObj);
-                    }
-                    else{
+                    } else {
                         callback("Request not approved", null);
                     }
                 } else {

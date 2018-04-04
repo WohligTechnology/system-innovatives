@@ -11,20 +11,23 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
     $scope.loginBtnClicked = false;
     $scope.apiCalling = false;
     $scope.submitloginForm = function (data, valid) {
+        console.log("Data At Fe",data,valid);
         if (valid) {
             $scope.apiCalling = true;
             $scope.email = data.email;
             $scope.data = {};
-            $scope.data.email = data.email;
+            $scope.data.username = data.username;
+            $scope.data.password = data.password;
             NavigationService.callApiWithData('User/sendAccess', $scope.data, function (data) {
                 if (data.value) {
-                    $scope.apiCalling = false;
-                    swal({
-                        type: 'success',
-                        title: 'Email Sent Successfully!',
-                        text: 'We have sent you the access link via email.'
-                    });
-                    $scope.loginForm = {};
+                    // $scope.apiCalling = false;
+                    // swal({
+                    //     type: 'success',
+                    //     title: 'Email Sent Successfully!',
+                    //     text: 'We have sent you the access link via email.'
+                    // });
+                    // $scope.loginForm = {};
+                    $state.go("app.validation",{token:data.data.tokenKey});
                 } else {
                     $scope.apiCalling = false;
                     swal({
