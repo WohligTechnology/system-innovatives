@@ -23,7 +23,7 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
         });
     };
 
-    $scope.requestDemo = function (projectName) {
+    $scope.submitRequestForm = function (projectName) {
         $scope.requestData = {};
         $scope.requestData.project = projectName;
         $scope.requestData.email = $.jStorage.get("user").email;
@@ -32,10 +32,19 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
                 swal({
                     type: 'success',
                     title: 'We have received your request!',
-                    text: 'We will get back to you shortly.'
+                    text: 'We will soon get in touch with you.'
                 });
             }
 
+        });
+    };
+
+    $scope.openRequest = function () {
+        $scope.contactInstance = $uibModal.open({
+            animation: true,
+            templateUrl: "views/content/request-demo/request-demo.html",
+            scope: $scope,
+            size: 'lg',
         });
     };
 

@@ -429,6 +429,10 @@ header {
     .subtitle {
         color: #898989;
         -webkit-font-smoothing: antialiased;
+        margin-top: 10px;
+        p {
+            margin: 0;
+        }
     }
     .custom-form {
         padding: 20px 80px;
@@ -465,6 +469,10 @@ header {
     .title {
         @extend .gray-bg;
         padding: 25px 20px;
+        h4 {
+            margin: 0;
+            font-size: 22px;
+        }
     }
 }
 
@@ -476,7 +484,7 @@ header {
     }
 }
 
-.project-header{
+.project-header {
     padding-top: 14px !important;
 }
 
