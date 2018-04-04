@@ -10,7 +10,7 @@
             </a>
 
             <!-- If We dont have demo link -->
-            <button ng-if="!project.demoLink" type="button" class="btn btn-light text-uppercase" ng-click="requestDemo(project.name);">
+            <button ng-if="!project.demoLink" type="button" class="btn btn-light text-uppercase" ng-click="openRequest();">
                 <i class="fas fa-eye"></i> Request a Demo
             </button>
 
@@ -34,7 +34,7 @@
                 <div class="marco-content col-sm-6 text-center">
                     <h3 class="text-uppercase">Want to know more?</h3>
                     <button class="btn btn-primary text-uppercase" ng-click="openContact()">
-                       Let's Discuss</button>
+                        Let's Discuss</button>
                 </div>
 
                 <!-- Feedback -->

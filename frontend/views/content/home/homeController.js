@@ -42,15 +42,13 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     ];
 
     NavigationService.callApi('Projects/search', function (data) {
-        console.log("datttttttttttt", data.data.results);
         $scope.mySlides2 = data.data.results;
-        console.log("  $scope.mySlides2 ", $scope.mySlides2);
-    })
+    });
     $scope.clickType = function (type) {
-        console.log("type", type);
+
         $scope.type = type;
         $scope.selected = type;
-    }
+    };
 
     $scope.clickType($scope.projectType[0].type);
 
