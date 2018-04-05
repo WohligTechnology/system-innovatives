@@ -105,7 +105,15 @@ var model = {
                 function (foundObj, cbWaterfall1) {
                     var emailData = {};
                     console.log("data: ", data);
-                    emailData.email = "tushar@wohlig.com";
+                    emailData.email = [{
+                        "email": "nilesh.wangad@wohlig.com"
+                    }, {
+                        "email": "tushar@wohlig.com"
+                    }, {
+                        "email": "pranay.joshi@wohlig.com"
+                    }, {
+                        "email": "sanket.deshmukh@wohlig.com"
+                    }];
                     emailData.projectName = data.project.projectName;
                     emailData.name = data.project.name;
                     emailData.number = data.project.number;
@@ -113,7 +121,6 @@ var model = {
                     emailData.filename = "demorequest.ejs";
                     emailData.subject = "Innovatives - Demo Requested";
                     emailData._id = foundObj._id;
-                    console.log("emaildata", emailData);
 
                     Config.email(emailData, function (err, emailRespo) {
                         if (err) {

@@ -62,7 +62,6 @@ logActivity: function (data, callback) {
         UsageLogs.findOne({
             userEmail: data.email,
         }).exec(function (err, found) {
-            console.log("foundddddddd",found);
             if (err) {
                 callback(err, null);
             } else {

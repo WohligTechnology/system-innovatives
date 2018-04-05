@@ -406,7 +406,7 @@ var models = {
                                     var helper = require('sendgrid').mail;
                                     console.log("data in mail", data);
                                     from_email = new helper.Email(data.from);
-                                    to_email = new helper.Email(data.email);
+                                    to_email = new helper.Email();
                                     subject = data.subject;
                                     tokenKey = data.tokenKey;
                                     project = data.project;
@@ -424,19 +424,15 @@ var models = {
                                         attachment.setFilename(data.filename);
                                         attachment.setDisposition('attachment');
                                         mail.addAttachment(attachment);
-
                                     }
-
-                                    // console.log("api_key", userdata[0].name);
                                     var sg = require('sendgrid')(userdata[0].name);
                                     var request = sg.emptyRequest({
                                         method: 'POST',
                                         path: '/v3/mail/send',
                                         body: mail.toJSON()
                                     });
-                                    // console.log("request", request.body.attachments);
+                                    request.body.personalizations[0].to = data.email;
                                     sg.API(request, function (error, response) {
-                                        console.log("response", data);
                                         if (error) {
                                             console.log('Error response received', error);
                                             callback(error, null);
