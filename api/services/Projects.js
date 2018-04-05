@@ -102,10 +102,10 @@ var model = {
 
                     });
                 },
-                function (foundObj,cbWaterfall1) {
+                function (foundObj, cbWaterfall1) {
                     var emailData = {};
                     console.log("data: ", data);
-                    emailData.email = "sanket.deshmukh@wohlig.com";
+                    emailData.email = ["tushar@wohlig.com", "chintan@wohlig.com"];
                     emailData.projectName = data.project.projectName;
                     emailData.name = data.project.name;
                     emailData.number = data.project.number;
