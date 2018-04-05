@@ -302,7 +302,7 @@ var models = {
             _.each(val, function (value, key2) {
                 dataObj[key][firstRow[key2]] = value;
                 _.each(dataObj, function (dataObj, key3) {
-                     dataObj.tokenKey = md5(dataObj.email);
+                    dataObj.tokenKey = md5(dataObj.email);
                 })
             });
         });
@@ -398,7 +398,6 @@ var models = {
                             url: requrl + "config/emailReader/",
                             json: data
                         }, function (err, http, body) {
-                            console.log("body : ", body);
                             if (err) {
                                 console.log(err);
                                 callback(err, null);

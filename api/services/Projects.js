@@ -102,7 +102,7 @@ var model = {
 
                     });
                 },
-                function (foundObj,cbWaterfall1) {
+                function (foundObj, cbWaterfall1) {
                     var emailData = {};
                     console.log("data: ", data);
                     emailData.email = "sanket.deshmukh@wohlig.com";
