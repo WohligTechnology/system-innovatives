@@ -12,3 +12,5 @@
 **How to build for production?**
 
     grunt ui --target=frontend --production
+
+    grunt ui --target=backend --production

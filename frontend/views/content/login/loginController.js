@@ -11,7 +11,7 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
     $scope.loginBtnClicked = false;
     $scope.apiCalling = false;
     $scope.submitloginForm = function (data, valid) {
-        console.log("Data At Fe",data,valid);
+
         if (valid) {
             $scope.apiCalling = true;
             $scope.email = data.email;
@@ -27,13 +27,15 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
                     //     text: 'We have sent you the access link via email.'
                     // });
                     // $scope.loginForm = {};
-                    $state.go("app.validation",{token:data.data.tokenKey});
+                    $state.go("app.validation", {
+                        token: data.data.tokenKey
+                    });
                 } else {
                     $scope.apiCalling = false;
                     swal({
                         type: 'error',
                         title: 'Oops...',
-                        text: 'Your Email ID doesn\'t exist with us!'
+                        text: 'Invalid username or password!'
                     });
                     $scope.loginForm = {};
                 }
