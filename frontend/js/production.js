@@ -88637,7 +88637,6 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
                         title: 'Oops...',
                         text: 'Invalid username or password!'
                     });
-                    $scope.loginForm = {};
                 }
             });
         } else {
@@ -88676,6 +88675,7 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
     $scope.requestBtnClicked = false;
     $scope.submitRequestForm = function (projectName, valid) {
         if (valid) {
+            $scope.apiCalling = true;
             $scope.requestData = {};
             $scope.requestData.project = projectName;
             $scope.requestData.project.projectName = $scope.project.name;
@@ -88687,16 +88687,19 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
                         title: 'We have received your request!',
                         text: 'We will soon get in touch with you.'
                     });
+                    $scope.apiCalling = false;
                 }
                 $scope.requestBtnClicked = false;
+                $scope.requestInstance.close();
             });
         } else {
             $scope.requestBtnClicked = true;
+            $scope.apiCalling = false;
         }
     };
 
     $scope.openRequest = function () {
-        $scope.contactInstance = $uibModal.open({
+        $scope.requestInstance = $uibModal.open({
             animation: true,
             templateUrl: "views/content/request-demo/request-demo.html",
             scope: $scope,
@@ -88740,7 +88743,6 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
     $scope.submitForm = false;
     $scope.contactForm = {};
     $scope.contactBtnClicked = false;
-    $scope.apiCalling = false;
     $scope.submitcontactForm = function (data, valid) {
         if (valid) {
             $scope.apiCalling = true;

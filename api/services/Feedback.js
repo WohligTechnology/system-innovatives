@@ -39,7 +39,7 @@ var model = {
                     var emailData = {};
                     emailData.a = false;
                     console.log("data: ", data);
-                    emailData.email = ["tushar@wohlig.com", "chintan@wohlig.com"];
+                    emailData.email = "tushar@wohlig.com";
                     if (data.rating != undefined) {
                         emailData.rating = data.rating;
                     } else {

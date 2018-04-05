@@ -37,7 +37,6 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
                         title: 'Oops...',
                         text: 'Invalid username or password!'
                     });
-                    $scope.loginForm = {};
                 }
             });
         } else {
