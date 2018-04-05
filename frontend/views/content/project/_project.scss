@@ -37,13 +37,22 @@
     }
     .block {
         margin: 40px 0px 100px;
+        .table {
+            max-width: 600px;
+            margin: 15px auto 0;
+            th,
+            td {
+                padding: 6px 5px;
+            }
+        }
         hr {
-            background: url(../img/hr.png)no-repeat;
+            background: url(../img/hr.svg) no-repeat;
             display: block;
-            height: 40px;
+            height: 15px;
             background-position: center center;
-            margin: auto;
             border: 0;
+            background-size: contain;
+            margin: 20px auto;
         }
     }
     .marco-content {

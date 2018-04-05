@@ -122,7 +122,7 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
 
     $scope.clearData = function () {
         $scope.contactForm = {};
-    }
+    };
 
     //feedback form
     $scope.submitForm = false;
