@@ -1,6 +1,6 @@
 myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $state, $stateParams, $uibModal) {
     $scope.template = TemplateService.getHTML("content/home/home.html");
-    TemplateService.title = "Home"; //This is the Title of the Website
+    TemplateService.title = "Let us start a revolution of ideas to create change that lasts"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
 
     NavigationService.callApi("Projects/featuredProjects", function (data) {
@@ -14,12 +14,12 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                 autoplay: {
                     delay: 5000,
                 }
-            })
+            });
             $('.swiper-container').on('mouseenter', function (e) {
-                mySwiper.autoplay.stop();;
-            })
+                mySwiper.autoplay.stop();
+            });
             $('.swiper-container').on('mouseleave', function (e) {
-                mySwiper.autoplay.start();;
+                mySwiper.autoplay.start();
             });
         }, 300);
     });
@@ -124,5 +124,5 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 
     $scope.clearData = function () {
         $scope.contactForm = {};
-    }
+    };
 });

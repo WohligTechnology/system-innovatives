@@ -23,21 +23,26 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
         });
     };
 
-    $scope.submitRequestForm = function (projectName) {
-        $scope.requestData = {};
-        $scope.requestData.project = projectName;
-        $scope.requestData.project.projectName = $scope.project.name;
-        $scope.requestData.tokenKey = $.jStorage.get("user").tokenKey;
-        NavigationService.callApiWithData("Projects/requestDemo", $scope.requestData, function (data) {
-            if (data.value) {
-                swal({
-                    type: 'success',
-                    title: 'We have received your request!',
-                    text: 'We will soon get in touch with you.'
-                });
-            }
-
-        });
+    $scope.requestBtnClicked = false;
+    $scope.submitRequestForm = function (projectName, valid) {
+        if (valid) {
+            $scope.requestData = {};
+            $scope.requestData.project = projectName;
+            $scope.requestData.project.projectName = $scope.project.name;
+            $scope.requestData.tokenKey = $.jStorage.get("user").tokenKey;
+            NavigationService.callApiWithData("Projects/requestDemo", $scope.requestData, function (data) {
+                if (data.value) {
+                    swal({
+                        type: 'success',
+                        title: 'We have received your request!',
+                        text: 'We will soon get in touch with you.'
+                    });
+                }
+                $scope.requestBtnClicked = false;
+            });
+        } else {
+            $scope.requestBtnClicked = true;
+        }
     };
 
     $scope.openRequest = function () {
