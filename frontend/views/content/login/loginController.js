@@ -3,7 +3,8 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
     TemplateService.title = "Login"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
 
-    $scope.bodyClass = 'login-bg';
+    var body = angular.element(document.querySelector('body'));
+    body.addClass("login-bg");
 
     $scope.submitForm = false;
     $scope.loginForm = {};

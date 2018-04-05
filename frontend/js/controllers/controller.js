@@ -1,5 +1,7 @@
 myApp.controller('AppCtrl', function ($scope, TemplateService, apiService, NavigationService, $timeout, $state, $stateParams, $location) {
 
+    var body = angular.element(document.querySelector('body'));
+    body.removeClass("login-bg");
 
     if ($.jStorage.get("user")) {
         var tokenKey = $.jStorage.get("user").tokenKey;
@@ -35,7 +37,7 @@ myApp.controller('AppCtrl', function ($scope, TemplateService, apiService, Navig
             $state.go('login');
         }
 
-    } else { 
+    } else {
         // If jstorage not empty
         $scope.verifyToken(tokenKey);
     }
