@@ -6,6 +6,16 @@
     "pageType": "create",
     "urlFields": ["User"],
     "fields": [{
+            "name": "Username",
+            "type": "text",
+            "tableRef": "username",
+            "placeholder": "Enter Username"
+        }, {
+            "name": "Password",
+            "type": "password",
+            "tableRef": "password",
+            "placeholder": "Enter Password"
+        }, {
             "name": "Email",
             "type": "text",
             "tableRef": "email",
