@@ -24,7 +24,7 @@ var schema = new Schema({
 
 module.exports = mongoose.model('Config', schema);
 // var requrl = "http://wohlig.io:1337/api/";
-var requrl = "http://innovatives.sptr.co/api/";
+var requrl = "https://innovatives.sptr.co/api/";
 var models = {
 
     maxRow: 10,
