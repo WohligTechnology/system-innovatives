@@ -1,4 +1,4 @@
-myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $uibModal, $stateParams) {
+myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $uibModal, $stateParams, $analytics) {
     $scope.template = TemplateService.getHTML("content/project/project.html");
     TemplateService.title = "Project"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
@@ -31,6 +31,10 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
             $scope.requestData.project = projectName;
             $scope.requestData.project.projectName = $scope.project.name;
             $scope.requestData.tokenKey = $.jStorage.get("user").tokenKey;
+            $analytics.eventTrack('Request a Demo', {
+                category: $scope.project.name,
+                label: $scope.requestData.project.userEmail
+            });
             NavigationService.callApiWithData("Projects/requestDemo", $scope.requestData, function (data) {
                 if (data.value) {
                     swal({
