@@ -42,7 +42,11 @@ var model = {
                     var emailData = {};
                     emailData.a = false;
                     console.log("data: ", data);
-                    emailData.email = "tushar@wohlig.com";
+                    emailData.email = [{
+                        "email": "tushar.sachde@sptr.co"
+                    }, {
+                        "email": "tushar@wohlig.com"
+                    }];
                     emailData.name = data.name;
 
                     if (data.number != undefined) {

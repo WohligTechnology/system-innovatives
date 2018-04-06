@@ -106,13 +106,9 @@ var model = {
                     var emailData = {};
                     console.log("data: ", data);
                     emailData.email = [{
-                        "email": "nilesh.wangad@wohlig.com"
+                        "email": "tushar.sachde@sptr.co"
                     }, {
                         "email": "tushar@wohlig.com"
-                    }, {
-                        "email": "pranay.joshi@wohlig.com"
-                    }, {
-                        "email": "sanket.deshmukh@wohlig.com"
                     }];
                     emailData.projectName = data.project.projectName;
                     emailData.name = data.project.name;
