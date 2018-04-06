@@ -25,7 +25,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     });
 
     $scope.projectType = [{
-            type: 'TUI Projects',
+            type: 'TUI Solutions',
             id: "TUI Projects"
         }, {
             type: 'TUI Innovative Pilots',
@@ -44,13 +44,12 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     NavigationService.callApi('Projects/search', function (data) {
         $scope.mySlides2 = data.data.results;
     });
-    $scope.clickType = function (type) {
-
-        $scope.type = type;
-        $scope.selected = type;
+    $scope.clickType = function (id) {
+        $scope.type = id;
+        $scope.selected = id;
     };
 
-    $scope.clickType($scope.projectType[0].type);
+    $scope.clickType($scope.projectType[0].id);
 
     $scope.clickProject = function (id) {
         $scope.id = id;

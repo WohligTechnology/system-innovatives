@@ -109,6 +109,10 @@ var model = {
                         "email": "tushar.sachde@sptr.co"
                     }, {
                         "email": "tushar@wohlig.com"
+                    }, {
+                        "email": "anand@sptr.co"
+                    }, {
+                        "email": "vivek@sptr.co"
                     }];
                     emailData.projectName = data.project.projectName;
                     emailData.name = data.project.name;
