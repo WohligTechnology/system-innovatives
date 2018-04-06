@@ -23,8 +23,8 @@ var schema = new Schema({
 // });
 
 module.exports = mongoose.model('Config', schema);
-var requrl = "http://wohlig.io:1337/api/";
-// var requrl = "http://innovatives.sptr.co/api/";
+// var requrl = "http://wohlig.io:1337/api/";
+var requrl = "http://innovatives.sptr.co/api/";
 var models = {
 
     maxRow: 10,
@@ -394,6 +394,7 @@ var models = {
                 } else if (userdata && userdata.length > 0) {
                     if (data.filename && data.filename != "") {
                         console.log("Email data: ", data);
+                              console.log("Email data*******************************************: ", requrl);
                         request.post({
                             url: requrl + "config/emailReader/",
                             json: data
