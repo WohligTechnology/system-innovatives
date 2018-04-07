@@ -9722,6 +9722,8 @@ body.swal2-no-backdrop .swal2-shown {
     .project .block .table th,
     .project .block .table td {
       padding: 6px 5px; }
+    .project .block .table.no-max-width {
+      max-width: none; }
   .project .block hr {
     background: url(../img/hr.svg) no-repeat;
     display: block;
@@ -9733,6 +9735,20 @@ body.swal2-no-backdrop .swal2-shown {
 
 .project .marco-content {
   margin-bottom: 20px; }
+
+.table thead.thead-info {
+  background-color: #70cbf4;
+  color: white; }
+
+.table.table-striped {
+  color: #092a5e; }
+
+.table-info.table-bordered th,
+.table-info.table-bordered td {
+  border: 1px solid #ffffff; }
+
+.table-info.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.45); }
 
 .responsive-iframe {
   border: 0;
