@@ -88514,8 +88514,8 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         }
     ];
 
-    NavigationService.callApi('Projects/search', function (data) {
-        $scope.mySlides2 = data.data.results;
+    NavigationService.callApi('Projects/all', function (data) {
+        $scope.mySlides2 = data.data;
     });
     $scope.clickType = function (id) {
         $scope.type = id;
@@ -88601,7 +88601,6 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $state) {
     $scope.template = TemplateService.getHTML("content/login/login.html");
     TemplateService.title = "Login"; //This is the Title of the Website
-    $scope.navigation = NavigationService.getNavigation();
 
     var body = angular.element(document.querySelector('body'));
     body.addClass("login-bg");
@@ -88611,7 +88610,6 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
     $scope.loginBtnClicked = false;
     $scope.apiCalling = false;
     $scope.submitloginForm = function (data, valid) {
-
         if (valid) {
             $scope.apiCalling = true;
             $scope.email = data.email;
@@ -88620,12 +88618,6 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
             $scope.data.password = data.password;
             NavigationService.callApiWithData('User/sendAccess', $scope.data, function (data) {
                 if (data.value) {
-                    // $scope.apiCalling = false;
-                    // swal({
-                    //     type: 'success',
-                    //     title: 'Email Sent Successfully!',
-                    //     text: 'We have sent you the access link via email.'
-                    // });
                     // $scope.loginForm = {};
                     $state.go("app.validation", {
                         token: data.data.tokenKey
@@ -88642,7 +88634,6 @@ myApp.controller('LoginCtrl', function ($scope, TemplateService, NavigationServi
         } else {
             $scope.loginBtnClicked = true;
         }
-
     };
 
 

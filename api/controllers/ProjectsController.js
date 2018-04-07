@@ -16,8 +16,8 @@ var controller = {
     projectList: function (req, res) {
         Projects.projectList(req.body, res.callback);
     },
-    getAllProjectList: function (req, res) {
-        Projects.projectList(req.body, res.callback);
+    all: function (req, res) {
+        Projects.all(req.body, res.callback);
     },
     featuredProjects: function (req, res) {
         Projects.featuredProjects(req.body, res.callback);

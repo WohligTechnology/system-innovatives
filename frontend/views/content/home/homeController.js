@@ -41,8 +41,8 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         }
     ];
 
-    NavigationService.callApi('Projects/search', function (data) {
-        $scope.mySlides2 = data.data.results;
+    NavigationService.callApi('Projects/all', function (data) {
+        $scope.mySlides2 = data.data;
     });
     $scope.clickType = function (id) {
         $scope.type = id;

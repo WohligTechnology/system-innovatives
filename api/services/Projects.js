@@ -67,7 +67,7 @@ var model = {
         });
     },
 
-    getAllProjectList: function (data, callback) {
+    all: function (data, callback) {
         Projects.find().exec(function (err, data) {
             if (err) {
                 callback(err, null);
