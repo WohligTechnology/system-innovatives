@@ -12,7 +12,7 @@
                             <p>{{s.shortDescription}}</p>
                             <a class="mr-3 inline pointer" ui-sref="app.project({id:s._id})">Learn More »</i>
                             </a>
-                            <a class="inline" ng-if="s.demoLink" ui-sref="app.project-demo({url: s.demoLink})">View Demo »</i>
+                            <a class="inline" ng-if="s.demoLink && s.demoLink!='nolink'" ui-sref="app.project-demo({url: s.demoLink})">View Demo »</i>
                             </a>
                         </div>
                     </div>
