@@ -60,9 +60,19 @@ var model = {
             type: data.type
         }).exec(function (err, data) {
             if (err) {
-                callback(err, null)
+                callback(err, null);
             } else {
-                callback(null, data)
+                callback(null, data);
+            }
+        });
+    },
+
+    getAllProjectList: function (data, callback) {
+        Projects.find().exec(function (err, data) {
+            if (err) {
+                callback(err, null);
+            } else {
+                callback(null, data);
             }
         });
     },
