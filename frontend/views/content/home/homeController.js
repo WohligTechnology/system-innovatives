@@ -1,4 +1,4 @@
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, toastr, $http, $state, $stateParams, $uibModal) {
+myApp.controller('HomeCtrl', function ($rootScope, $scope, TemplateService, NavigationService, $timeout, toastr, $http, $state, $stateParams, $uibModal) {
     $scope.template = TemplateService.getHTML("content/home/home.html");
     TemplateService.title = "Let us start a revolution of ideas to create change that lasts"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
@@ -24,6 +24,13 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         }, 300);
     });
 
+
+    $scope.scrollTo = function (scrollPos) {
+        $('html, body').animate({
+            scrollTop: scrollPos
+        }, 0);
+    };
+
     $scope.projectType = [{
             type: 'TUI Solutions',
             id: "TUI Projects"
@@ -41,22 +48,45 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         }
     ];
 
-    NavigationService.callApi('Projects/all', function (data) {
-        $scope.mySlides2 = data.data;
-    });
+
     $scope.clickType = function (id) {
+        $rootScope.projectId = id;
         $scope.type = id;
         $scope.selected = id;
     };
 
-    $scope.clickType($scope.projectType[0].id);
+    $scope.getProjects = function () {
+        NavigationService.callApi('Projects/all', function (data) {
+            if (data) {
+                $scope.mySlides2 = data.data;
+                if ($rootScope.projectId) {
+                    $scope.clickType($rootScope.projectId);
+                } else {
+                    $scope.clickType($scope.projectType[0].id);
+                }
+
+                $rootScope.$on('$stateChangeSuccess',
+                    function (event, toState, toParams, fromState, fromParams, options) {
+                        if (toState.name == 'app.home') {
+                            if ($rootScope.homeScroll) {
+                                $timeout(function () {
+                                    $scope.scrollTo($rootScope.homeScroll);
+                                }, 600);
+                            }
+                        }
+                    });
+
+            }
+        });
+    };
+
+    $scope.getProjects();
 
     $scope.clickProject = function (id) {
         $scope.id = id;
         $state.go('app.project', {
             'id': $scope.id
         });
-
     };
 
     $scope.mySlides = [{
@@ -124,4 +154,12 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.clearData = function () {
         $scope.contactForm = {};
     };
+
+
+    $rootScope.$on('$stateChangeSuccess',
+        function (event, toState, toParams, fromState, fromParams, options) {
+            if (fromState.name == 'app.home') {
+                $rootScope.homeScroll = $(window).scrollTop();
+            }
+        });
 });

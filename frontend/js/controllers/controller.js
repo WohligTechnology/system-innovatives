@@ -1,4 +1,4 @@
-myApp.controller('AppCtrl', function ($scope, TemplateService, apiService, NavigationService, $timeout, $state, $stateParams, $location) {
+myApp.controller('AppCtrl', function ($scope, TemplateService, $rootScope, apiService, NavigationService, $timeout, $state, $stateParams, $location) {
 
     var body = angular.element(document.querySelector('body'));
     body.removeClass("login-bg");
@@ -15,7 +15,7 @@ myApp.controller('AppCtrl', function ($scope, TemplateService, apiService, Navig
         $scope.data1 = {};
         $scope.data1.token = token;
         NavigationService.callApiWithData('User/verifyToken', $scope.data1, function (data) {
-            console.log("data in verify user", data);
+
             if (data.value) {
                 if ($state.current.name == 'app.validation') {
                     $.jStorage.set("user", data.data);
@@ -41,9 +41,6 @@ myApp.controller('AppCtrl', function ($scope, TemplateService, apiService, Navig
         // If jstorage not empty
         $scope.verifyToken(tokenKey);
     }
-
-
-
 
 });
 
