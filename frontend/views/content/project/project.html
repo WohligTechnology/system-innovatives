@@ -14,7 +14,8 @@
 
             <div ng-if="project.demoLink!='nolink' && project.verifyName!='mediapool'">
                 <!-- If We have demo link -->
-                <a ng-if="project.demoLink" class="btn btn-light text-uppercase" ui-sref="app.project-demo({url: project.demoLink,id: project._id})">
+                <a ng-if="project.demoLink" class="btn btn-light text-uppercase" ui-sref="app.project-demo({url: project.demoLink,id: project._id})"
+                    ng-click="gaViewDemo(project.name)">
                     <i class="fas fa-eye"></i> View Demo
                 </a>
 

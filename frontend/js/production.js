@@ -88419,7 +88419,7 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
 
     };
 });
-myApp.controller('AppCtrl', function ($scope, TemplateService, $rootScope, apiService, NavigationService, $timeout, $state, $stateParams, $location) {
+myApp.controller('AppCtrl', function ($scope, TemplateService, $rootScope, apiService, NavigationService, $timeout, $state, $stateParams, $location, $analytics) {
 
     var body = angular.element(document.querySelector('body'));
     body.removeClass("login-bg");
@@ -88441,13 +88441,16 @@ myApp.controller('AppCtrl', function ($scope, TemplateService, $rootScope, apiSe
                 if ($state.current.name == 'app.validation') {
                     $.jStorage.set("user", data.data);
                     $state.go('app.home');
+                    $analytics.eventTrack(data.data.username, {
+                        category: 'Login'
+                    });
                 }
             } else {
                 $state.go('login');
                 $.jStorage.flush();
             }
-        })
-    }
+        });
+    };
 
     if (!tokenKey) {
         if (tokenParam) {
@@ -88468,10 +88471,16 @@ myApp.controller('AppCtrl', function ($scope, TemplateService, $rootScope, apiSe
 myApp.controller('ValidationCtrl', function ($scope, TemplateService, apiService, NavigationService, $timeout) {
 
 });
-myApp.controller('HomeCtrl', function ($rootScope, $scope, TemplateService, NavigationService, $timeout, toastr, $http, $state, $stateParams, $uibModal) {
+myApp.controller('HomeCtrl', function ($rootScope, $scope, TemplateService, NavigationService, $timeout, toastr, $http, $state, $stateParams, $uibModal, $analytics) {
     $scope.template = TemplateService.getHTML("content/home/home.html");
     TemplateService.title = "Let us start a revolution of ideas to create change that lasts"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
+
+    $scope.gaViewDemo = function (name) {
+        $analytics.eventTrack(name, {
+            category: 'View Demo'
+        });
+    };
 
     NavigationService.callApi("Projects/featuredProjects", function (data) {
         $scope.mySlidess = data.data;
@@ -88677,6 +88686,12 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
     $scope.template = TemplateService.getHTML("content/project/project.html");
     TemplateService.title = "Project"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
+
+    $scope.gaViewDemo = function (name) {
+        $analytics.eventTrack(name, {
+            category: 'View Demo'
+        });
+    };
 
     $scope.dataId = {
         _id: $stateParams.id

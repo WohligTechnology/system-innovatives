@@ -1,4 +1,4 @@
-myApp.controller('AppCtrl', function ($scope, TemplateService, $rootScope, apiService, NavigationService, $timeout, $state, $stateParams, $location) {
+myApp.controller('AppCtrl', function ($scope, TemplateService, $rootScope, apiService, NavigationService, $timeout, $state, $stateParams, $location, $analytics) {
 
     var body = angular.element(document.querySelector('body'));
     body.removeClass("login-bg");
@@ -20,13 +20,16 @@ myApp.controller('AppCtrl', function ($scope, TemplateService, $rootScope, apiSe
                 if ($state.current.name == 'app.validation') {
                     $.jStorage.set("user", data.data);
                     $state.go('app.home');
+                    $analytics.eventTrack(data.data.username, {
+                        category: 'Login'
+                    });
                 }
             } else {
                 $state.go('login');
                 $.jStorage.flush();
             }
-        })
-    }
+        });
+    };
 
     if (!tokenKey) {
         if (tokenParam) {

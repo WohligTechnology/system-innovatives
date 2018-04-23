@@ -3,6 +3,12 @@ myApp.controller('ProjectCtrl', function ($scope, TemplateService, NavigationSer
     TemplateService.title = "Project"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
 
+    $scope.gaViewDemo = function (name) {
+        $analytics.eventTrack(name, {
+            category: 'View Demo'
+        });
+    };
+
     $scope.dataId = {
         _id: $stateParams.id
     };

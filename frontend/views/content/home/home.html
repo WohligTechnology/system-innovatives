@@ -12,7 +12,7 @@
                             <p>{{s.shortDescription}}</p>
                             <a class="mr-3 inline pointer" ui-sref="app.project({id:s._id})">Learn More »</i>
                             </a>
-                            <a class="inline" ng-if="s.demoLink && s.demoLink!='nolink'" ui-sref="app.project-demo({url: s.demoLink})">View Demo »</i>
+                            <a class="inline" ng-if="s.demoLink && s.demoLink!='nolink'" ui-sref="app.project-demo({url: s.demoLink})" ng-click="gaViewDemo(s.name)">View Demo »</i>
                             </a>
                         </div>
                     </div>
@@ -65,7 +65,8 @@
                                 </h4>
                                 <p>{{x.shortDescription}}</p>
                                 <!--<a class="btn btn-primary btn-sm btn-block" ng-if="x.demoLink" ng-href="{{x.demoLink}}" target="_blank">View Demo</a>-->
-                                <a class="btn btn-primary btn-sm btn-block" ng-if="x.demoLink && x.demoLink!='nolink'" ui-sref="app.project-demo({url: x.demoLink})">View Demo</a>
+                                <a class="btn btn-primary btn-sm btn-block" ng-if="x.demoLink && x.demoLink!='nolink'" ui-sref="app.project-demo({url: x.demoLink})"
+                                    ng-click="gaVideoDemo(x.name)">View Demo</a>
                                 <a class="btn btn-secondary btn-sm btn-block" ng-if="!x.demoLink || x.demoLink=='nolink'" ui-sref="app.project({id: x._id})">Learn More</a>
                             </div>
                         </div>

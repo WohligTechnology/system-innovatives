@@ -1,7 +1,13 @@
-myApp.controller('HomeCtrl', function ($rootScope, $scope, TemplateService, NavigationService, $timeout, toastr, $http, $state, $stateParams, $uibModal) {
+myApp.controller('HomeCtrl', function ($rootScope, $scope, TemplateService, NavigationService, $timeout, toastr, $http, $state, $stateParams, $uibModal, $analytics) {
     $scope.template = TemplateService.getHTML("content/home/home.html");
     TemplateService.title = "Let us start a revolution of ideas to create change that lasts"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
+
+    $scope.gaViewDemo = function (name) {
+        $analytics.eventTrack(name, {
+            category: 'View Demo'
+        });
+    };
 
     NavigationService.callApi("Projects/featuredProjects", function (data) {
         $scope.mySlidess = data.data;
