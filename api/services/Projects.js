@@ -126,7 +126,7 @@ var model = {
                     }];
                     emailData.projectName = data.project.projectName;
                     emailData.name = data.project.name;
-                    emailData.number = data.project.number;
+                    emailData.number = data.project.number ? data.project.number : "**not provided**";
                     emailData.from = data.project.userEmail;
                     emailData.filename = "demorequest.ejs";
                     emailData.subject = "Innovatives - Demo Requested";
